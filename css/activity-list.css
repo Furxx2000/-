@@ -359,7 +359,8 @@ section.hero-section div.hero-section-image {
 
 section.hero-section h3.title {
   position: absolute;
-  color: white;
+  color: black;
+  font-weight: 400;
 }
 
 /* ----------------------footer-section------------------------ */
