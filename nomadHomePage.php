@@ -165,16 +165,16 @@
           </div>
           <div class="bottomBox flex">
             <div class="img">
-              <img src="/images/ps5-platinum-trophy.png" alt="" />
+              <img src="./images/ps5-platinum-trophy.png" alt="" />
             </div>
             <div class="img">
-              <img src="/images/ps5-gold-trophy.png" alt="" />
+              <img src="./images/ps5-gold-trophy.png" alt="" />
             </div>
             <div class="img">
-              <img src="/images/ps5-silver-trophy.png" alt="" />
+              <img src="./images/ps5-silver-trophy.png" alt="" />
             </div>
             <div class="img">
-              <img src="/images/ps5-bronze-trophy.png" alt="" />
+              <img src="./images/ps5-bronze-trophy.png" alt="" />
             </div>
           </div>
           <div class="number flex">
