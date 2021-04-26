@@ -1,5 +1,7 @@
 <section class="footer-section"></section>
 
+<div class="spaceForFixed-mobile"></div>
+
     <section class="fixed-section">
       <div class="homepage-container flex">
         <div class="fixed-functions">

@@ -51,6 +51,10 @@ ul {
   font-family: "Raleway", sans-serif;
 }
 
+.ff-airbnb {
+  font-family: "Airbnb Cereal App";
+}
+
 /* svg尺寸 class設定 */
 .svg {
   width: 2rem;
@@ -102,7 +106,7 @@ ul {
   display: none;
 }
 
-/* --------------------Side-navbar------------------- */
+/* --------------------Side-navbar-mobile------------------- */
 
 div.side-navbar {
   background-color: var(--fourth-color);
@@ -182,7 +186,7 @@ div.side-navbar div.side-navbar-item.slide-up {
   transform: translateY(-49%);
 }
 
-/* --------------------Navbar------------------------ */
+/* --------------------Navbar-mobile------------------------ */
 
 div.navbar {
   background-color: var(--fourth-color);
@@ -346,28 +350,264 @@ nav div.signup-btn {
   pointer-events: all;
 }
 
-/* ----------------------hero-section-------------------------- */
-
-section.hero-section div.hero-section-image {
-  position: relative;
+/* ----------------------hero-section-mobile-------------------------- */
+body {
   background-image: url(../images/Wallpaperkiss_1513648.jpg);
   background-position: 43%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+  height: 90vh;
+}
+
+section.hero-section div.hero-section-image {
+  position: relative;
+  width: 100%;
   height: 90vh;
 }
 
 section.hero-section h3.title {
   position: absolute;
+  color: white;
+  font-weight: 400;
+  left: 15%;
+  top: 63%;
+  font-size: 1.3rem;
+}
+
+section.hero-section hr {
+  width: 61%;
+  height: 2px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.555);
+  position: absolute;
+  left: 0;
+  top: 67.5%;
+}
+
+section.hero-section svg.icon-arrow-down {
+  position: absolute;
+  fill: white;
+  z-index: 998;
+  left: 50%;
+  top: 87%;
+  transform: translateX(-50%);
+}
+
+/* ---------------------行程--篩選器區塊-手機版
+----------------------- */
+
+section.activity-section {
+  background-color: rgba(0, 0, 0, 0.384);
+}
+
+section.activity-section .container {
+  padding: 1rem;
+}
+
+section.activity-section div.filter-section {
+  padding: 0 1rem;
+  align-items: flex-end;
+  margin: 2rem 0;
+}
+
+section.activity-section div.filter-section svg {
+  fill: white;
+}
+
+section.activity-section div.filter-section div.filterBox {
+  text-align: center;
+  cursor: pointer;
+}
+
+section.activity-section div.filter-section div.filterBox svg.icon-star {
+  fill: var(--primary-color);
+}
+
+section.activity-section div.filter-section div.filterBox p.text {
+  color: white;
+}
+
+/* ----------------------行程卡片區塊-手機版
+----------------------------- */
+section.activity-section div.activity-card {
+  margin-bottom: 5rem;
+}
+
+section.activity-section div.activity-card div.activity-card-image {
+  background-image: url(../images/samuel-ferrara-1527pjeb6jg-unsplash.png);
+  height: 225px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+}
+
+section.activity-section div.activity-card div.activity-description {
+  background-color: rgba(247, 247, 247, 0.801);
+  padding: 1rem;
+}
+
+section.activity-section div.activity-description div.floor-1 p.text {
+  font-size: 2rem;
   color: black;
+  font-weight: 500;
+}
+
+section.activity-section div.activity-description div.floor-1 svg.icon-heart {
+  fill: red;
+  width: 1.5rem;
+  cursor: pointer;
+}
+
+section.activity-section div.activity-description div.floor-2 div.floor-2-1 {
+  margin-top: 1rem;
+  margin-left: 0.2rem;
+  justify-content: flex-start;
+}
+
+section.activity-section div.activity-description div.floor-2 svg.icon-star {
+  fill: var(--primary-color);
+  width: 1.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-2
+  div.floor-2-1
+  span {
+  font-weight: 500;
+  margin-right: 0.2rem;
+  vertical-align: middle;
+}
+
+section.activity-section div.activity-description div.floor-2 div.floor-2-2 {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-2
+  div.floor-2-2
+  span {
+  vertical-align: middle;
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-2
+  div.floor-2-2
+  svg.icon-place {
+  fill: black;
+  vertical-align: middle;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+section.activity-section div.activity-description div.floor-2 div.floor-2-3 {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  justify-content: flex-start;
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-2
+  div.floor-2-3
+  div.floor-2-3-1 {
+  margin-right: 2rem;
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-2
+  div.floor-2-3
+  span {
+  vertical-align: middle;
+  fill: black;
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-2
+  div.floor-2-3
+  svg {
+  fill: black;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+section.activity-section div.activity-description div.floor-3 {
+  margin-top: 2rem;
+}
+
+section.activity-section div.activity-description div.floor-3 p.text {
+  letter-spacing: 2px;
+  line-height: 1.5;
+}
+
+section.activity-section div.activity-description div.floor-4 {
+  margin-top: 2rem;
+}
+
+section.activity-section div.activity-description div.floor-4 div.top-section {
+  border-bottom: 2px solid var(--third-color);
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-4
+  div.top-section
+  div.rightBox {
+  color: var(--primary-color);
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-4
+  div.bottom-section
+  div.activity-section-cta {
+  margin-top: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--fourth-color);
+  color: white;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+}
+
+/* ------------------------Pagination-section-mobile------------------------- */
+
+section.pagination-section ul.pagination {
+  width: 90%;
+  margin: 0 auto 6rem auto;
+}
+
+section.pagination-section ul.pagination li {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
-/* ----------------------footer-section------------------------ */
+section.pagination-section ul.pagination li.text-first {
+  color: white;
+}
+
+section.pagination-section ul.pagination svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: white;
+  vertical-align: middle;
+}
+
+/* ----------------------footer-section-mobile------------------------ */
 
 section.footer-section {
-  margin-top: 10rem;
-  margin-bottom: 3.3rem;
+  margin-top: 5rem;
   background-image: url(../images/component-pic/footer.png);
   width: 100%;
   height: 300px;
@@ -376,7 +616,13 @@ section.footer-section {
   background-size: cover;
 }
 
-/* ---------------------fixed-section-------------------------- */
+/* ----------------spaceForFixed-mobile------------------------- */
+
+div.spaceForFixed-mobile {
+  height: 56px;
+}
+
+/* ---------------------fixed-section-mobile-------------------------- */
 
 section.fixed-section {
   background-color: white;
@@ -409,13 +655,13 @@ section.fixed-section svg.icon-cart {
 }
 
 @media only screen and (min-width: 1420px) {
-  /* ---------------------side-navbar---------------------- */
+  /* ---------------------side-navbar-desktop---------------------- */
 
   div.side-navbar {
     display: block;
   }
 
-  /* --------------------Navbar------------------------- */
+  /* --------------------Navbar-desktop------------------------- */
 
   div.navbar {
     background-color: transparent;
@@ -457,7 +703,107 @@ section.fixed-section svg.icon-cart {
     display: none;
   }
 
-  /* --------------------------footer-section---------------------- */
+  /* --------------------------hero-section-desktop------------------------ */
+
+  section.hero-section h3.title {
+    position: absolute;
+    color: white;
+    font-weight: 400;
+    left: 15%;
+    top: 50%;
+    font-size: 4rem;
+  }
+
+  section.hero-section hr {
+    width: 42%;
+    height: 2px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.555);
+    position: absolute;
+    left: 0;
+    top: 64%;
+  }
+
+  section.hero-section svg.icon-arrow-down {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  /* ---------------------行程--篩選器區塊-桌機版----------------------- */
+
+  section.activity-section {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  section.activity-section .container {
+    padding: 3rem 6rem;
+  }
+
+  section.activity-section div.filter-section {
+    padding: 0 25%;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+  }
+
+  section.activity-section div.filter-section svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  section.activity-section div.filter-section div.filterBox {
+    width: 20%;
+  }
+
+  section.activity-section div.filter-section div.filterBox p.text {
+    font-size: 1.2rem;
+  }
+
+  /* -------------------------行程卡片區域-桌機版
+---------------- */
+
+  section.activity-section div.activity-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.activity-section div.activity-card div.activity-card-image {
+    width: 60%;
+    height: 550px;
+  }
+
+  section.activity-section div.activity-card div.activity-description {
+    background-color: white;
+    width: 40%;
+    border-radius: 0.5rem;
+    margin-left: -50px;
+    padding: 1.5rem;
+  }
+
+  section.activity-section div.activity-description div.floor-2 div.floors {
+    justify-content: flex-start;
+  }
+
+  section.activity-section
+    div.activity-description
+    div.floor-2
+    div.floors
+    div.floor-2-2 {
+    margin-right: 2rem;
+  }
+
+  /* ---------------------pagination-section-desktop---------------- */
+
+  section.pagination-section ul.pagination {
+    width: 50%;
+  }
+
+  section.pagination-section ul.pagination li {
+    font-size: 2rem;
+  }
+
+  /* --------------------------footer-section-desktop---------------------- */
 
   section.footer-section {
     margin-top: 20rem;
@@ -465,7 +811,13 @@ section.fixed-section svg.icon-cart {
     height: 540px;
   }
 
-  /* -----------------------fixed-section---------------------- */
+  /* --------------------spaceForFixed-desktop---------------------------*/
+
+  div.spaceForFixed-mobile {
+    display: none;
+  }
+
+  /* -----------------------fixed-section-desktop---------------------- */
 
   section.fixed-section {
     display: none;
