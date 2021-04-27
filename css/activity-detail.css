@@ -8,6 +8,7 @@
   --third-color: #424642;
   --fourth-color: #123132;
   --fifth-color: #9a9a9a;
+  --sixth-color: #1f1f1f;
 }
 
 * {
@@ -59,6 +60,7 @@ ul {
 .svg {
   width: 2rem;
   height: 2rem;
+  vertical-align: middle;
 }
 
 /* navbar 專屬logo-svg設定 */
@@ -396,17 +398,17 @@ section.activity-detail-section div.container {
 
 section.activity-detail-section div.floor-1 p.text {
   font-size: 1.5rem;
-  color: var(--fourth-color);
+  color: var(--sixth-color);
 }
 
 section.activity-detail-section div.floor-1 svg.icon-heart {
   width: 1.5rem;
-  fill: var(--fourth-color);
+  fill: red;
 }
 
 section.activity-detail-section div.floor-2 {
   padding-bottom: 2rem;
-  border-bottom: 2px solid var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
 }
 
 section.activity-detail-section div.floor-2 div.floor-2-1 {
@@ -426,10 +428,12 @@ section.activity-detail-section div.floor-2 div.floor-2-1 svg.icon-star {
 
 section.activity-detail-section div.floor-2 div.floor-2-1 span.ff-noto {
   font-size: 0.8rem;
+  font-weight: 500;
 }
 
 section.activity-detail-section div.floor-2 div.floor-2-1 span.ff-airbnb {
   font-size: 1rem;
+  font-weight: 500;
 }
 
 section.activity-detail-section div.floor-2 div.floors {
@@ -449,37 +453,275 @@ section.activity-detail-section div.floor-2 div.floors span {
   vertical-align: middle;
 }
 
-/* ---------------------activity-intro-section-mobile */
+/* ---------------------mountain-intro-section-mobile------------------------- */
 
-section.activity-intro-section div.container {
-  padding: 0 1.5rem;
+section.mountain-intro-section div.container {
+  width: calc(100% - 3rem);
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
-section.activity-intro-section h2.title {
+section.mountain-intro-section h2.title {
   font-size: 1.3rem;
-  color: var(--fourth-color);
+  color: var(--sixth-color);
 }
 
-section.activity-intro-section ul.mountain-intro {
+section.mountain-intro-section div.mountain-intro-container {
   margin-top: 3rem;
-  border: 2px solid var(--secondary-color);
-  padding: 2rem 1rem;
-  border-radius: 1rem;
+  background-color: #f4f4f4;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
 }
 
-section.activity-intro-section ul.mountain-intro p.title {
-  color: var(--fourth-color);
-  font-size: 1.2rem;
+section.mountain-intro-section div.mountain-intro-container ul.mountain-intro {
+  overflow: hidden;
+  height: 490px;
 }
 
-section.activity-intro-section ul.mountain-intro p.text {
+section.mountain-intro-section
+  div.mountain-intro-container
+  ul.mountain-intro
+  p.title {
+  color: var(--sixth-color);
+  font-size: 1.3rem;
+}
+
+section.mountain-intro-section
+  div.mountain-intro-container
+  ul.mountain-intro
+  p.text {
   margin: 2rem 0;
-  color: var(--fourth-color);
+  color: var(--sixth-color);
   letter-spacing: 2px;
   line-height: 1.5;
   text-indent: 2.2em;
 }
 
+section.mountain-intro-section
+  div.mountain-intro-container
+  div.mountain-intro-cta {
+  width: 30%;
+  margin: 1rem auto 0 auto;
+  text-align: center;
+  color: var(--sixth-color);
+  padding: 0.5rem 1.2rem;
+  background-color: var(--primary-color);
+  border-radius: 0.5rem;
+}
+
+/* ---------------------activity-intro-section-mobile---------------------- */
+
+section.activity-intro-section {
+  padding: 2rem 1.5rem;
+}
+
+section.activity-intro-section div.container {
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 4rem;
+}
+
+section.activity-intro-section h2.title {
+  color: var(--sixth-color);
+  text-align: center;
+}
+
+section.activity-intro-section div.activity-daily-intro div.right {
+  width: 100%;
+  order: 1;
+  margin-top: 0.5rem;
+}
+
+section.activity-intro-section div.activity-daily-intro div.left {
+  width: 100%;
+  order: 2;
+  background-color: #f4f4f4;
+  border-radius: 0.5rem;
+  margin-top: 3rem;
+  padding: 2.5rem;
+}
+
+section.activity-intro-section
+  div.activity-daily-intro
+  div.right
+  div.right-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+section.activity-intro-section
+  div.activity-daily-intro
+  div.right-bottom
+  p.text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--sixth-color);
+  background-color: #f4f4f4;
+  width: 4rem;
+  height: 4rem;
+  padding: 1.5rem 0;
+  border-radius: 50%;
+  font-weight: 500;
+}
+
+section.activity-intro-section
+  div.activity-daily-intro
+  div.right-bottom
+  p.first {
+  color: white;
+  background-color: var(--third-color);
+}
+
+section.activity-intro-section div.activity-daily-intro div.left p.text {
+  color: var(--sixth-color);
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 2px;
+}
+
+/* ---------------------guide-intro-section-mobile------------------------- */
+
+section.guide-intro-section {
+  padding: 0 1.5rem;
+}
+
+section.guide-intro-section div.container {
+  border-bottom: 1px solid var(--secondary-color);
+  padding-bottom: 4rem;
+}
+
+section.guide-intro-section h2.title {
+  color: var(--sixth-color);
+  text-align: center;
+}
+
+section.guide-intro-section div.guides {
+  justify-content: space-around;
+}
+
+section.guide-intro-section div.guides p.text {
+  color: white;
+  background-color: var(--third-color);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  padding: 1.3rem 0;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+section.guide-intro-section div.guides p.second {
+  background-color: white;
+  color: var(--sixth-color);
+}
+
+section.guide-intro-section div.guide-intro-cards {
+  margin-top: 2rem;
+}
+
+section.guide-intro-section div.guide-intro-cards div.card {
+  width: 100%;
+}
+
+section.guide-intro-section
+  div.guide-intro-cards
+  div.card
+  div.guide-intro-image1 {
+  background-image: url(../images/Guide-Jessica.png);
+  height: 180px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+section.guide-intro-section
+  div.guide-intro-cards
+  div.card
+  div.guide-intro-description {
+  color: var(--sixth-color);
+  background-color: #f4f4f4;
+  padding: 2rem;
+}
+
+section.guide-intro-section
+  div.guide-intro-cards
+  div.card
+  div.guide-intro-description
+  p.text {
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.7;
+}
+
+/* ---------------------other-activity-section-mobile ----------------*/
+
+section.other-activity-section {
+  padding: 0 1.5rem;
+}
+
+section.other-activity-section h2.title {
+  margin-top: 4rem;
+  color: var(--sixth-color);
+  text-align: center;
+}
+
+section.other-activity-section div.other-activity-image {
+  background-image: url(../images/加里山1.jpg);
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5rem;
+  margin-top: 3rem;
+}
+
+/* ---------------------comment-section-mobile----------------------- */
+
+section.comment-section {
+  padding: 0 1.5rem;
+}
+
+section.comment-section h2.title {
+  margin-top: 4rem;
+  color: var(--sixth-color);
+  text-align: center;
+}
+
+section.comment-section div.comment-card {
+  margin-top: 2rem;
+}
+
+section.comment-section div.comment-card div.topBox {
+  justify-content: flex-start;
+}
+
+section.comment-section div.comment-card div.topBox div.user-icon img {
+  width: 100%;
+}
+
+section.comment-section div.comment-card div.topBox div.user-icon {
+  width: 3rem;
+  margin-right: 1rem;
+}
+
+section.comment-section div.comment-card div.topBox div.rank svg.icon-star {
+  width: 0.7rem;
+  fill: var(--primary-color);
+}
+
+section.comment-section div.comment-card div.bottomBox p.text {
+  letter-spacing: 1px;
+  line-height: 1.5;
+  word-break: break-all;
+  color: var(--sixth-color);
+  margin-bottom: 1rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
 /* ---------------------spaceForFixed-mobile------------------------- */
 
 div.spaceForFixed-mobile {
