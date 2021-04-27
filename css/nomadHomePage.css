@@ -297,6 +297,11 @@ nav .icon-nomad-logo path {
   fill: var(--fourth-color);
 }
 
+div.navbar svg.icon-cart {
+  stroke: white;
+  fill: none;
+}
+
 nav p.text {
   letter-spacing: 2px;
   line-height: 1.7;

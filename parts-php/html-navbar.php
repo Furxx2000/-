@@ -7,7 +7,7 @@
       <div class="side-navbar-item">
         <a href="">
           <div class="navbar-item">
-            <img src="./images/navbar-icon/level.svg" alt="" />
+            <img src="./images/navbar-icon/level_white.svg" alt="" />
             <p class="text ff-noto">難度分級</p>
           </div>
         </a>

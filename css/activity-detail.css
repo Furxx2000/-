@@ -356,273 +356,131 @@ nav div.signup-btn {
   pointer-events: all;
 }
 
-/* ----------------------hero-section-mobile-------------------------- */
-body {
-  background-image: url(../images/Wallpaperkiss_1513648.jpg);
-  background-position: 43%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 90vh;
-}
+/* ---------------------hero-section-mobile-------------------------- */
 
-section.hero-section div.hero-section-image {
+/*-------------------activity-detail-section-mobile------------------------ */
+
+section.activity-detail-section div.activity-detail-section-image {
   position: relative;
-  width: 100%;
-  height: 90vh;
-}
-
-section.hero-section h3.title {
-  position: absolute;
-  color: white;
-  font-weight: 400;
-  left: 15%;
-  top: 63%;
-  font-size: 1.3rem;
-}
-
-section.hero-section hr {
-  width: 61%;
-  height: 2px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.555);
-  position: absolute;
-  left: 0;
-  top: 67.5%;
-}
-
-section.hero-section svg.icon-arrow-down {
-  position: absolute;
-  fill: white;
-  z-index: 998;
-  left: 50%;
-  top: 87%;
-  transform: translateX(-50%);
-}
-
-/* ---------------------行程--篩選器區塊-手機版
------------------------ */
-
-section.activity-section {
-  background-color: rgba(0, 0, 0, 0.384);
-}
-
-section.activity-section .container {
-  padding: 1rem;
-}
-
-section.activity-section div.filter-section {
-  padding: 0 1rem;
-  align-items: flex-end;
-  margin: 2rem 0;
-}
-
-section.activity-section div.filter-section svg {
-  fill: white;
-}
-
-section.activity-section div.filter-section div.filterBox {
-  text-align: center;
-  cursor: pointer;
-}
-
-section.activity-section div.filter-section div.filterBox svg.icon-star {
-  fill: var(--primary-color);
-}
-
-section.activity-section div.filter-section div.filterBox p.text {
-  color: white;
-}
-
-/* ----------------------行程卡片區塊-手機版
------------------------------ */
-section.activity-section div.activity-card {
-  margin-bottom: 5rem;
-}
-
-section.activity-section div.activity-card div.activity-card-image {
-  background-image: url(../images/samuel-ferrara-1527pjeb6jg-unsplash.png);
-  height: 225px;
+  background-image: url(../images/Nan_hu_mountain.jpg);
+  height: 275px;
   background-position: center;
-  background-size: cover;
   background-repeat: no-repeat;
-  border-radius: 0.5rem;
+  background-size: cover;
 }
 
-section.activity-section div.activity-card div.activity-description {
-  background-color: rgba(247, 247, 247, 0.801);
-  padding: 1rem;
+section.activity-detail-section div.activity-detail-section-image p.text-image {
+  position: absolute;
+  top: 10%;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  background-color: rgba(126, 126, 126, 0.473);
 }
 
-section.activity-section div.activity-description div.floor-1 p.text {
-  font-size: 2rem;
-  color: black;
-  font-weight: 500;
+section.activity-detail-section div.activity-detail-section-image p.text-price {
+  position: absolute;
+  right: 0;
+  top: 75%;
+  color: white;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  background-color: rgba(126, 126, 126, 0.473);
 }
 
-section.activity-section div.activity-description div.floor-1 svg.icon-heart {
-  fill: red;
+section.activity-detail-section div.container {
+  padding: 1.5rem;
+}
+
+section.activity-detail-section div.floor-1 p.text {
+  font-size: 1.5rem;
+  color: var(--fourth-color);
+}
+
+section.activity-detail-section div.floor-1 svg.icon-heart {
   width: 1.5rem;
-  cursor: pointer;
+  fill: var(--fourth-color);
 }
 
-section.activity-section div.activity-description div.floor-2 div.floor-2-1 {
-  margin-top: 1rem;
-  margin-left: 0.2rem;
+section.activity-detail-section div.floor-2 {
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+section.activity-detail-section div.floor-2 div.floor-2-1 {
   justify-content: flex-start;
+  margin-top: 0.5rem;
 }
 
-section.activity-section div.activity-description div.floor-2 svg.icon-star {
-  fill: var(--primary-color);
-  width: 1.5rem;
+section.activity-detail-section div.floor-2 div.floor-2-1 span {
   margin-right: 0.5rem;
-  cursor: pointer;
-}
-
-section.activity-section
-  div.activity-description
-  div.floor-2
-  div.floor-2-1
-  span {
-  font-weight: 500;
-  margin-right: 0.2rem;
   vertical-align: middle;
 }
 
-section.activity-section div.activity-description div.floor-2 div.floor-2-2 {
-  margin-top: 0.5rem;
+section.activity-detail-section div.floor-2 div.floor-2-1 svg.icon-star {
+  width: 1rem;
+  fill: var(--primary-color);
+}
+
+section.activity-detail-section div.floor-2 div.floor-2-1 span.ff-noto {
   font-size: 0.8rem;
 }
 
-section.activity-section
-  div.activity-description
-  div.floor-2
-  div.floor-2-2
-  span {
-  vertical-align: middle;
+section.activity-detail-section div.floor-2 div.floor-2-1 span.ff-airbnb {
+  font-size: 1rem;
 }
 
-section.activity-section
-  div.activity-description
-  div.floor-2
-  div.floor-2-2
-  svg.icon-place {
-  fill: black;
-  vertical-align: middle;
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-section.activity-section div.activity-description div.floor-2 div.floor-2-3 {
+section.activity-detail-section div.floor-2 div.floors {
+  justify-content: space-between;
   margin-top: 0.5rem;
+}
+
+section.activity-detail-section div.floor-2 div.floors span.ff-noto {
   font-size: 0.8rem;
-  justify-content: flex-start;
 }
 
-section.activity-section
-  div.activity-description
-  div.floor-2
-  div.floor-2-3
-  div.floor-2-3-1 {
-  margin-right: 2rem;
+section.activity-detail-section div.floor-2 div.floors svg {
+  width: 1rem;
 }
 
-section.activity-section
-  div.activity-description
-  div.floor-2
-  div.floor-2-3
-  span {
+section.activity-detail-section div.floor-2 div.floors span {
   vertical-align: middle;
-  fill: black;
 }
 
-section.activity-section
-  div.activity-description
-  div.floor-2
-  div.floor-2-3
-  svg {
-  fill: black;
-  width: 1.5rem;
-  height: 1.5rem;
+/* ---------------------activity-intro-section-mobile */
+
+section.activity-intro-section div.container {
+  padding: 0 1.5rem;
 }
 
-section.activity-section div.activity-description div.floor-3 {
-  margin-top: 2rem;
+section.activity-intro-section h2.title {
+  font-size: 1.3rem;
+  color: var(--fourth-color);
 }
 
-section.activity-section div.activity-description div.floor-3 p.text {
+section.activity-intro-section ul.mountain-intro {
+  margin-top: 3rem;
+  border: 2px solid var(--secondary-color);
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+}
+
+section.activity-intro-section ul.mountain-intro p.title {
+  color: var(--fourth-color);
+  font-size: 1.2rem;
+}
+
+section.activity-intro-section ul.mountain-intro p.text {
+  margin: 2rem 0;
+  color: var(--fourth-color);
   letter-spacing: 2px;
   line-height: 1.5;
+  text-indent: 2.2em;
 }
 
-section.activity-section div.activity-description div.floor-4 {
-  margin-top: 2rem;
-}
-
-section.activity-section div.activity-description div.floor-4 div.top-section {
-  border-bottom: 2px solid var(--third-color);
-}
-
-section.activity-section
-  div.activity-description
-  div.floor-4
-  div.top-section
-  div.rightBox {
-  color: var(--primary-color);
-  font-weight: 500;
-  font-size: 1.5rem;
-}
-
-section.activity-section
-  div.activity-description
-  div.floor-4
-  div.bottom-section
-  div.activity-section-cta {
-  margin-top: 0.5rem;
-  padding: 0.7rem 1.5rem;
-  background-color: var(--fourth-color);
-  color: white;
-  border-radius: 2rem;
-  font-size: 0.9rem;
-}
-
-/* ------------------------Pagination-section-mobile------------------------- */
-
-section.pagination-section ul.pagination {
-  width: 90%;
-  margin: 0 auto 6rem auto;
-}
-
-section.pagination-section ul.pagination li {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-
-section.pagination-section ul.pagination li.text-first {
-  color: white;
-}
-
-section.pagination-section ul.pagination svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  fill: white;
-  vertical-align: middle;
-}
-
-/* ----------------------footer-section-mobile------------------------ */
-
-section.footer-section {
-  margin-top: 5rem;
-  background-image: url(../images/component-pic/footer.png);
-  width: 100%;
-  height: 300px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* ----------------spaceForFixed-mobile------------------------- */
+/* ---------------------spaceForFixed-mobile------------------------- */
 
 div.spaceForFixed-mobile {
   height: 56px;
@@ -709,121 +567,23 @@ section.fixed-section svg.icon-cart {
     display: none;
   }
 
-  /* --------------------------hero-section-desktop------------------------ */
-
-  section.hero-section h3.title {
-    position: absolute;
-    color: white;
-    font-weight: 400;
-    left: 15%;
-    top: 50%;
-    font-size: 4rem;
-  }
-
-  section.hero-section hr {
-    width: 42%;
-    height: 2px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.555);
-    position: absolute;
-    left: 0;
-    top: 64%;
-  }
-
-  section.hero-section svg.icon-arrow-down {
-    width: 5rem;
-    height: 5rem;
-  }
+  /* ----------------------hero-section-desktop------------------------ */
 
   /* ---------------------行程--篩選器區塊-桌機版----------------------- */
 
-  section.activity-section {
-    width: 80%;
-    margin: 0 auto;
-  }
-
-  section.activity-section .container {
-    padding: 3rem 6rem;
-  }
-
-  section.activity-section div.filter-section {
-    padding: 0 25%;
-    align-items: flex-end;
-    margin-bottom: 4rem;
-  }
-
-  section.activity-section div.filter-section svg {
-    width: 3rem;
-    height: 3rem;
-  }
-
-  section.activity-section div.filter-section div.filterBox {
-    width: 20%;
-  }
-
-  section.activity-section div.filter-section div.filterBox p.text {
-    font-size: 1.2rem;
-  }
-
-  /* -------------------------行程卡片區域-桌機版
----------------- */
-
-  section.activity-section div.activity-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  section.activity-section div.activity-card div.activity-card-image {
-    width: 60%;
-    height: 550px;
-  }
-
-  section.activity-section div.activity-card div.activity-description {
-    background-color: white;
-    width: 40%;
-    border-radius: 0.5rem;
-    margin-left: -50px;
-    padding: 1.5rem;
-  }
-
-  section.activity-section div.activity-description div.floor-2 div.floors {
-    justify-content: flex-start;
-  }
-
-  section.activity-section
-    div.activity-description
-    div.floor-2
-    div.floors
-    div.floor-2-2 {
-    margin-right: 2rem;
-  }
+  /* ---------------------行程卡片區域-桌機版---------------- */
 
   /* ---------------------pagination-section-desktop---------------- */
 
-  section.pagination-section ul.pagination {
-    width: 50%;
-  }
+  /* ---------------------footer-section-desktop---------------------- */
 
-  section.pagination-section ul.pagination li {
-    font-size: 2rem;
-  }
-
-  /* --------------------------footer-section-desktop---------------------- */
-
-  section.footer-section {
-    margin-top: 20rem;
-    margin-bottom: 0;
-    height: 540px;
-  }
-
-  /* --------------------spaceForFixed-desktop---------------------------*/
+  /* ---------------------spaceForFixed-desktop---------------------------*/
 
   div.spaceForFixed-mobile {
     display: none;
   }
 
-  /* -----------------------fixed-section-desktop---------------------- */
+  /* ---------------------fixed-section-desktop---------------------- */
 
   section.fixed-section {
     display: none;
