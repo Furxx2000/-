@@ -658,6 +658,7 @@ section.fixed-section svg {
 
 section.fixed-section svg.icon-cart {
   stroke: var(--fourth-color);
+  fill: none;
 }
 
 @media only screen and (min-width: 1420px) {

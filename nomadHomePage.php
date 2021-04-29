@@ -303,5 +303,7 @@
       </div>
     </section>
 
-<?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
 <?php include __DIR__ . '/parts-php/html-footer.php'; ?>
+<?php include __DIR__ . '/parts-php/html-fixedBar.php'; ?>
+<?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
+<?php include __DIR__ . '/parts-php/html-endingTag.php'; ?>

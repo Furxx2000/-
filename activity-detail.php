@@ -16,64 +16,73 @@
 
 <section class="hero-section">
     <div class="container">
-        <div class="hero-section-background-image"></div>
-        <p class="title ff-noto none">嘉明湖三日登山行程</p>
-        <div class="hero-section-image-desktop"></div>
+        <div class="hero-section-background-image">
+            <p class="title ff-noto none">嘉明湖三日登山行程</p>
+            <div class="hero-section-image-desktop"></div>
+        </div>
     </div>
 </section>
 
 <section class="activity-detail-section">
-    <div class="activity-detail-section-image">
-        <p class="text-image ff-noto">查看照片</p>
-        <p class="text-price ff-airbnb">TWD 6,300</p>
-    </div>
-    <div class="container">
-        <div class="floor-1 flex">
-            <p class="text ff-noto">嘉明湖三日登山行程</p>
-                <svg class="icon-heart svg">
-                    <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
-                </svg>
-        </div>
-        <div class="floor-2">
-            <div class="floor-2-1 flex">
-                <span>
-                    <svg class="icon-star svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                    </svg>
-                </span>
-                <span class="ff-airbnb">4.5</span>
-                <span class="ff-noto">(24則評價)</span>
+ 
+        <div class="flexBox0">
+            <div class="activity-detail-section-image">
+                <p class="text-image ff-noto">查看照片</p>
+                <p class="text-price ff-airbnb">TWD 6,300</p>
             </div>
-            <div class="floors flex">
-                <div class="floor-2-2">
-                    <span>
-                        <svg class="icon-place svg">
-                            <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
-                        </svg>
-                    </span>
-                    <span class="ff-noto">台灣 - 台中</span>
-                </div>
             
-                    <div class="floor-2-3-1">
-                        <span>
-                        <svg class="icon-difficulty svg">
-                            <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
-                        </svg>
-                        </span>
-                        <span class="ff-noto">行程難度: 容易</span>
-                    </div>
-                    <div class="floor-2-3-2">
-                        <span>
-                        <svg class="icon-time svg">
-                            <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
-                        </svg>
-                        </span>
-                        <span class="ff-noto">行程難度: 3天</span>
-                    </div>
-         
-            </div>
+            <?php include __DIR__ . '/parts-php/html-fixedBar-activity-detail.php'; ?>
         </div>
-    </div>
+        <div class="container">
+            <div class="flexBox1">
+                <div class="floor-1 flex">
+                    <p class="text ff-noto">嘉明湖三日登山行程</p>
+                    <svg class="icon-heart svg">
+                        <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
+                    </svg>
+                </div>
+                <div class="floor-2">
+                    <div class="floor-2-1 flex">
+                        <span>
+                            <svg class="icon-star svg">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
+                            </svg>
+                        </span>
+                        <span class="ff-airbnb">4.5</span>
+                        <span class="ff-noto">(24則評價)</span>
+                    </div>
+                    <div class="floors flex">
+                        <div class="floor-2-2">
+                            <span>
+                                <svg class="icon-place svg">
+                                    <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
+                                </svg>
+                            </span>
+                            <span class="ff-noto">台灣 - 台中</span>
+                        </div>
+                    
+                        <div class="floor-2-3-1">
+                            <span>
+                            <svg class="icon-difficulty svg">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
+                            </svg>
+                            </span>
+                            <span class="ff-noto">行程難度: 容易</span>
+                        </div>
+                        <div class="floor-2-3-2">
+                            <span>
+                            <svg class="icon-time svg">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
+                            </svg>
+                            </span>
+                            <span class="ff-noto">行程難度: 3天</span>
+                        </div>
+                
+                    </div>
+                </div>
+                </div>
+            </div>
+
 </section>
 
 <section class="mountain-intro-section">
@@ -361,7 +370,11 @@
     </div>
 </section>
 
-<?php include __DIR__ . '/parts-php/html-scripts-activity-detail.php'; ?>
+<div class="spaceForFixed-mobile"></div>
+
+<?php include __DIR__ . '/parts-php/html-footer.php'; ?>
+
+<?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
 <script>
 
 // 查看照片modal顯示carousel
@@ -394,27 +407,18 @@ backward.addEventListener('click', () => {
 })
 
 // 立即報名頁面滑進滑出
-const buyNowBtn = document.querySelector('#buyNowBtn');
-const buyNowPage = document.querySelector('#fixed-section');
-const fixedPage = document.querySelector('#homepage-container');
 const exitBuyNowPage = document.querySelector('#icon-cross');
 const slideUpPage = document.querySelector('#buy-now-section'); 
 
 buyNowBtn.addEventListener('click', () => {
-    buyNowPage.classList.remove('height');
-    buyNowPage.classList.add('border');
-    fixedPage.classList.add('none');
     slideUpPage.classList.add('open');
 })
 
 exitBuyNowPage.addEventListener('click', () => {
-    buyNowPage.classList.add('height');
-    buyNowPage.classList.remove('border');
-    fixedPage.classList.remove('none');
     slideUpPage.classList.remove('open');
 })
 
 </script>
 
 
-<?php include __DIR__ . '/parts-php/html-footer.php'; ?>
+<?php include __DIR__ . '/parts-php/html-endingTag.php'; ?>

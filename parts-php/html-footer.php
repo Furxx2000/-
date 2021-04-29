@@ -1,3 +1,3 @@
-</body>
-</html>
+<section class="footer-section"></section>
+
 
