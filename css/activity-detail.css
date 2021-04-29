@@ -4,11 +4,12 @@
 /* 色票設定 */
 :root {
   --primary-color: #f0a500;
-  --secondary-color: #cf7500;
+  --secondary-color: #cf7500f3;
   --third-color: #424642;
   --fourth-color: #123132;
   --fifth-color: #9a9a9a;
   --sixth-color: #1f1f1f;
+  --seventh-color: #ff91005d;
 }
 
 * {
@@ -287,7 +288,7 @@ nav {
   background-color: white;
   height: 200vh;
   padding: 2rem;
-  transition: 0.5s ease-in-out;
+  transition: 0.4s ease-in;
 }
 
 nav li {
@@ -339,7 +340,7 @@ nav div.signup-btn {
   color: var(--fourth-color);
 }
 
-.modal {
+div.modal {
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
   z-index: 999;
@@ -353,7 +354,7 @@ nav div.signup-btn {
   transition: 0.25s ease-out;
 }
 
-.modal.open {
+div.modal.open {
   opacity: 1;
   pointer-events: all;
 }
@@ -379,6 +380,7 @@ section.activity-detail-section div.activity-detail-section-image p.text-image {
   padding: 0.5rem 1rem;
   border-radius: 3px;
   background-color: rgba(126, 126, 126, 0.473);
+  cursor: pointer;
 }
 
 section.activity-detail-section div.activity-detail-section-image p.text-price {
@@ -404,11 +406,12 @@ section.activity-detail-section div.floor-1 p.text {
 section.activity-detail-section div.floor-1 svg.icon-heart {
   width: 1.5rem;
   fill: red;
+  cursor: pointer;
 }
 
 section.activity-detail-section div.floor-2 {
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1.5px solid var(--seventh-color);
 }
 
 section.activity-detail-section div.floor-2 div.floor-2-1 {
@@ -459,7 +462,7 @@ section.mountain-intro-section div.container {
   width: calc(100% - 3rem);
   margin: 0 auto;
   padding-bottom: 4rem;
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1.5px solid var(--seventh-color);
 }
 
 section.mountain-intro-section h2.title {
@@ -495,7 +498,7 @@ section.mountain-intro-section
   color: var(--sixth-color);
   letter-spacing: 2px;
   line-height: 1.5;
-  text-indent: 2.2em;
+  text-indent: 2.2rem;
 }
 
 section.mountain-intro-section
@@ -508,6 +511,7 @@ section.mountain-intro-section
   padding: 0.5rem 1.2rem;
   background-color: var(--primary-color);
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 /* ---------------------activity-intro-section-mobile---------------------- */
@@ -517,7 +521,7 @@ section.activity-intro-section {
 }
 
 section.activity-intro-section div.container {
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1.5px solid var(--seventh-color);
   padding-bottom: 4rem;
 }
 
@@ -563,6 +567,7 @@ section.activity-intro-section
   padding: 1.5rem 0;
   border-radius: 50%;
   font-weight: 500;
+  cursor: pointer;
 }
 
 section.activity-intro-section
@@ -587,7 +592,7 @@ section.guide-intro-section {
 }
 
 section.guide-intro-section div.container {
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1.5px solid var(--seventh-color);
   padding-bottom: 4rem;
 }
 
@@ -610,6 +615,7 @@ section.guide-intro-section div.guides p.text {
   padding: 1.3rem 0;
   font-size: 1.2rem;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
 section.guide-intro-section div.guides p.second {
@@ -720,20 +726,187 @@ section.comment-section div.comment-card div.bottomBox p.text {
   color: var(--sixth-color);
   margin-bottom: 1rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--secondary-color);
+  border-bottom: 1.5px solid var(--seventh-color);
+}
+
+section.comment-section div.comment-section-cta {
+  text-align: right;
+  color: var(--sixth-color);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* ----------------------warning-section-mobile---------------------- */
+
+section.warning-section {
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  padding: 0 1.5rem;
+}
+
+section.warning-section span.text {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgb(219, 71, 71);
+}
+
+section.warning-section svg.icon-warning {
+  width: 1.5rem;
+  fill: var(--primary-color);
+}
+
+section.warning-section div.links {
+  margin-top: 3rem;
+}
+
+section.warning-section div.links div.link {
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1.5px solid var(--seventh-color);
+  cursor: pointer;
+}
+
+section.warning-section div.links div.link p.text {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: var(--sixth-color);
+}
+
+section.warning-section div.links svg.icon-arrow_forward_ios {
+  width: 1.5rem;
+}
+
+/* ---------------------carousel-modal-mobile------------------------ */
+
+div.carousel-modal {
+  background-color: rgba(0, 0, 0, 0.808);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+  transition: 0.25s ease-out;
+}
+
+div.carousel-modal div.carousel-modal-image {
+  position: relative;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../images/garrett-parker-DlkF4-dbCOU-unsplash.jpg);
+  height: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+div.carousel-modal div.carousel-modal-image ul.carousel-dots {
+  position: absolute;
+  width: 20%;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+}
+
+div.carousel-modal div.carousel-modal-image ul.carousel-dots li {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.582);
+}
+
+div.carousel-modal div.carousel-modal-image ul.carousel-dots li.first {
+  background-color: white;
+}
+
+div.carousel-modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ---------------------insurance-detail-section--------------------- */
+
+section.insurance-detail-section {
+  position: fixed;
+  z-index: 999;
+  background-color: white;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: translateX(105%);
+  transition: 0.4s ease-in;
+}
+
+section.insurance-detail-section div.container {
+  padding: 0 1.5rem;
+}
+
+section.insurance-detail-section.open {
+  transform: translateX(0%);
+}
+
+section.insurance-detail-section div.arrow-bar {
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.075);
+}
+
+section.insurance-detail-section svg.icon-arrow_back_ios {
+  width: 1rem;
+  cursor: pointer;
+}
+
+section.insurance-detail-section h2.title {
+  color: var(--sixth-color);
+  margin-bottom: 2rem;
+}
+
+section.insurance-detail-section div.insurance-detail {
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+section.insurance-detail-section div.insurance-detail h3.title {
+  text-align: center;
+  color: var(--sixth-color);
+  font-weight: 500;
+}
+
+section.insurance-detail-section div.insurance-detail p.text {
+  text-indent: 2.2rem;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  color: var(--sixth-color);
+}
+
+section.insurance-detail-section div.backward-cta {
+  margin-top: 2rem;
+  width: 30%;
+  border-radius: 0.5rem;
+  text-align: center;
+  color: white;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
 }
 /* ---------------------spaceForFixed-mobile------------------------- */
 
 div.spaceForFixed-mobile {
-  height: 56px;
+  height: 78px;
 }
 
 /* ---------------------fixed-section-mobile-------------------------- */
 
 section.fixed-section {
   background-color: white;
-  border-top: 1px solid var(--fourth-color);
-  padding: 0.7rem 0.5rem;
+  box-shadow: -1px 0 6px rgba(0, 0, 0, 0.15);
   position: fixed;
   z-index: 998;
   bottom: 0;
@@ -742,8 +915,16 @@ section.fixed-section {
   transition: 0.5s ease-in-out;
 }
 
+section.fixed-section.height {
+  height: 78px;
+}
+
+section.fixed-section.border {
+  border-radius: 1rem 1rem 0 0;
+}
+
 section.fixed-section div.homepage-container {
-  justify-content: space-around;
+  padding: 0.7rem 1.5rem;
 }
 
 section.fixed-functions {
@@ -751,17 +932,105 @@ section.fixed-functions {
   vertical-align: middle;
 }
 
-section.fixed-section svg {
-  fill: var(--fourth-color);
-  vertical-align: middle;
+section.fixed-section div#buyNowBtn {
+  cursor: pointer;
 }
 
-section.fixed-section svg.icon-cart {
-  stroke: var(--fourth-color);
+section.fixed-section div.fixed-functions span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary-color);
 }
 
+section.fixed-section div.fixed-functions p.btn {
+  font-size: 0.8rem;
+  color: var(--sixth-color);
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+}
+
+/* -------------------buy-now-section--------------------------------- */
+
+section.buy-now-section {
+  box-shadow: -1px 0 6px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem 1rem 0 0;
+  padding: 2rem 0;
+  transition: 0.5s ease-in-out;
+  transform: translateY(100%);
+}
+
+section.buy-now-section.open {
+  transform: translateY(0%);
+}
+
+section.buy-now-section div.container {
+  padding: 0 1.5rem;
+}
+
+section.buy-now-section svg.icon-cross {
+  width: 1rem;
+  fill: var(--sixth-color);
+  cursor: pointer;
+}
+
+section.buy-now-section div.activity-info {
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+section.buy-now-section div.activity-info div.leftBox {
+  background-image: url(../images/Nan_hu_mountain.jpg);
+  width: 60%;
+  height: 100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+section.buy-now-section div.activity-info div.rightBox p.title {
+  font-size: 1.5rem;
+  color: var(--sixth-color);
+  margin-bottom: 1rem;
+}
+
+section.buy-now-section div.activity-info div.rightBox p.text {
+  font-weight: 500;
+}
+
+section.buy-now-section select {
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+section.buy-now-section div.select-box {
+  width: 70%;
+  margin: 2rem auto;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid var(--seventh-color);
+}
+
+section.buy-now-section div.select-box p.text {
+  color: var(--sixth-color);
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+section.buy-now-section div.sign-up-cta {
+  width: 40%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  background-color: var(--primary-color);
+  border-radius: 0.5rem;
+  color: var(--sixth-color);
+  font-weight: 500;
+}
 @media only screen and (min-width: 1420px) {
-  /* ---------------------side-navbar-desktop---------------------- */
+  /* ---------------------side-navbar-desktop-------------------------- */
 
   div.side-navbar {
     display: block;

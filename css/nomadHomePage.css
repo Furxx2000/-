@@ -754,7 +754,6 @@ section.footer-section {
 
 section.fixed-section {
   background-color: white;
-  border-top: 1px solid var(--fourth-color);
   padding: 0.7rem 0.5rem;
   position: fixed;
   z-index: 998;
@@ -762,6 +761,7 @@ section.fixed-section {
   right: 0;
   left: 0;
   transition: 0.5s ease-in-out;
+  box-shadow: -1px 0 6px rgba(0, 0, 0, 0.075);
 }
 
 section.fixed-section div.homepage-container {

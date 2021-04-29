@@ -433,4 +433,5 @@
 
 
 
-<?php include __DIR__ . '/parts-php/html-scripts&footer.php'; ?>
+<?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
+<?php include __DIR__ . '/parts-php/html-footer.php'; ?>

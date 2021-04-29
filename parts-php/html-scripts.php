@@ -38,5 +38,3 @@
     ></script>
 
     <script src="./js/nomad.js"></script>
-  </body>
-</html>

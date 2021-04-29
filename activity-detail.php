@@ -13,6 +13,7 @@
 </head>
 <body>
 <?php include __DIR__ . '/parts-php/html-navbar.php'; ?>
+
 <section class="hero-section">
     <div class="container">
         <div class="hero-section-background-image"></div>
@@ -285,9 +286,135 @@
             </div>
             <div class="text ff-airbnb none">View more</div>
         </div>
-        <div class="comment-section-cta ff-noto">顯示更多</div>
+        <div class="comment-section-cta ff-noto"><u>顯示更多</u></div>
+
     </div>
 </section>
 
+<section class="warning-section">
+    <div class="container">
+        <svg class="icon-warning svg">
+            <use
+                xlink:href="./icomoon/symbol-defs.svg#icon-warning"
+            ></use>
+        </svg>
+        <span class="text ff-noto">報名前，請務必詳閱報名規則，報名後即視為同意所述規範</span>
+        <svg class="icon-warning svg">
+            <use
+                xlink:href="./icomoon/symbol-defs.svg#icon-warning"
+            ></use>
+        </svg>
 
-<?php include __DIR__ . '/parts-php/html-scripts&footer.php'; ?>
+        <div class="links">
+            <div id="insurance-link" class="link flex">
+                <p class="text ff-noto">保險說明</p>
+
+                <svg class="icon-arrow_forward_ios svg">
+                    <use
+                        xlink:href="./icomoon/symbol-defs.svg#icon-arrow_forward_ios"
+                    ></use>
+                </svg>
+            </div>
+
+            <div class="link flex">
+                <p class="text ff-noto">報名規則</p>
+
+                <svg class="icon-arrow_forward_ios svg">
+                    <use
+                        xlink:href="./icomoon/symbol-defs.svg#icon-arrow_forward_ios"
+                    ></use>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="carousel-modal">
+    <div class="carousel-modal-image">
+        <ul class="carousel-dots flex">
+            <li class="first"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<section id="insurance" class="insurance-detail-section">
+    <div class="arrow-bar">
+        <svg id="icon-arrow-back" class="icon-arrow_back_ios svg">
+            <use
+                xlink:href="./icomoon/symbol-defs.svg#icon-arrow_back_ios"
+            ></use>
+        </svg>
+    </div>
+    <div class="container">
+        <h2 class="title ff-noto">保險說明</h2>
+        <div class="insurance-detail">
+            <h3 class="title ff-noto">國泰產險-登山險</h3>
+            <p class="text ff-noto">
+            因參加登山活動遭受登山事故，致其失能或死亡，或其身體須經醫院或診所診療者，此保險給付之保險金可補償損失。內容包含：身故保險金或喪葬費用保險金、失能保險金、實支實付傷害醫療保險金、緊急救援費用(如搜尋費用、救護費用、遺體移送費用等)。<br>
+            <br>
+            登山綜合保險提供在中華民國境內的登山活動所面臨的風險保障，民眾可購買登山保險保障登山期間所發生的危險，內容包含因登山事故（如落石、失足、失溫等）所導致之死亡、失能及醫療費用給付，以及因發生事故所需進行搜尋、醫療轉送及遺體運送所衍生之費用。
+            </p>   
+        </div>
+        <div class="backward-cta ff-noto none">回到上頁</div>
+    </div>
+</section>
+
+<?php include __DIR__ . '/parts-php/html-scripts-activity-detail.php'; ?>
+<script>
+
+// 查看照片modal顯示carousel
+const checkPicture = document.querySelector('.text-image');
+const carouselModal = document.querySelector('.carousel-modal');
+
+checkPicture.addEventListener('click', () => {
+    carouselModal.classList.add('open');
+});
+
+carouselModal.addEventListener('click', (e) => {
+    if(e.target.classList.contains('carousel-modal')){
+        carouselModal.classList.remove('open');
+    }
+});
+
+// 保險說明頁面滑進滑出
+const insuranceLink = document.querySelector('#insurance-link');
+const backward = document.querySelector('#icon-arrow-back');
+const insuranceDetail = document.querySelector('#insurance');
+
+insuranceLink.addEventListener('click', () => {
+    insuranceDetail.classList.add('open');
+    modal.classList.add('open');
+})
+
+backward.addEventListener('click', () => {
+    insuranceDetail.classList.remove('open');
+    modal.classList.remove('open');
+})
+
+// 立即報名頁面滑進滑出
+const buyNowBtn = document.querySelector('#buyNowBtn');
+const buyNowPage = document.querySelector('#fixed-section');
+const fixedPage = document.querySelector('#homepage-container');
+const exitBuyNowPage = document.querySelector('#icon-cross');
+const slideUpPage = document.querySelector('#buy-now-section'); 
+
+buyNowBtn.addEventListener('click', () => {
+    buyNowPage.classList.remove('height');
+    buyNowPage.classList.add('border');
+    fixedPage.classList.add('none');
+    slideUpPage.classList.add('open');
+})
+
+exitBuyNowPage.addEventListener('click', () => {
+    buyNowPage.classList.add('height');
+    buyNowPage.classList.remove('border');
+    fixedPage.classList.remove('none');
+    slideUpPage.classList.remove('open');
+})
+
+</script>
+
+
+<?php include __DIR__ . '/parts-php/html-footer.php'; ?>
