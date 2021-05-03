@@ -72,9 +72,7 @@
     <div class="homepage-container flex">
         <div class="navbar-left">
             <a href="#">
-                <svg class="icon-nomad-logo navbar-logo-svg">
-                    <use xlink:href="./icomoon/symbol-defs.svg#icon-nomad-logo"></use>
-                </svg>
+                <img src="./icomoon/svg/icon-nomad-logo-white.svg" alt="">
             </a>
         </div>
         <div class="navbar-right flex">

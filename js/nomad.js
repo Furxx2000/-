@@ -40,7 +40,6 @@ arrowUp.addEventListener("click", () => {
 const userIcon = document.querySelector(".left-box");
 const dropDownBox = document.querySelector(".dropDown-box");
 const heroSection = document.querySelector(".hero-section");
-const body = document.querySelector("body");
 
 userIcon.addEventListener("click", () => {
   dropDownBox.classList.toggle("open");

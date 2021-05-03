@@ -220,9 +220,17 @@ div.module-navbar {
   padding: 0 0.5rem;
 }
 
-div.module-navbar div.navbar-left svg.icon-nomad-logo {
-  vertical-align: middle;
-  width: 4rem;
+div.module-navbar div.navbar-left {
+  width: 80%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.module-navbar div.navbar-left img {
+  width: 100%;
+  object-fit: cover;
 }
 
 div.navbar-right div.hamburger {
@@ -855,8 +863,9 @@ section.fixed-section svg.icon-cart {
     padding: 1rem 2rem;
   }
 
-  div.module-navbar div.navbar-left svg.icon-nomad-logo {
-    width: 6rem;
+  div.module-navbar div.navbar-left {
+    width: 120px;
+    height: 50px;
   }
 
   div.module-navbar div.navbar-right {

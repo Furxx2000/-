@@ -53,6 +53,10 @@ ul {
   font-family: "Raleway", sans-serif;
 }
 
+.ff-airbnb {
+  font-family: "Airbnb Cereal App";
+}
+
 /* svg尺寸 class設定 */
 .svg {
   width: 2rem;
@@ -62,7 +66,7 @@ ul {
 
 /* navbar 專屬logo-svg設定 */
 .navbar-logo-svg {
-  width: 6rem;
+  width: 5rem;
   height: 3rem;
 }
 
@@ -103,6 +107,12 @@ ul {
 /* display: none class設定 */
 .none {
   display: none;
+}
+
+/* icon-heart點擊後變紅 */
+.icon-heart.open {
+  fill: rgb(219, 71, 71) !important;
+  stroke: rgb(219, 71, 71) !important;
 }
 
 /* --------------------Side-navbar------------------- */
@@ -220,9 +230,17 @@ div.module-navbar {
   padding: 0 0.5rem;
 }
 
-div.module-navbar div.navbar-left svg.icon-nomad-logo {
-  vertical-align: middle;
-  width: 4rem;
+div.module-navbar div.navbar-left {
+  width: 80px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.module-navbar div.navbar-left img {
+  width: 100%;
+  object-fit: cover;
 }
 
 div.navbar-right div.hamburger {
@@ -409,49 +427,258 @@ nav div.signup-btn:hover {
   pointer-events: all;
 }
 
+/* ----------------------hero-section------------------------------- */
+
+section.hero-section {
+  display: none;
+}
+
+section.hero-section div.hero-section-image {
+  background-image: url(../images/武陵四秀_1.jpg);
+  position: relative;
+  height: 250px;
+  width: 100%;
+  background-position: 30% 80%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+
+section.hero-section div.hero-section-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 /* ----------------------progress-bar-section----------------------- */
 
-section.progress-bar-section div.container {
-  width: 100%;
-  height: 100%;
-}
-
 section.progress-bar-section ul.progress-bar {
-  margin: 0;
-  padding: 0 3%;
+  padding: 3% 8%;
 }
 
-section.progress-bar-section ul.progress-bar li {
+section.progress-bar-section ul.progress-bar p {
+  display: none;
+}
+
+section.progress-bar-section ul.progress-bar li.dots:first-child p.title {
+  background-color: var(--third-color);
+}
+
+section.progress-bar-section ul.progress-bar li.dots div.outer-circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #bbbbbb;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section.progress-bar-section
+  ul.progress-bar
+  li.dots:first-child
+  div.outer-circle {
+  background-color: var(--third-color);
+}
+
+section.progress-bar-section
+  ul.progress-bar
+  li.dots
+  div.outer-circle
+  div.inner-circle {
+  position: relative;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+section.progress-bar-section
+  ul.progress-bar
+  li.dots
+  div.outer-circle
+  div.inner-circle
+  div.line {
+  position: absolute;
+  border: 1px solid #bbbbbb;
+  width: 61px;
+  z-index: -20;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* -----------------------shopping-cart-section---------------------- */
+
+section.shopping-cart-section div.container {
+  padding: 1rem 1rem;
+}
+
+section.shopping-cart-section h2.title {
+  display: none;
+}
+
+section.shopping-cart-section div.shopping-cart {
   position: relative;
 }
 
-section.progress-bar-section ul.progress-bar li::before {
+section.shopping-cart-section div.shopping-cart h2.text {
+  font-size: 1.3rem;
+  color: var(--sixth-color);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+section.shopping-cart-section div.itemBox {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #f4f4f4;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+}
+
+section.shopping-cart-section div.left {
+  flex: 1 1 50%;
+}
+
+section.shopping-cart-section div.left-1-1 {
+  width: 70px;
+  height: 70px;
+  margin-right: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+section.shopping-cart-section div.left-1-1 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
+  vertical-align: middle;
+}
+
+section.shopping-cart-section div.left div.picture {
+  width: 90px;
+}
+
+section.shopping-cart-section div.left-1-2 {
+  width: 200px;
+}
+
+section.shopping-cart-section div.left-1-2 p.title {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--sixth-color);
+}
+
+section.shopping-cart-section div.left-1-2 p.text {
+  color: var(--third-color);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+section.shopping-cart-section div.left-2 p.num {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0 0.5rem;
+  vertical-align: middle;
+}
+
+section.shopping-cart-section div.left-2 p.minus,
+section.shopping-cart-section div.left-2 p.add {
   display: inline-block;
   width: 1.5rem;
   height: 1.5rem;
-  background-color: rgb(77, 185, 148);
   border-radius: 50%;
-  content: "●";
+  background-color: var(--third-color);
   color: white;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding-top: 0.16rem;
   text-align: center;
-  margin: 0px 10px 25px 0px;
+  cursor: pointer;
 }
 
-section.progress-bar-section ul.progress-bar li::after {
+p.minus:active,
+p.add:active {
+  transform: scale(0.9);
+}
+
+section.shopping-cart-section div.left-2 svg {
+  display: inline-block;
+  fill: white;
+  width: 1rem;
+  height: 1rem;
+}
+
+section.shopping-cart-section div.left-3 {
+  width: 113px;
+  text-align: right;
+}
+
+section.shopping-cart-section div.left-3 span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--sixth-color);
+}
+
+section.shopping-cart-section div.right {
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: auto;
+  padding-top: 0.3rem;
+}
+
+section.shopping-cart-section div.right:active {
+  transform: scale(0.9);
+}
+
+section.shopping-cart-section div.right svg {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--third-color);
+}
+
+section.shopping-cart-section div.total {
+  width: 90%;
+  text-align: right;
+  padding: 5rem 0 2rem 0;
+  border-bottom: 1.5px solid var(--sixth-color);
+}
+
+section.shopping-cart-section div.total p.text {
+  display: inline-block;
+  margin-left: 2rem;
+  font-size: 1.2rem;
+  color: var(--sixth-color);
+  font-weight: 500;
+}
+
+section.shopping-cart-section div.checkout-cta {
+  width: fit-content;
+  padding-top: 2rem;
   position: absolute;
-  content: "";
-  top: -30px;
-  left: 0.7rem;
-  z-index: -1;
-  height: 110%;
-  border-left: 1px solid #4db994;
-  padding-left: 20px;
+  left: 74%;
 }
 
-section.progress-bar-section ul.progress-bar li:first-child::after {
-  border-left: none;
+section.shopping-cart-section div.checkout-cta:active {
+  transform: scale(0.9);
+}
+
+section.shopping-cart-section div.checkout-cta p.text {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 400;
+  background-color: var(--primary-color);
+  border-radius: 0.4rem;
+  padding: 0.7rem 1.5rem;
+  color: white;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 /* ----------------------footer-section-mobile----------------------- */
@@ -520,8 +747,9 @@ section.fixed-section svg.icon-cart {
     padding: 1rem 2rem;
   }
 
-  div.module-navbar div.navbar-left svg.icon-nomad-logo {
-    width: 6rem;
+  div.module-navbar div.navbar-left {
+    width: 120px;
+    height: 50px;
   }
 
   div.module-navbar div.navbar-right {
@@ -622,6 +850,309 @@ section.fixed-section svg.icon-cart {
 
   div.module-navbar div.hamburger {
     display: none;
+  }
+
+  /* ----------------------hero-section------------------------------- */
+
+  section.hero-section {
+    margin-top: -86px;
+  }
+
+  section.hero-section div.hero-section-image {
+    background-image: url(../images/武陵四秀_1.jpg);
+    position: relative;
+    height: 250px;
+    width: 100%;
+    background-position: 30% 80%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  section.hero-section div.hero-section-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  /* ----------------------progress-bar-section----------------------- */
+
+  section.progress-bar-section ul.progress-bar {
+    padding: 3% 15%;
+  }
+
+  section.progress-bar-section ul.progress-bar p.title {
+    position: relative;
+    padding: 1rem 1.7rem;
+    background-color: #bbbbbb;
+    border-radius: 0.8rem;
+    color: white;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 1.8rem;
+  }
+
+  section.progress-bar-section ul.progress-bar li.dots:first-child p.title {
+    background-color: var(--third-color);
+  }
+
+  section.progress-bar-section ul.progress-bar p.title svg.icon-play {
+    position: absolute;
+    top: 41px;
+    left: 50%;
+    transform: translate(-50%) rotate(90deg);
+    fill: #bbbbbb;
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots:first-child
+    svg.icon-play {
+    fill: var(--third-color);
+  }
+
+  section.progress-bar-section ul.progress-bar li.dots div.outer-circle {
+    width: 3rem;
+    height: 3rem;
+    background-color: #bbbbbb;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots:first-child
+    div.outer-circle {
+    background-color: var(--third-color);
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots
+    div.outer-circle
+    div.inner-circle {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 auto;
+    line-height: 24px;
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots
+    div.outer-circle
+    div.inner-circle
+    div.line {
+    position: absolute;
+    border: 1px solid #bbbbbb;
+    width: 265px;
+    z-index: -20;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots:nth-child(2)
+    div.outer-circle
+    div.inner-circle
+    div.line {
+    width: 330px;
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots:nth-child(3)
+    div.outer-circle
+    div.inner-circle
+    div.line {
+    width: 310px;
+  }
+
+  /* -----------------------shopping-cart-section---------------------- */
+
+  section.shopping-cart-section div.container {
+    padding: 1rem 25%;
+  }
+
+  section.shopping-cart-section h2.title {
+    margin: 0 auto;
+    font-size: 2rem;
+    color: var(--sixth-color);
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  section.shopping-cart-section div.shopping-cart {
+    position: relative;
+    padding: 2rem 2rem 7.5rem 2rem;
+    background-color: #f4f4f4;
+    border-radius: 1rem;
+  }
+
+  section.shopping-cart-section div.shopping-cart h2.text {
+    margin: 0 auto;
+    font-size: 1.5rem;
+    color: var(--sixth-color);
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  section.shopping-cart-section div.itemBox {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  section.shopping-cart-section div.left {
+    flex: 0 1 90%;
+    background-color: white;
+    border-radius: 0.6rem;
+    padding: 1rem;
+  }
+
+  section.shopping-cart-section div.left-1-1 {
+    width: 100px;
+    height: 100px;
+    margin-right: 1rem;
+  }
+
+  section.shopping-cart-section div.left-1-1 img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.3rem;
+    vertical-align: middle;
+  }
+
+  section.shopping-cart-section div.left div.picture {
+    width: 180px;
+  }
+
+  section.shopping-cart-section div.left-1-2 p.title {
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    width: 340px;
+    color: var(--sixth-color);
+  }
+
+  section.shopping-cart-section div.left-1-2 p.date {
+    width: 250px;
+  }
+
+  section.shopping-cart-section div.left-1-2 p.text {
+    color: var(--fifth-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  section.shopping-cart-section div.left-2 p.num {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0 1rem;
+    vertical-align: middle;
+  }
+
+  section.shopping-cart-section div.left-2 p.minus,
+  section.shopping-cart-section div.left-2 p.add {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--third-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding-top: 0.28rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  p.minus:active,
+  p.add:active {
+    transform: scale(0.9);
+  }
+
+  section.shopping-cart-section div.left-2 svg {
+    display: inline-block;
+    fill: white;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  section.shopping-cart-section div.left-3 {
+    width: 113px;
+    text-align: right;
+  }
+
+  section.shopping-cart-section div.left-3 span {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--sixth-color);
+  }
+
+  section.shopping-cart-section div.right {
+    flex: 0 1 10%;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  section.shopping-cart-section div.right:active {
+    transform: scale(0.9);
+  }
+
+  section.shopping-cart-section div.right svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--third-color);
+  }
+
+  section.shopping-cart-section div.total {
+    width: 90%;
+    text-align: right;
+    padding: 5rem 0 2rem 0;
+    border-bottom: 1.5px solid var(--sixth-color);
+  }
+
+  section.shopping-cart-section div.total p.text {
+    display: inline-block;
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    color: var(--sixth-color);
+    font-weight: 500;
+  }
+
+  section.shopping-cart-section div.checkout-cta {
+    width: fit-content;
+    padding-top: 2rem;
+    position: absolute;
+    left: 74%;
+  }
+
+  section.shopping-cart-section div.checkout-cta:active {
+    transform: scale(0.9);
+  }
+
+  section.shopping-cart-section div.checkout-cta p.text {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 400;
+    background-color: var(--primary-color);
+    border-radius: 0.4rem;
+    padding: 0.7rem 1.5rem;
+    color: white;
+    letter-spacing: 1px;
+    cursor: pointer;
   }
 
   /* --------------------------footer-section-desktop--------------------- */
