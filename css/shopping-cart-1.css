@@ -4,7 +4,7 @@
 /* 色票設定 */
 :root {
   --primary-color: #f0a500;
-  --secondary-color: #cf7500f3;
+  --secondary-color: #cf7500;
   --third-color: #424642;
   --fourth-color: #123132;
   --fifth-color: #9a9a9a;
@@ -79,29 +79,17 @@ ul {
 }
 
 /* 上下左右margin class設定 */
-.mt-1 {
-  margin-top: 1rem;
+.mt-3 {
+  margin-top: 3rem !important;
 }
-.mt-2 {
-  margin-top: 2rem;
+.mt-4 {
+  margin-top: 4rem !important;
 }
-.mb-1 {
-  margin-bottom: 1rem;
-}
-.mb-2 {
-  margin-bottom: 2rem;
-}
-.ml-1 {
-  margin-left: 1rem;
-}
-.ml-2 {
-  margin-left: 2rem;
-}
-.mr-1 {
-  margin-right: 1rem;
+.ml-5 {
+  margin-left: 5rem !important;
 }
 .mr-2 {
-  margin-right: 2rem;
+  margin-right: 2rem !important;
 }
 
 /* display: none class設定 */
@@ -427,31 +415,6 @@ nav div.signup-btn:hover {
   pointer-events: all;
 }
 
-/* ----------------------hero-section------------------------------- */
-
-section.hero-section {
-  display: none;
-}
-
-section.hero-section div.hero-section-image {
-  background-image: url(../images/武陵四秀_1.jpg);
-  position: relative;
-  height: 250px;
-  width: 100%;
-  background-position: 30% 80%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  z-index: -1;
-}
-
-section.hero-section div.hero-section-modal {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
 /* ----------------------progress-bar-section----------------------- */
 
 section.progress-bar-section ul.progress-bar {
@@ -526,11 +489,19 @@ section.shopping-cart-section div.shopping-cart {
 }
 
 section.shopping-cart-section div.shopping-cart h2.text {
+  display: inline-block;
   font-size: 1.3rem;
   color: var(--sixth-color);
   letter-spacing: 1px;
-  margin-bottom: 1rem;
   font-weight: 400;
+  vertical-align: middle;
+}
+
+section.shopping-cart-section div.shopping-cart span.line {
+  display: inline-block;
+  width: 25px;
+  border: 1px solid #cccccc;
+  vertical-align: middle;
 }
 
 section.shopping-cart-section div.itemBox {
@@ -543,6 +514,10 @@ section.shopping-cart-section div.itemBox {
 
 section.shopping-cart-section div.left {
   flex: 1 1 50%;
+}
+
+section.shopping-cart-section div.left-1 {
+  align-items: flex-start;
 }
 
 section.shopping-cart-section div.left-1-1 {
@@ -567,8 +542,12 @@ section.shopping-cart-section div.left-1-2 {
   width: 200px;
 }
 
+section.shopping-cart-section div.w150 {
+  width: 150px;
+}
+
 section.shopping-cart-section div.left-1-2 p.title {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1rem;
   margin-bottom: 0.5rem;
   color: var(--sixth-color);
@@ -576,7 +555,7 @@ section.shopping-cart-section div.left-1-2 p.title {
 
 section.shopping-cart-section div.left-1-2 p.text {
   color: var(--third-color);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 400;
 }
 
@@ -586,6 +565,10 @@ section.shopping-cart-section div.left-2 p.num {
   font-size: 1rem;
   margin: 0 0.5rem;
   vertical-align: middle;
+}
+
+section.shopping-cart-section div.left-2 {
+  margin-left: 5.5rem;
 }
 
 section.shopping-cart-section div.left-2 p.minus,
@@ -598,9 +581,13 @@ section.shopping-cart-section div.left-2 p.add {
   color: white;
   font-size: 0.9rem;
   font-weight: 400;
-  padding-top: 0.16rem;
+  padding-top: 0.15rem;
   text-align: center;
   cursor: pointer;
+}
+
+section.shopping-cart-section div.left-2 p.minus {
+  background-color: var(--fifth-color);
 }
 
 p.minus:active,
@@ -616,21 +603,20 @@ section.shopping-cart-section div.left-2 svg {
 }
 
 section.shopping-cart-section div.left-3 {
-  width: 113px;
+  width: 115px;
   text-align: right;
 }
 
 section.shopping-cart-section div.left-3 span {
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--sixth-color);
+  color: var(--primary-color);
 }
 
 section.shopping-cart-section div.right {
   text-align: center;
   cursor: pointer;
   margin-bottom: auto;
-  padding-top: 0.3rem;
 }
 
 section.shopping-cart-section div.right:active {
@@ -638,31 +624,35 @@ section.shopping-cart-section div.right:active {
 }
 
 section.shopping-cart-section div.right svg {
-  width: 1rem;
-  height: 1rem;
+  width: 0.8rem;
+  height: 0.8rem;
   fill: var(--third-color);
 }
 
 section.shopping-cart-section div.total {
-  width: 90%;
+  width: 100%;
   text-align: right;
-  padding: 5rem 0 2rem 0;
-  border-bottom: 1.5px solid var(--sixth-color);
+  padding: 5rem 0 1rem 0;
+  border-bottom: 1.5px solid #cccccc;
 }
 
 section.shopping-cart-section div.total p.text {
   display: inline-block;
   margin-left: 2rem;
   font-size: 1.2rem;
-  color: var(--sixth-color);
+  color: var(--primary-color);
   font-weight: 500;
+}
+
+section.shopping-cart-section div.total p.ff-noto {
+  color: var(--sixth-color);
 }
 
 section.shopping-cart-section div.checkout-cta {
   width: fit-content;
   padding-top: 2rem;
   position: absolute;
-  left: 74%;
+  left: 60%;
 }
 
 section.shopping-cart-section div.checkout-cta:active {
@@ -684,20 +674,13 @@ section.shopping-cart-section div.checkout-cta p.text {
 /* ----------------------footer-section-mobile----------------------- */
 
 section.footer-section {
-  margin-top: 10rem;
-  margin-bottom: 3.3rem;
-  background-image: url(../images/component-pic/footer.png);
-  width: 100%;
-  height: 300px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  display: none;
 }
 
 /* ----------------spaceForFixed-mobile------------------------- */
 
 div.spaceForFixed-mobile {
-  height: 54px;
+  height: 160px;
 }
 
 /* ---------------------fixed-section-mobile------------------------- */
@@ -733,7 +716,96 @@ section.fixed-section svg.icon-cart {
   fill: none;
 }
 
+/* -----------------------delete-item-modal---------------------- */
+
+div.delete-item-modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.25s;
+}
+
+div.delete-item-modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+div.delete-item-modal div.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+div.delete-warning-card {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 180px;
+  transform: translate(-50%, -50%);
+  border-radius: 0.7rem;
+  padding: 1.5rem;
+}
+
+div.delete-warning-card svg {
+  text-align: right;
+  width: 1rem;
+  height: 1rem;
+}
+
+div.delete-warning-card p.text {
+  margin: 0 auto;
+  color: var(--sixth-color);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  line-height: 2;
+  text-align: center;
+  font-weight: 500;
+}
+
+div.delete-warning-card div.btns {
+  justify-content: space-around;
+  padding-top: 1.5rem;
+}
+
+div.delete-warning-card div.btns p.cancel-btn {
+  text-align: center;
+  width: 30%;
+  color: white;
+  padding: 0.3rem 1.1rem 0.4rem 1.1rem;
+  background-color: var(--fourth-color);
+  border-radius: 0.4rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+div.delete-warning-card div.btns p.confirm-btn {
+  text-align: center;
+  width: 30%;
+  color: white;
+  padding: 0.3rem 1.1rem 0.4rem 1.1rem;
+  background-color: var(--primary-color);
+  border-radius: 0.4rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+div.delete-warning-card div.btns p.cancel-btn:active,
+div.delete-warning-card div.btns p.confirm-btn:active {
+  transform: scale(0.9);
+}
+
 @media only screen and (min-width: 1420px) {
+  body {
+    background-color: #f4f4f4;
+  }
   /* ---------------------side-navbar-desktop-------------------- */
 
   div.side-navbar {
@@ -743,8 +815,9 @@ section.fixed-section svg.icon-cart {
   /* --------------------Navbar-desktop------------------------ */
 
   div.module-navbar {
-    background-color: transparent;
+    background-color: var(--fourth-color);
     padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.356);
   }
 
   div.module-navbar div.navbar-left {
@@ -852,31 +925,6 @@ section.fixed-section svg.icon-cart {
     display: none;
   }
 
-  /* ----------------------hero-section------------------------------- */
-
-  section.hero-section {
-    margin-top: -86px;
-  }
-
-  section.hero-section div.hero-section-image {
-    background-image: url(../images/武陵四秀_1.jpg);
-    position: relative;
-    height: 250px;
-    width: 100%;
-    background-position: 30% 80%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: -1;
-  }
-
-  section.hero-section div.hero-section-modal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-
   /* ----------------------progress-bar-section----------------------- */
 
   section.progress-bar-section ul.progress-bar {
@@ -884,6 +932,7 @@ section.fixed-section svg.icon-cart {
   }
 
   section.progress-bar-section ul.progress-bar p.title {
+    display: block;
     position: relative;
     padding: 1rem 1.7rem;
     background-color: #bbbbbb;
@@ -995,17 +1044,33 @@ section.fixed-section svg.icon-cart {
   section.shopping-cart-section div.shopping-cart {
     position: relative;
     padding: 2rem 2rem 7.5rem 2rem;
-    background-color: #f4f4f4;
+    background-color: white;
     border-radius: 1rem;
   }
 
-  section.shopping-cart-section div.shopping-cart h2.text {
-    margin: 0 auto;
+  section.shopping-cart-section div.align {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  section.shopping-cart-section div.align span.line {
+    width: 45.5%;
+    vertical-align: middle;
+  }
+
+  section.shopping-cart-section div.align span.line2 {
+    display: inline-block;
+    vertical-align: middle;
+    width: 45.5%;
+    border: 1px solid #cccccc;
+  }
+
+  section.shopping-cart-section div.shopping-cart div.align h2.text {
     font-size: 1.5rem;
     color: var(--sixth-color);
     letter-spacing: 1px;
     text-align: center;
-    margin-bottom: 1rem;
+    margin: 0 0.6rem;
   }
 
   section.shopping-cart-section div.itemBox {
@@ -1015,7 +1080,6 @@ section.fixed-section svg.icon-cart {
 
   section.shopping-cart-section div.left {
     flex: 0 1 90%;
-    background-color: white;
     border-radius: 0.6rem;
     padding: 1rem;
   }
@@ -1091,20 +1155,21 @@ section.fixed-section svg.icon-cart {
   }
 
   section.shopping-cart-section div.left-3 {
-    width: 113px;
+    width: 115px;
     text-align: right;
   }
 
   section.shopping-cart-section div.left-3 span {
     font-size: 1.2rem;
     font-weight: 500;
-    color: var(--sixth-color);
+    color: var(--primary-color);
   }
 
   section.shopping-cart-section div.right {
     flex: 0 1 10%;
     text-align: center;
     cursor: pointer;
+    margin: auto 0;
   }
 
   section.shopping-cart-section div.right:active {
@@ -1118,25 +1183,29 @@ section.fixed-section svg.icon-cart {
   }
 
   section.shopping-cart-section div.total {
-    width: 90%;
+    width: 100%;
     text-align: right;
     padding: 5rem 0 2rem 0;
-    border-bottom: 1.5px solid var(--sixth-color);
+    border-bottom: 1.5px solid #cccccc;
   }
 
   section.shopping-cart-section div.total p.text {
     display: inline-block;
     margin-left: 2rem;
-    font-size: 1.2rem;
-    color: var(--sixth-color);
+    font-size: 1.5rem;
+    color: var(--primary-color);
     font-weight: 500;
+  }
+
+  section.shopping-cart-section div.total p.ff-noto {
+    color: var(--sixth-color);
   }
 
   section.shopping-cart-section div.checkout-cta {
     width: fit-content;
     padding-top: 2rem;
     position: absolute;
-    left: 74%;
+    left: 83%;
   }
 
   section.shopping-cart-section div.checkout-cta:active {
@@ -1149,10 +1218,75 @@ section.fixed-section svg.icon-cart {
     font-weight: 400;
     background-color: var(--primary-color);
     border-radius: 0.4rem;
-    padding: 0.7rem 1.5rem;
+    padding: 0.8rem 2rem;
     color: white;
     letter-spacing: 1px;
     cursor: pointer;
+  }
+
+  /* --------------------------delete-item-modal-------------------------- */
+
+  div.delete-warning-card {
+    width: 400px;
+    height: 250px;
+    padding: 1.5rem;
+  }
+
+  div.delete-warning-card svg {
+    display: inline-block;
+    margin: 0;
+    margin-left: auto;
+    width: 1.3rem;
+    height: 1.3rem;
+    fill: var(--sixth-color);
+    cursor: pointer;
+  }
+
+  div.delete-warning-card svg:active {
+    transform: scale(0.9);
+  }
+
+  div.delete-warning-card div.flex {
+    margin-bottom: 1rem;
+  }
+
+  div.delete-warning-card p.text {
+    margin: 0 auto;
+    color: var(--sixth-color);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    line-height: 2;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  div.delete-warning-card div.btns {
+    justify-content: space-around;
+    padding-top: 1.5rem;
+  }
+
+  div.delete-warning-card div.btns p.cancel-btn {
+    text-align: center;
+    width: 30%;
+    color: white;
+    padding: 0.5rem 1.5rem 0.6rem 1.5rem;
+    background-color: var(--fourth-color);
+    border-radius: 0.4rem;
+    margin: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  div.delete-warning-card div.btns p.confirm-btn {
+    text-align: center;
+    width: 30%;
+    color: white;
+    padding: 0.5rem 1.5rem 0.6rem 1.5rem;
+    background-color: var(--primary-color);
+    border-radius: 0.4rem;
+    margin: 0;
+    cursor: pointer;
+    font-size: 1.2rem;
   }
 
   /* --------------------------footer-section-desktop--------------------- */

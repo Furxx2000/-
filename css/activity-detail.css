@@ -4,7 +4,7 @@
 /* 色票設定 */
 :root {
   --primary-color: #f0a500;
-  --secondary-color: #cf7500f3;
+  --secondary-color: #cf7500;
   --third-color: #424642;
   --fourth-color: #123132;
   --fifth-color: #9a9a9a;
@@ -230,7 +230,7 @@ div.module-navbar {
 }
 
 div.module-navbar div.navbar-left {
-  width: 80%;
+  width: 80px;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -798,8 +798,9 @@ section.other-activity-section div.carousel div.carousel-cell span {
 }
 
 section.other-activity-section div.carousel div.carousel-cell span.price {
+  font-size: 1.2rem;
   display: inline-block;
-  font-weight: 800;
+  font-weight: 600;
 }
 /* ---------------------comment-section-mobile----------------------- */
 
@@ -1082,6 +1083,10 @@ section.fixed-section div.fixed-functions p.btn {
   color: var(--sixth-color);
   padding: 1rem;
   border-radius: 8px;
+  background-color: #ffc23d;
+}
+
+section.fixed-section div#buyNowBtn p {
   background-color: var(--primary-color);
 }
 
@@ -1937,10 +1942,11 @@ section.buy-now-section div.sign-up-cta {
   }
 
   section.buy-now-section div.buy-btns div.sign-up-cta {
-    color: white;
+    color: var(--sixth-color);
   }
 
   section.buy-now-section div.buy-btns div.none {
     display: block;
+    background-color: #ffc23d;
   }
 }
