@@ -87,46 +87,46 @@
         <div class="container">
             <h2 class="title ff-noto">訂購人/收貨人資訊</h2>
             <div class="orderer-info-form">
-                <form action="" method="post">
+                <form action="./shopping-cart-4.php" method="post">
                     <h4 class="text ff-noto">訂購人資訊</h4>
                     <ul class="form-items">
                         <li class="box flex">
-                            <p class="text ff-noto">姓名</p> 
-                            <input class="ff-noto" type="text" name="name" pattern="" required>
+                            <label id="name" for="name" class="text ff-noto">姓名</label> 
+                            <input class="ff-noto" type="text" name="name" required>
                         </li>
                         <li class="box flex">
-                            <p class="text ff-noto">電子信箱</p>
-                            <input class="ff-airbnb" type="email" name="email" pattern="" required>
+                            <label id="email" for="email" class="text ff-noto">電子信箱</label>
+                            <input class="ff-airbnb" type="email" name="email" required>
                         </li>
                         <li class="box flex">
-                            <p class="text ff-noto">連絡電話</p>
-                            <input class="ff-airbnb" type="tel" name="tel" pattern="" required>
+                            <label id="phone-number" for="phone-number" class="text ff-noto">連絡電話</label>
+                            <input class="ff-airbnb" type="tel" name="tel" required>
                         </li>
                         <li class="box flex">
-                            <p class="text ff-noto">聯絡地址</p>
-                            <input class="ff-noto" type="text" name="address" pattern="" required>
+                            <label id="address" for="address" class="text ff-noto">聯絡地址</label>
+                            <input class="ff-noto" type="text" name="address" required>
                         </li>
                         <li class="box flex checkbox">
-                            <h4 class="text ff-noto">收貨人資訊</h4>
+                            <label class="text ff-noto">收貨人資訊</label>
                             <input class="checkbox" type="checkbox" name="info-same" value="html-orderer-info"><span class="text ff-noto none"> 收件資料與訂購人相同請打勾</span>
                             <span class="text ff-noto">同訂購人資料請打勾</span>
                         </li>
                     
                         <li class="box flex">
-                            <p class="text ff-noto">姓名</p>
-                            <input class="ff-noto" type="text" name="name" pattern="" required>
+                            <label id="name" for="name" class="text ff-noto">姓名</label> 
+                            <input class="ff-noto" type="text" name="name" required>
                         </li>
                         <li class="box flex">
-                            <p class="text ff-noto">電子信箱</p>
-                            <input class="ff-airbnb" type="email" name="email" pattern="" required>
+                            <label id="email" for="email" class="text ff-noto">電子信箱</label>
+                            <input class="ff-airbnb" type="email" name="email" required>
                         </li>
                         <li class="box flex">
-                            <p class="text ff-noto">連絡電話</p>
-                            <input class="ff-airbnb" type="tel" name="tel" pattern="" required>
+                            <label id="phone-number" for="phone-number" class="text ff-noto">連絡電話</label>
+                            <input class="ff-airbnb" type="tel" name="tel" required>
                         </li>
                         <li class="box flex">
-                            <p class="text ff-noto">聯絡地址</p>
-                            <input class="ff-noto" type="text" name="address" pattern="" required>
+                            <label id="address" for="address" class="text ff-noto">聯絡地址</label>
+                            <input class="ff-noto" type="text" name="address" required>
                         </li>
                         <li class="btns flex">
                             <a href="./shopping-cart-2.php">   
@@ -170,16 +170,7 @@
     <script>
         const delItemModal = document.querySelector('.delete-item-modal');
         const delItemBtns = document.querySelectorAll('.icon-cross');
-        const cancelBtn = document.querySelector('.cancel-btn');
         const exitDelPage = document.querySelector('.delete-item-modal .icon-cross');
-
-
-        delItemBtns.forEach(delItemBtn => {
-                delItemBtn.addEventListener('click', () => {
-                delItemModal.classList.add('open');
-            });
-        });
-        
 
         cancelBtn.addEventListener('click', () => {
             delItemModal.classList.remove('open');

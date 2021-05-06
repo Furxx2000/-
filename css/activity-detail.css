@@ -586,6 +586,12 @@ section.mountain-intro-section
   cursor: pointer;
 }
 
+section.mountain-intro-section
+  div.mountain-intro-container
+  div.mountain-intro-cta:active {
+  transform: scale(0.9);
+}
+
 /* ---------------------activity-intro-section-mobile---------------------- */
 
 section.activity-intro-section {
@@ -641,6 +647,12 @@ section.activity-intro-section
   font-weight: 500;
   cursor: pointer;
 }
+section.activity-intro-section
+  div.activity-daily-intro
+  div.right-bottom
+  p.text:active {
+  transform: scale(0.95);
+}
 
 section.activity-intro-section
   div.activity-daily-intro
@@ -684,10 +696,15 @@ section.guide-intro-section div.guides p.text {
   height: 4rem;
   border-radius: 50%;
   text-align: center;
-  padding: 1.3rem 0;
+  padding: 1.3rem 0 1.4rem 0.2rem;
   font-size: 1.2rem;
   letter-spacing: 2px;
   cursor: pointer;
+}
+
+section.guide-intro-section div.guides p.text:active {
+  transform: scale(0.95);
+  border: 1.5px solid var(--third-color);
 }
 
 section.guide-intro-section div.guides p.second {
@@ -878,6 +895,10 @@ section.comment-section div.comment-section-cta {
   border-radius: 0.3rem;
 }
 
+section.comment-section div.comment-section-cta:active {
+  transform: scale(0.95);
+}
+
 /* ----------------------warning-section-mobile---------------------- */
 
 section.warning-section {
@@ -905,7 +926,12 @@ section.warning-section div.links div.link {
   margin-bottom: 3rem;
   padding-bottom: 1rem;
   border-bottom: 1.5px solid var(--seventh-color);
+  border-radius: 0.3rem;
   cursor: pointer;
+}
+
+section.warning-section div.links div.link:active {
+  background-color: #f4f4f4;
 }
 
 section.warning-section div.links div.link p.text {
@@ -1068,10 +1094,6 @@ section.fixed-functions {
   vertical-align: middle;
 }
 
-section.fixed-section div#buyNowBtn {
-  cursor: pointer;
-}
-
 section.fixed-section div.fixed-functions span {
   font-size: 1.2rem;
   font-weight: 500;
@@ -1084,6 +1106,11 @@ section.fixed-section div.fixed-functions p.btn {
   padding: 1rem;
   border-radius: 8px;
   background-color: #ffc23d;
+  cursor: pointer;
+}
+
+section.fixed-section div.fixed-functions p.btn:active {
+  transform: scale(0.9);
 }
 
 section.fixed-section div#buyNowBtn p {
@@ -1165,8 +1192,12 @@ section.buy-now-section div.select-box p.text {
   font-size: 1.1rem;
 }
 
+section.buy-now-section div.buy-btns a {
+  width: fit-content;
+  margin: 0 auto;
+}
+
 section.buy-now-section div.sign-up-cta {
-  width: 40%;
   text-align: center;
   margin: 0 auto;
   padding: 1rem 1.5rem;
@@ -1174,6 +1205,10 @@ section.buy-now-section div.sign-up-cta {
   border-radius: 0.5rem;
   color: var(--sixth-color);
   font-weight: 500;
+}
+
+section.buy-now-section div.sign-up-cta:active {
+  transform: scale(0.9);
 }
 
 @media only screen and (min-width: 1420px) {

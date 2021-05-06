@@ -13,7 +13,7 @@
 <body>
     <?php include __DIR__ . '/parts-php/html-navbar.php'; ?>
     
-    <section class="progress-bar-section">
+    <section class="progress-bar-section hero-section">
         <div class="container">
             <ul class="progress-bar flex">
                 <li class="dots">
@@ -143,29 +143,29 @@
             <form id="card-form" class="card-form" action="" method="post">
                 <ul>
                     <li class="box flex">
-                        <p class="text ff-noto">持卡人姓名</p> 
-                        <input class="ff-noto" type="text" name="name" pattern="" required>
+                        <label id="cname" for="cname" class="text ff-noto" >持卡人姓名</label> 
+                        <input class="ff-noto" type="text" name="name" required>
                     </li>
                     <li class="box flex">
-                        <p class="text ff-noto">信用卡卡號</p>
-                        <input class="ff-airbnb" type="text" name="card-number" pattern="" required>
+                        <label id="cnumber" class="text ff-noto" for="cnumber">信用卡卡號</label>
+                        <input class="ff-airbnb" type="text" name="card-number" required>
                     </li>
                     <li class="box flex">
-                        <p class="text ff-noto">信用卡有效年月</p>
-                        <input class="ff-airbnb" type="date" name="expire-date" pattern="" required>
+                        <label id='cdate' class="text ff-noto" for="cdate">信用卡有效年月</label>
+                        <input class="ff-airbnb" type="date" name="expire-date" required>
                     </li>
                     <li class="box flex">
-                        <p class="text ff-noto">CCV</p>
-                        <input class="ff-airbnb" type="text" name="CVV" pattern="" required>
+                        <label id="ccv" class="text ff-noto" for="ccv">CCV</label>
+                        <input class="ff-airbnb" type="text" name="CVV" required>
                     </li>
 
                     <li class="btns flex">
                         <a href="./shopping-cart-3.php">   
                             <div class="backward-btn ff-noto">上一步</div>
                         </a>
-                        <a href="">
+           
                             <input type="submit" name="credit-card-info" value="結帳" class="forward-btn ff-noto">
-                        </a>
+                    
                     </li>
                 </ul> 
             </form> 
@@ -181,11 +181,14 @@
                         <use xlink:href="./icomoon/symbol-defs.svg#icon-cross"></use>
                     </svg>
                 </div>
-                <p class="text ff-noto">刪除後的商品將無法復原<br>確認刪除嗎?</p>
-                <div class="btns flex">
-                    <p class="cancel-btn ff-noto">取消</p>
-                    <p class="confirm-btn ff-noto">確認</p>
-                </div>
+                <p class="text ff-noto">
+                    正在進行付款......<br>
+                    請勿關閉視窗
+                    <svg class="icon-warning-rounded svg">
+                        <use xlink:href="./icomoon/symbol-defs.svg#icon-warning-rounded"></use>
+                    </svg>
+                </p>
+             
             </div>
         </div>
     </div>
@@ -200,31 +203,31 @@
     
     <script>
         const delItemModal = document.querySelector('.delete-item-modal');
-        const delItemBtns = document.querySelectorAll('.icon-cross');
-        const cancelBtn = document.querySelector('.cancel-btn');
+        const checkOut = document.querySelector('#card-form .forward-btn');
         const exitDelPage = document.querySelector('.delete-item-modal .icon-cross');
+        const delCard = document.querySelector('.delete-warning-card');
 
 
-        delItemBtns.forEach(delItemBtn => {
-                delItemBtn.addEventListener('click', () => {
-                delItemModal.classList.add('open');
-            });
-        });
         
-
-        cancelBtn.addEventListener('click', () => {
-            delItemModal.classList.remove('open');
+        checkOut.addEventListener('click', () => {
+            delItemModal.classList.add('open');
+            delCard.classList.add('open');
         });
 
         exitDelPage.addEventListener('click', () => {
             delItemModal.classList.remove('open');
-        })
+            delCard.classList.remove('open');
+        });
+
+        delItemModal.addEventListener("click", (e) => {
+          if (e.target.classList.contains('.delete-item-modal')){
+              delItemModal.classList.remove('open');
+              delCard.classList.remove('open');
+          }
+        });
 
     </script>
 
-    <script>
-        
 
-    </script>
 
     <?php include __DIR__ . '/parts-php/html-endingTag.php'; ?>

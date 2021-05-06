@@ -474,7 +474,7 @@ section.progress-bar-section
   transform: translateY(-50%);
 }
 
-/* -----------------------shopping-cart-section---------------------- */
+/* -----------------------shopping-cart-section-mobile--------------------- */
 
 section.shopping-cart-section div.container {
   padding: 1rem 1rem;
@@ -1026,7 +1026,7 @@ div.delete-warning-card div.btns p.confirm-btn:active {
     width: 310px;
   }
 
-  /* -----------------------shopping-cart-section---------------------- */
+  /* -----------------------shopping-cart-section-desktop--------------------- */
 
   section.shopping-cart-section div.container {
     padding: 1rem 25%;
