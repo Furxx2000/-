@@ -129,7 +129,7 @@
                             <div class="leftBox">
                                 <p class="text ff-noto">出發日期 2021/04/02</p>
                             </div>
-                            <a href="#">
+                            <a href="./activity-detail.php">
                                 <div class="activity-section-cta ff-noto">
                                     查看行程
                                 </div>
@@ -209,7 +209,7 @@
                             <div class="leftBox">
                                 <p class="text ff-noto">出發日期 2021/04/02</p>
                             </div>
-                            <a href="#">
+                            <a href="./activity-detail.php">
                                 <div class="activity-section-cta ff-noto">
                                     查看行程
                                 </div>
@@ -289,7 +289,7 @@
                             <div class="leftBox">
                                 <p class="text ff-noto">出發日期 2021/04/02</p>
                             </div>
-                            <a href="#">
+                            <a href="./activity-detail.php">
                                 <div class="activity-section-cta ff-noto">
                                     查看行程
                                 </div>
@@ -369,7 +369,7 @@
                             <div class="leftBox">
                                 <p class="text ff-noto">出發日期 2021/04/02</p>
                             </div>
-                            <a href="#">
+                            <a href="./activity-detail.php">
                                 <div class="activity-section-cta ff-noto">
                                     查看行程
                                 </div>

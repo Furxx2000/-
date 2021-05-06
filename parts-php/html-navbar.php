@@ -45,7 +45,7 @@
                             <p class="text ff-noto">成就紀錄</p>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="./activity-list.php">
                         <div class="navbar-item">
                             <img src="./images/navbar-icon/schedule.svg" alt="" />
                             <p class="text ff-noto">行程</p>
@@ -71,12 +71,12 @@
 <div class="module-navbar">
     <div class="homepage-container flex">
         <div class="navbar-left">
-            <a href="#">
+            <a href="./nomadHomePage.php">
                 <img src="./icomoon/svg/icon-nomad-logo-white.svg" alt="">
             </a>
         </div>
         <div class="navbar-right flex">
-            <a href="#">
+            <a href="./shopping-cart-1.php">
                 <div class="cart mr-1 none">
                     <svg class="icon-cart svg">
                         <use xlink:href="./icomoon/symbol-defs.svg#icon-cart"></use>
@@ -150,7 +150,7 @@
                             </svg>
                         </li>
                     </a>
-                    <a href="">
+                    <a href="./activity-list.php">
                         <li class="nav-item flex">
                             <p class="ff-noto">行程</p>
                             <svg class="icon-arrow-forward svg">

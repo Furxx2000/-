@@ -1,6 +1,6 @@
 <section class="fixed-section">
     <div class="homepage-container flex">
-        <a href="#">
+        <a href="./nomadHomePage.php">
             <div class="fixed-functions">
                 <svg class="icon-homepage svg">
                     <use xlink:href="./icomoon/symbol-defs.svg#icon-homepage"></use>
@@ -16,7 +16,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="./shopping-cart-1.php">
             <div class="fixed-functions">
                 <svg class="icon-cart svg">
                     <use xlink:href="./icomoon/symbol-defs.svg#icon-cart"></use>

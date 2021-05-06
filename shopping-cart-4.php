@@ -140,7 +140,7 @@
                 <p class="text ff-airbnb mastercard">Master Card</p>
             </div>
 
-            <form id="card-form" class="card-form" action="" method="post">
+            <form id="card-form" class="card-form" action="./shopping-cart-5.php" method="post">
                 <ul>
                     <li class="box flex">
                         <label id="cname" for="cname" class="text ff-noto" >持卡人姓名</label> 
@@ -160,12 +160,12 @@
                     </li>
 
                     <li class="btns flex">
-                        <a href="./shopping-cart-3.php">   
+                        <a href="./shopping-cart-3-1.php">   
                             <div class="backward-btn ff-noto">上一步</div>
                         </a>
-           
+  
                             <input type="submit" name="credit-card-info" value="結帳" class="forward-btn ff-noto">
-                    
+          
                     </li>
                 </ul> 
             </form> 

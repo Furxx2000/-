@@ -221,7 +221,7 @@ div.module-navbar {
 }
 
 div.module-navbar div.navbar-left {
-  width: 80%;
+  width: 80px;
   height: 50px;
   display: flex;
   justify-content: center;

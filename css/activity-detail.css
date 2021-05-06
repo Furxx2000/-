@@ -589,7 +589,7 @@ section.mountain-intro-section
 section.mountain-intro-section
   div.mountain-intro-container
   div.mountain-intro-cta:active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 /* ---------------------activity-intro-section-mobile---------------------- */
@@ -1110,7 +1110,7 @@ section.fixed-section div.fixed-functions p.btn {
 }
 
 section.fixed-section div.fixed-functions p.btn:active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 section.fixed-section div#buyNowBtn p {
@@ -1205,10 +1205,11 @@ section.buy-now-section div.sign-up-cta {
   border-radius: 0.5rem;
   color: var(--sixth-color);
   font-weight: 500;
+  cursor: pointer;
 }
 
 section.buy-now-section div.sign-up-cta:active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 @media only screen and (min-width: 1420px) {

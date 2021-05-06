@@ -10,11 +10,11 @@
         </div>
 
 
-
-            <div class="fixed-functions">
-                <p class="text btn ff-noto">加入購物車</p>
-            </div>
-
+            <a href="./shopping-cart-1.php">
+                <div class="fixed-functions">
+                    <p class="text btn ff-noto">加入購物車</p>
+                </div>
+            </a>
     </div>
 
 
@@ -87,10 +87,12 @@
             </div>
 
             <div class="buy-btns flex">
-                <a href="">
+                <a href=""></a>
                     <div class="sign-up-cta ff-noto">立即報名</div>
                 </a>
-                <div class="sign-up-cta ff-noto none">加入購物車</div>
+                <a href="./shopping-cart-1.php">
+                    <div class="sign-up-cta ff-noto none">加入購物車</div>
+                </a>
             </div>
 
         </div>

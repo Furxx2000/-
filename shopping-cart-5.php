@@ -279,38 +279,40 @@
             <div class="info-box">
                 <h4 class="title ff-noto">訂購人資訊</h4>
                 <div class="flex">
-                    <p class="txet ff-noto">姓名</p>
+                    <p class="text ff-noto">姓名</p>
                     <p class="txet ff-noto">Diana</p>
                 </div>
                 <div class="flex">
-                    <p class="txet ff-noto">連絡電話</p>
+                    <p class="text ff-noto">連絡電話</p>
                     <p class="txet ff-noto">0913555444</p>
                 </div>
                 <div class="flex">
-                    <p class="txet ff-noto">E-mail</p>
-                    <p class="txet ff-noto">Diana0112@gmail.com</p>
+                    <p class="text ff-noto">E-mail</p>
+                    <p class="text ff-noto">Diana0112@gmail.com</p>
                 </div>
             </div>
 
             <div class="info-box">
                 <h4 class="title ff-noto">收貨人資訊</h4>
                 <div class="flex">
-                    <p class="txet ff-noto">姓名</p>
-                    <p class="txet ff-noto">Steph</p>
+                    <p class="text ff-noto">姓名</p>
+                    <p class="text ff-noto">Steph</p>
                 </div>
                 <div class="flex">
-                    <p class="txet ff-noto">連絡電話</p>
-                    <p class="txet ff-noto">0951222464</p>
+                    <p class="text ff-noto">連絡電話</p>
+                    <p class="text ff-noto">0951222464</p>
                 </div>
                 <div class="flex">
-                    <p class="txet ff-noto">E-mail</p>
-                    <p class="txet ff-noto">steph0515@gmail.com</p>
+                    <p class="text ff-noto">E-mail</p>
+                    <p class="text ff-noto">steph0515@gmail.com</p>
                 </div>
             </div>
+            <a href="./nomadHomePage.php"><div class="homePage-btn ff-noto">返回首頁</div></a>
         </div>
+        
     </section>
 
-    <div class="homePage-btn ff-noto">返回首頁</div>
+    
 
 
     <?php include __DIR__ . '/parts-php/html-footer.php'; ?>

@@ -425,15 +425,40 @@ section.progress-bar-section ul.progress-bar p {
   display: none;
 }
 
+section.progress-bar-section ul.progress-bar li.dots:first-child p.title {
+  background-color: var(--third-color);
+}
+
 section.progress-bar-section ul.progress-bar li.dots div.outer-circle {
   width: 1.5rem;
   height: 1.5rem;
-  background-color: var(--primary-color);
+  background-color: #bbbbbb;
   border-radius: 50%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+section.progress-bar-section
+  ul.progress-bar
+  li.dots:first-child
+  div.outer-circle {
+  background-color: var(--primary-color);
+}
+
+section.progress-bar-section
+  ul.progress-bar
+  li.dots:nth-child(2)
+  div.outer-circle {
+  background-color: var(--primary-color);
+}
+
+section.progress-bar-section
+  ul.progress-bar
+  li.dots:nth-child(3)
+  div.outer-circle {
+  background-color: var(--third-color);
 }
 
 section.progress-bar-section
@@ -456,194 +481,142 @@ section.progress-bar-section
   div.inner-circle
   div.line {
   position: absolute;
-  border: 1px solid var(--primary-color);
+  border: 1px solid #bbbbbb;
   width: 65px;
   z-index: -20;
   top: 50%;
   transform: translateY(-50%);
 }
 
-/* -----------------------order-complete-section-mobile--------------------- */
-
-section.order-complete-section div.container {
-  text-align: center;
+section.progress-bar-section
+  ul.progress-bar
+  li.dots:nth-child(1)
+  div.outer-circle
+  div.inner-circle
+  div.line {
+  border: 1px solid var(--primary-color);
 }
 
-section.order-complete-section div.circle {
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  width: fit-content;
-  padding: 0.3rem;
-  margin: 0 auto;
+section.progress-bar-section
+  ul.progress-bar
+  li.dots:nth-child(2)
+  div.outer-circle
+  div.inner-circle
+  div.line {
+  border: 1px solid var(--primary-color);
 }
 
-section.order-complete-section div.circle svg.icon-done {
-  fill: white;
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-section.order-complete-section h2.title {
-  color: var(--primary-color);
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  font-weight: 400;
-}
-
-/* -----------------------shopping-cart-section-mobile---------------------- */
-section.shopping-cart-section div.container {
-  padding: 1rem 1rem;
-}
-
-section.shopping-cart-section div.shopping-cart {
-  position: relative;
-}
-
-section.shopping-cart-section div.order-date {
-  text-align: center;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  color: var(--third-color);
-  margin-bottom: 1rem;
-  font-weight: 500;
-}
-
-section.shopping-cart-section div.itemBox {
-  width: 100%;
-  margin-bottom: 1rem;
-  background-color: #f4f4f4;
-  border-radius: 0.4rem;
-  padding: 0.5rem;
-}
-
-section.shopping-cart-section div.left {
-  flex: 1 1 50%;
-}
-
-section.shopping-cart-section div.left-1 {
-  align-items: flex-start;
-}
-
-section.shopping-cart-section div.left-1-1 {
-  width: 70px;
-  height: 70px;
-  margin-right: 1rem;
-  margin-bottom: 0.3rem;
-}
-
-section.shopping-cart-section div.left-1-1 img {
-  width: 100%;
-  height: 100%;
-  border-radius: 0.3rem;
-  vertical-align: middle;
-}
-
-section.shopping-cart-section div.left div.picture {
-  width: 90px;
-}
-
-section.shopping-cart-section div.left-1-2 {
-  width: 200px;
-}
-
-section.shopping-cart-section div.w150 {
-  width: 150px;
-}
-
-section.shopping-cart-section div.left-1-2 p.title {
-  font-weight: 500;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  color: var(--sixth-color);
-}
-
-section.shopping-cart-section div.left-1-2 p.text {
-  color: var(--third-color);
-  font-size: 0.8rem;
-  font-weight: 400;
-}
-
-section.shopping-cart-section div.left-2 p.num {
-  display: inline-block;
-  font-weight: 400;
-  font-size: 1rem;
-  margin: 0 0.5rem;
-  vertical-align: middle;
-}
-
-section.shopping-cart-section div.left-2 {
-  margin-left: auto;
-  text-align: right;
-}
-
-section.shopping-cart-section div.left-3 {
-  width: 115px;
-  text-align: right;
-}
-
-section.shopping-cart-section div.left-3 span {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--third-color);
-}
-
-section.shopping-cart-section div.total {
-  width: 100%;
-  text-align: right;
-  padding: 2rem 0 1rem 0;
-  border-bottom: 1.5px solid #cccccc;
-}
-
-section.shopping-cart-section div.total p.text {
-  display: inline-block;
-  margin-left: 2rem;
-  font-size: 1rem;
-  color: var(--third-color);
-  font-weight: 500;
-}
-
-section.shopping-cart-section div.total p.ff-noto {
-  color: var(--sixth-color);
-}
-
-/* ----------------order-detail-section-mobile------------------------- */
+/* -----------------------order-detail-section-mobile---------------------- */
 
 section.order-detail-section div.container {
-  padding: 0 2rem;
+  padding: 1rem;
 }
 
-section.order-detail-section div.info-box {
-  margin-bottom: 4rem;
-}
-
-section.order-detail-section h4.title {
-  color: var(--sixth-color);
-  font-size: 1.2rem;
-  padding-bottom: 0.8rem;
-  border-bottom: 1.5px solid var(--fifth-color);
-  margin-bottom: 0.5rem;
+section.order-detail-section h2.title {
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 1px;
+  color: var(--sixth-color);
+  margin: 0;
 }
 
-section.order-detail-section p.text {
-  font-size: 0.9rem;
-  font-weight: 300;
+section.order-detail-section div.orderer-info-form {
+  background-color: #f4f4f4;
+  padding: 1.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 0.3rem;
+}
+
+section.order-detail-section div.orderer-info-form h4.text {
+  margin: 0;
+  color: var(--primary-color);
   letter-spacing: 1px;
+  font-weight: 400;
 }
 
-section.order-detail-section div.homePage-btn {
-  margin: 0 auto;
+section.order-detail-section ul.form-items {
+  margin-top: 2rem;
+}
+
+section.order-detail-section ul.form-items li.flex:not(.checkbox, .btns) {
+  display: block;
+}
+
+section.order-detail-section div.box {
+  padding: 0 1rem;
+  margin: 1.5rem 0;
+}
+
+section.order-detail-section div.box label {
+  margin-right: 3rem;
+  font-size: 0.9rem;
+}
+
+section.order-detail-section
+  ul.form-items
+  li.flex
+  input:not(.checkbox, .male, .female) {
+  outline: none;
+  border: none;
+  border-bottom: 1.5px solid #bbbbbb;
+  background-color: transparent;
+  width: 100%;
+  margin: 0.8rem 0;
+}
+
+section.order-detail-section ul.form-items li.flex p.text {
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  color: var(--third-color);
+}
+
+section.order-detail-section ul.form-items li.checkbox {
+  margin: 1.5rem 0 2.5rem 0;
+}
+
+section.order-detail-section ul.form-items li.checkbox input {
+  margin-left: 2.5rem;
+}
+
+section.order-detail-section ul.form-items li.checkbox span {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+}
+
+section.order-detail-section ul.form-items li.btns {
+  justify-content: space-around;
+  margin-top: 5rem;
+}
+
+section.order-detail-section ul.form-items li.btns a:active {
+  transform: scale(0.9);
+}
+
+section.order-detail-section ul.form-items li.btns div.backward-btn {
+  color: white;
+  font-size: 1rem;
+  padding: 0.6rem 1.8rem 0.7rem 1.8rem;
+  background-color: var(--third-color);
+  border-radius: 0.5rem;
+}
+
+section.order-detail-section ul.form-items li.btns input.forward-btn {
   width: fit-content;
   color: white;
+  font-size: 1rem;
+  padding: 0.6rem 1.8rem 0.7rem 1.8rem;
   background-color: var(--primary-color);
   border-radius: 0.5rem;
-  padding: 0.7rem 1.8rem;
-  font-size: 1.1rem;
+  cursor: pointer;
 }
 
-section.order-detail-section div.homePage-btn:active {
-  transform: scale(0.95);
+/* ----------------------footer-section-mobile----------------------- */
+
+section.footer-section {
+  display: none;
 }
 
 /* ----------------spaceForFixed-mobile------------------------- */
@@ -683,6 +656,92 @@ section.fixed-section svg {
 section.fixed-section svg.icon-cart {
   stroke: var(--fourth-color);
   fill: none;
+}
+
+/* -----------------------delete-item-modal---------------------- */
+
+div.delete-item-modal {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.25s;
+}
+
+div.delete-item-modal.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+div.delete-item-modal div.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+div.delete-warning-card {
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 180px;
+  transform: translate(-50%, -50%);
+  border-radius: 0.7rem;
+  padding: 1.5rem;
+}
+
+div.delete-warning-card svg {
+  text-align: right;
+  width: 1rem;
+  height: 1rem;
+}
+
+div.delete-warning-card p.text {
+  margin: 0 auto;
+  color: var(--sixth-color);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  line-height: 2;
+  text-align: center;
+  font-weight: 500;
+}
+
+div.delete-warning-card div.btns {
+  justify-content: space-around;
+  padding-top: 1.5rem;
+}
+
+div.delete-warning-card div.btns p.cancel-btn {
+  text-align: center;
+  width: 30%;
+  color: white;
+  padding: 0.3rem 1.1rem 0.4rem 1.1rem;
+  background-color: var(--fourth-color);
+  border-radius: 0.4rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+div.delete-warning-card div.btns p.confirm-btn {
+  text-align: center;
+  width: 30%;
+  color: white;
+  padding: 0.3rem 1.1rem 0.4rem 1.1rem;
+  background-color: var(--primary-color);
+  border-radius: 0.4rem;
+  margin: 0;
+  cursor: pointer;
+}
+
+div.delete-warning-card div.btns p.cancel-btn:active,
+div.delete-warning-card div.btns p.confirm-btn:active {
+  transform: scale(0.9);
 }
 
 @media only screen and (min-width: 1420px) {
@@ -818,7 +877,7 @@ section.fixed-section svg.icon-cart {
     display: block;
     position: relative;
     padding: 1rem 1.7rem;
-    background-color: var(--primary-color);
+    background-color: #bbbbbb;
     border-radius: 0.8rem;
     color: white;
     font-size: 1.1rem;
@@ -826,23 +885,63 @@ section.fixed-section svg.icon-cart {
     margin-bottom: 1.8rem;
   }
 
+  section.progress-bar-section ul.progress-bar li.dots:first-child p.title {
+    background-color: var(--primary-color);
+  }
+
+  section.progress-bar-section ul.progress-bar li.dots:nth-child(2) p.title {
+    background-color: var(--primary-color);
+  }
+
+  section.progress-bar-section ul.progress-bar li.dots:nth-child(3) p.title {
+    background-color: var(--third-color);
+  }
+
   section.progress-bar-section ul.progress-bar p.title svg.icon-play {
     position: absolute;
     top: 41px;
     left: 50%;
     transform: translate(-50%) rotate(90deg);
+    fill: #bbbbbb;
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots:first-child
+    svg.icon-play {
     fill: var(--primary-color);
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots:nth-child(2)
+    svg.icon-play {
+    fill: var(--primary-color);
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots:nth-child(3)
+    svg.icon-play {
+    fill: var(--third-color);
   }
 
   section.progress-bar-section ul.progress-bar li.dots div.outer-circle {
     width: 3rem;
     height: 3rem;
-    background-color: var(--primary-color);
+    background-color: #bbbbbb;
     border-radius: 50%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  section.progress-bar-section
+    ul.progress-bar
+    li.dots:first-child
+    div.outer-circle {
+    background-color: var(--primary-color);
   }
 
   section.progress-bar-section
@@ -866,7 +965,7 @@ section.fixed-section svg.icon-cart {
     div.inner-circle
     div.line {
     position: absolute;
-    border: 1px solid var(--primary-color);
+    border: 1px solid #bbbbbb;
     width: 265px;
     z-index: -20;
     top: 50%;
@@ -891,160 +990,71 @@ section.fixed-section svg.icon-cart {
     width: 310px;
   }
 
-  /* -----------------------order-complete-section-desktop---------------------------- */
+  /* -----------------------order-detail-section-desktop--------------------- */
 
-  section.order-complete-section div.circle svg.icon-done {
-    width: 5rem;
-    height: 5rem;
-  }
-
-  section.order-complete-section h2.title {
-    font-size: 1.6rem;
-    font-weight: 500;
-  }
-
-  /* -----------------------shopping-cart-section-desktop---------------------- */
-  section.shopping-cart-section div.container {
-    padding: 1rem 25%;
-  }
-
-  section.shopping-cart-section div.shopping-cart {
-    position: relative;
-    padding: 2rem 6rem 7.5rem 6rem;
-    background-color: white;
-    border-radius: 1rem;
-  }
-
-  section.shopping-cart-section div.order-date {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-  }
-
-  section.shopping-cart-section div.itemBox {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  section.shopping-cart-section div.left {
-    flex: 1 1 100%;
-    border-radius: 0.6rem;
-    padding: 1rem;
-    justify-content: space-between;
-  }
-
-  section.shopping-cart-section div.left-1-1 {
-    width: 100px;
-    height: 100px;
-    margin-right: 1rem;
-  }
-
-  section.shopping-cart-section div.left-1-1 img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0.3rem;
-    vertical-align: middle;
-  }
-
-  section.shopping-cart-section div.left div.picture {
-    width: 180px;
-  }
-
-  section.shopping-cart-section div.left-1-2 p.title {
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    width: 340px;
-    color: var(--sixth-color);
-  }
-
-  section.shopping-cart-section div.left-1-2 p.date {
-    width: 250px;
-  }
-
-  section.shopping-cart-section div.left-1-2 p.text {
-    color: var(--fifth-color);
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-
-  section.shopping-cart-section div.left-2 p.num {
-    display: inline-block;
-    font-weight: 500;
-    font-size: 1.1rem;
-    margin: 0 1rem;
-    vertical-align: middle;
-  }
-
-  section.shopping-cart-section div.left-2 svg {
-    display: inline-block;
-    fill: white;
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
-  section.shopping-cart-section div.left-3 {
-    width: 115px;
-    text-align: right;
-  }
-
-  section.shopping-cart-section div.left-3 span {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--sixth-color);
-  }
-
-  section.shopping-cart-section div.total {
-    width: 100%;
-    text-align: right;
-    padding: 5rem 0 2rem 0;
-    border-bottom: 1.5px solid #cccccc;
-  }
-
-  section.shopping-cart-section div.total p.text {
-    display: inline-block;
-    margin-left: 2rem;
-    font-size: 1.5rem;
-    color: var(--sixth-color);
-    font-weight: 500;
-  }
-
-  section.shopping-cart-section div.total p.ff-noto {
-    color: var(--sixth-color);
-  }
-
-  /* -----------------------order-detail-section------------------- */
   section.order-detail-section {
-    margin-top: -4rem;
-  }
-
-  section.order-detail-section div.container {
-    width: 50%;
     margin: 0 auto;
-    background-color: white;
-    border-radius: 1rem;
-    padding: 4rem 6rem;
+    width: 40%;
   }
 
-  section.order-detail-section h4.title {
+  section.order-detail-section h2.title {
+    font-size: 1.8rem;
+  }
+
+  section.order-detail-section div.orderer-info-form {
+    background-color: white;
+    border-radius: 0.8rem;
+    margin-top: 2rem;
+    padding: 5rem 8rem;
+  }
+
+  section.order-detail-section div.orderer-info-form h4.text {
     font-size: 1.5rem;
   }
 
-  section.order-detail-section div.flex {
-    margin-top: 2rem;
+  section.order-detail-section div.orderer-info-form li.box p.text {
+    font-size: 1.2rem;
+  }
+
+  section.order-detail-section div.orderer-info-form ul.form-items li.flex {
+    display: flex;
+    margin: 2rem 0;
+  }
+
+  section.order-detail-section
+    div.orderer-info-form
+    ul.form-items
+    li.flex
+    input:not(.checkbox, .forward-btn) {
+    width: 60%;
+    margin-right: 3rem;
+    border: 1.5px solid var(--fifth-color);
+    border-radius: 0.5rem;
+    height: 28px;
+  }
+
+  section.order-detail-section div.orderer-info-form ul.form-items li.checkbox {
     justify-content: flex-start;
   }
 
-  section.order-detail-section p.text {
-    width: 50%;
-    text-align: left;
-    font-size: 1.1rem;
+  section.order-detail-section
+    div.orderer-info-form
+    ul.form-items
+    li.checkbox
+    input {
+    margin: 0 1rem;
+    height: 30px;
   }
 
-  /* --------------------------delete-item-modal-desktop------------------------- */
+  section.order-detail-section div.orderer-info-form ul.form-items li.btns {
+    margin-top: 5rem;
+  }
+
+  /* --------------------------delete-item-modal-------------------------- */
 
   div.delete-warning-card {
-    width: 350px;
-    height: 210px;
+    width: 400px;
+    height: 250px;
     padding: 1.5rem;
   }
 
@@ -1059,7 +1069,7 @@ section.fixed-section svg.icon-cart {
   }
 
   div.delete-warning-card svg:active {
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
 
   div.delete-warning-card div.flex {
@@ -1074,7 +1084,35 @@ section.fixed-section svg.icon-cart {
     line-height: 2;
     text-align: center;
     font-weight: 500;
-    padding-bottom: 1rem;
+  }
+
+  div.delete-warning-card div.btns {
+    justify-content: space-around;
+    padding-top: 1.5rem;
+  }
+
+  div.delete-warning-card div.btns p.cancel-btn {
+    text-align: center;
+    width: 30%;
+    color: white;
+    padding: 0.5rem 1.5rem 0.6rem 1.5rem;
+    background-color: var(--fourth-color);
+    border-radius: 0.4rem;
+    margin: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  div.delete-warning-card div.btns p.confirm-btn {
+    text-align: center;
+    width: 30%;
+    color: white;
+    padding: 0.5rem 1.5rem 0.6rem 1.5rem;
+    background-color: var(--primary-color);
+    border-radius: 0.4rem;
+    margin: 0;
+    cursor: pointer;
+    font-size: 1.2rem;
   }
 
   /* --------------------------footer-section-desktop--------------------- */
