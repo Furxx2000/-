@@ -1,3 +1,37 @@
+<?php include __DIR__. '/parts-php/config.php'; ?>
+<?php 
+$title = '行程細節';
+$pageName = 'activity-detail';
+
+
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
+
+$sql = "SELECT * FROM schedule WHERE sid = $sid";
+$stmt = $pdo->query($sql);
+$row = $stmt->fetch();
+
+$a_sql = "SELECT * FROM schedule ORDER BY RAND() LIMIT 9";
+$a_stmt = $pdo->query($a_sql);
+$a_rows = $a_stmt->fetchAll();
+
+$_SESSION['user']['id'] = 1;
+$type = 1;
+$target_id = $row['sid'];
+$f_sql = "INSERT INTO `favorites` (`id`, `member_id`, `type`, `target_id`, `date`)
+                        VALUES (NULL, ?, ?, ?, NOW())";
+
+$f_stmt = $pdo->prepare($f_sql);
+$f_stmt->execute([
+    $_SESSION['user']['id'],
+    $type,
+    $target_id
+]);
+
+$favorite_sid = $pdo->lastInsertId();
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,16 +42,35 @@
     <link rel="stylesheet" href="./css/activity-detail.css" />
     <title>行程細節頁</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <style>
+        section.activity-detail-section div.activity-detail-section-image {
+            background-image: url(<?= WEB_ROOT ?>/images/<?= $row['schedule_id']. "/". $row['schedule_id'] ?>_1.jpeg);
+        }
+
+        section.activity-intro-section div.activity-intro-image {
+            background-image: url(<?= WEB_ROOT ?>/images/<?= $row['schedule_id']. "/". $row['schedule_id'] ?>_5.jpeg);
+        }
+    </style>
 </head>
 
 <body>
     <?php include __DIR__ . '/parts-php/html-navbar.php'; ?>
 
-    <section class="hero-section">
+    <!-- <section class="hero-section">
         <div class="container">
             <div class="hero-section-background-image">
                 <p class="title ff-noto none">嘉明湖三日登山行程</p>
                 <div class="hero-section-image-desktop"></div>
+            </div>
+        </div>
+    </section> -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-section-background-image">
+                <p class="title ff-noto none"><?= $row['schedule_title'] ?></p>
+                <div class="hero-section-image-desktop">
+                    <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>.jpeg" alt="">
+                </div>
             </div>
         </div>
     </section>
@@ -27,15 +80,118 @@
         <div class="flexBox0">
             <div class="activity-detail-section-image">
                 <p class="text-image ff-noto">查看照片</p>
-                <p class="text-price ff-airbnb">TWD 6,300</p>
+                <p class="text-price ff-airbnb">TWD<?= ($row['price']) ?></p>
             </div>
 
-            <?php include __DIR__ . '/parts-php/html-fixedBar-activity-detail.php'; ?>
+            
+            <section id="fixed-section" class="fixed-section">
+                <div id="homepage-container" class="homepage-container flex">
+                    <div class="fixed-functions">
+                        <p class="text ff-noto"><span class="num ff-airbnb">$<?= $row['price'] ?></span> / 人 </p>
+                    </div>
+
+
+                    <div id="buyNowBtn" class="fixed-functions">
+                        <p class="text btn ff-noto">立即報名</p>
+                    </div>
+
+
+                        <a href="./shopping-cart-1.php">
+                            <div class="fixed-functions">
+                                <p class="text btn ff-noto">加入購物車</p>
+                            </div>
+                        </a>
+                </div>
+
+
+                <section id="buy-now-section" class="buy-now-section" data-sid="<?= $row['sid'] ?>">
+                    <div class="container">
+                        <div class="backward">
+                            <svg id="icon-cross" class="icon-cross svg">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-cross"></use>
+                            </svg>
+                        </div>
+                        <div class="activity-info flex">
+                            <div class="leftBox">
+                                <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>.jpeg" alt="">
+                            </div>
+                            <div class="rightBox">
+                                <p class="title ff-noto"><?= $row['schedule_title'] ?></p>
+                                <p class="text ff-noto">TWD <span class="num ff-airbnb"><?= $row['price'] ?></span> / 人</p>
+                                <svg class="icon-heart svg none">
+                                    <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="boxes">
+                            <div class="select-box flex">
+                                <p class="text ff-noto">日期</p>
+                                <select name="date" id="date" class="ff-airbnb">
+                                    <option value="1">7/3(六)-7/4(四)</option>
+                                    <option value="2">7/13(二)-7/14(三)</option>
+                                    <option value="3">7/17(日)-7/18(一)</option>
+                                    <option value="4">7/20(二)-7/21(三)</option>
+                                </select>
+                            </div>
+                            <div class="select-box flex">
+                                <p class="text ff-noto">人數</p>
+                                <select name="num" id="num" class="ff-airbnb" style="padding-right:4rem;">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+
+                            <div class="select-box flex">
+                                <p class="text ff-noto">嚮導</p>
+                                <select name="guides" id="guides" class="ff-noto" style="padding-right: 3.5rem">
+                                    <option value="1">紫潔</option>
+                                    <option value="2">韋丞</option>
+                                </select>
+                            </div>
+                            <span class="text ff-noto none">瀏覽</span>
+                        </div>
+
+                        <div class="notes">
+
+                            <div class="box none">
+                                <svg class="icon-warning svg">
+                                    <use xlink:href="./icomoon/symbol-defs.svg#icon-warning"></use>
+                                </svg>
+                                <span class="text ff-noto">報名前，請務必詳閱<a href="#"><u> 報名規則</u></a></span>
+                            </div>
+
+                            <div class="box none">
+                                <svg class="icon-warning svg">
+                                    <use xlink:href="./icomoon/symbol-defs.svg#icon-warning"></use>
+                                </svg>
+                                <span class="text ff-noto">費用已包含<a href="#"><u>保險</u></a></span>
+                            </div>
+                        </div>
+
+                        <div class="price none">
+                            <p class="text ff-airbnb">TWD <span class="num ff-airbnb"><?= $row['price'] ?></span> / 人</p>
+                        </div>
+
+                        <div class="buy-btns flex">
+                            <a href=""></a>
+                                <div class="sign-up-cta ff-noto">立即報名</div>
+                            </a>
+                            <a href="./shopping-cart-1.php">
+                                <div class="sign-up-cta ff-noto none">加入購物車</div>
+                            </a>
+                        </div>
+
+                    </div>
+                </section>
+            </section>
+
         </div>
         <div class="container">
             <div class="flexBox1">
                 <div class="floor-1 flex">
-                    <p class="text ff-noto">嘉明湖三日登山行程</p>
+                    <p class="text ff-noto"><?= $row['schedule_title'] ?></p>
                     <svg class="icon-heart svg">
                         <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
                     </svg>
@@ -47,8 +203,7 @@
                                 <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
                             </svg>
                         </span>
-                        <span class="ff-airbnb">4.5</span>
-                        <span class="ff-noto">(24則評價)</span>
+                        <span class="ff-airbnb"><?= $row['rating'] ?></span>
                     </div>
                     <div class="floors flex">
                         <div class="floor-2-2">
@@ -57,7 +212,7 @@
                                     <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
                                 </svg>
                             </span>
-                            <span class="ff-noto">台灣 - 台中</span>
+                            <span class="ff-noto"><?= $row['location'] ?></span>
                         </div>
 
                         <div class="floor-2-3-1">
@@ -66,7 +221,7 @@
                                     <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
                                 </svg>
                             </span>
-                            <span class="ff-noto">行程難度: 容易</span>
+                            <span class="ff-noto">行程難度: <?= $row['level'] ?></span>
                         </div>
                         <div class="floor-2-3-2">
                             <span>
@@ -74,7 +229,7 @@
                                     <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
                                 </svg>
                             </span>
-                            <span class="ff-noto">行程難度: 3天</span>
+                            <span class="ff-noto">行程難度: <?= $row['days'] ?>天</span>
                         </div>
 
                     </div>
@@ -86,7 +241,7 @@
 
     <section class="mountain-intro-section">
         <div class="container">
-            <h2 class="title ff-noto">南湖大山簡介</h2>
+            <h2 class="title ff-noto"><?= $row['info_title'] ?></h2>
             <div class="mountain-intro-container">
                 <ul class="mountain-intro flex">
                     <li class="text">
@@ -94,32 +249,28 @@
                             <svg class="icon-play svg none">
                                 <use xlink:href="./icomoon/symbol-defs.svg#icon-play"></use>
                             </svg>
-                            南湖大山：
+                            <?= $row['info1-title'] ?>
                         </p>
                         <p class="text ff-noto">
-                            南湖大山，中央山脈北段最高峰。台灣五嶽的北嶽盟主，高度上雖不及玉山、雪山、秀姑巒山，但在山友與學者的心目中，
-                            地位幾乎一致崇高，更是此生必來朝拜的百岳殿堂。
-                            有著帝王般莊嚴神聖的尊榮的主峰，引領周遭十數個山頭，形成如天際高台般的南湖地壘。
-                            過去，大量冰河曾經來過，留下最完整且多量的的冰河圈谷遺跡。
-                            到現在，南湖大山仍舊是台灣積雪最豐厚的地方，因這裡獨特的生態與地質，成為學術研究價值最高的高山地區。
+                            <?= $row['info1'] ?>
                         </p>
                     </li>
+                 
                     <li class="picture none">
-                        <img src="./images/Nan_hu_mountain.jpg" alt="">
+                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_2.jpeg" alt="">
                     </li>
                     <li class="picture none">
-                        <img src="./images/Nan_hu_mountain_2.jpeg" alt="">
+                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_3.jpeg" alt="">
                     </li>
                     <li class="text">
                         <p class="title ff-noto">
                             <svg class="icon-play svg none">
                                 <use xlink:href="./icomoon/symbol-defs.svg#icon-play"></use>
                             </svg>
-                            南湖圈谷：
+                            <?= $row['info2-title'] ?>
                         </p>
                         <p class="text ff-noto">
-                            南湖山區特殊的地形是由南湖主、東峰稜脊環夾，中間形成上下兩個寬闊的大圈谷，
-                            部份地質學者認為是冰河遺跡；無論登山或學術探討，南湖山區均為一重要的區域。
+                            <?= $row['info2'] ?>
                         </p>
                     </li>
                     <li class="text">
@@ -127,15 +278,14 @@
                             <svg class="icon-play svg none">
                                 <use xlink:href="./icomoon/symbol-defs.svg#icon-play"></use>
                             </svg>
-                            多加屯山：
+                            <?= $row['info3-title'] ?>
                         </p>
                         <p class="text ff-noto">
-                            位於宜蘭縣大同鄉與台中市和平區交界處，隸屬於中央山脈，南湖大山往西延伸出來的支脈尾端，
-                            是登南湖大山的第一座山頭，而在其半山稜線起點的松風嶺則以大片二葉松純林聳立，地上滿是松針舖地，週遭環境盡是松香而聞名。
+                            <?= $row['info3'] ?>
                         </p>
                     </li>
                     <li class="picture none">
-                        <img src="./images/Nan_hu_mountan_3.jpg" alt="">
+                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_4.jpeg" alt="">
                     </li>
                 </ul>
                 <div class="mountain-intro-cta ff-noto">更多</div>
@@ -145,24 +295,17 @@
 
     <section class="activity-intro-section">
         <div class="container">
-            <h2 class="title ff-noto"><span class="none">南湖大山三日</span>行程介紹</h2>
+            <h2 class="title ff-noto"><span class="none"><?= $row['short_info_title'] ?></h2>
             <div class="activity-intro-image"></div>
             <div class="activity-daily-intro flex">
                 <div class="left">
                     <p class="text ff-noto">
-                        06：30 台北西門町集合<br>
-                        09：00 南山村 7-11<br>
-                        10：00 勝光派出所(張良橋)<br>
-                        12：30 6.7k登山口<br>
-                        14：00 多加屯山<br>
-                        15：30 木杆鞍部<br>
-                        16：00 雲稜山莊 (宿)<br>
-
+                        <?= $row['day1'] ?>
                     </p>
                 </div>
                 <div class="right">
                     <div class="right-top ff-noto none">
-                        武陵四秀指的是橫列在武陵農場北緣的四座百岳，由西至東，依序是品田山(3,524公尺)、池有山(3,303公尺)、桃山(3,325公尺)與喀拉業山(3,133公尺)，這一條長約十公里的山脈，是屬於雪山山脈向東北延伸舖展的主脊稜脈中的一段，雖然同處於同一條稜脈，但四座山峰皆有不同的特色。品田山是其中的最高峰，山頂有著以險峻聞名於岳界的「品田斷崖」；池有山是其中較平緩的山頭，山徑上有一棵造型特殊的「池有名樹」為其象徵。
+                        <?= $row['short_info'] ?>
                     </div>
                     <div class="right-bottom flex">
                         <p class="text first ff-noto">第一天</p>
@@ -221,62 +364,42 @@
             <div class="flexBox flex">
                 <h2 class="title ff-noto">相關熱門行程</h2>
                 <div class="carousel-button flex none">
-                    <div class="pagination ff-airbnb">1 / 3</div>
-                    <div class="arrow-button">
+                    <div class="pagination ff-airbnb"><span class="page">1</span>/ 3</div>
+                    <div id="prev" class="arrow-button">
                         <svg class="icon-arrow-back svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-arrow_back_ios"></use>
                         </svg>
                     </div>
-                    <div class="arrow-button">
+                    <div id="next" class="arrow-button">
                         <svg class="icon-arrow-forward svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-arrow_forward_ios"></use>
                         </svg>
                     </div>
                 </div>
             </div>
-            <div class="carousel flex">
-                <div class="carousel-cell">
-                    <svg class="icon-heart svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
-                    </svg>
-                    <img src="./images/雪山大圖2-banner.jpeg" alt="">
-                    <p class="title ff-noto">雪山主東峰</p>
-                    <svg class="icon-star svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                    </svg>
-                    <span class="num ff-airbnb">(4)</span>
 
-                    <p class="date ff-airbnb">2021/05/25 - 05/27</p>
-                    <span class="price ff-airbnb">$ TWD 6,300 / 人</span>
-                </div>
-                <div class="carousel-cell none">
-                    <svg class="icon-heart svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
-                    </svg>
-                    <img src="./images/he_huan_shan.jpeg" alt="">
-                    <p class="title ff-noto">合歡山</p>
-                    <svg class="icon-star svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                    </svg>
-                    <span class="num ff-airbnb">(5)</span>
+            <div class="carousel">
+                <ul class="wrap-img">
+                    <?php foreach($a_rows as $a): ?>
+                    <li class="carousel-cell">
+                        <svg class="icon-heart svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
+                        </svg>
+                        <div class="carousel-image">
+                            <img src="<?= WEB_ROOT ?>/images/<?= $a['schedule_id'] ?>/<?= $a['schedule_id'] ?>.jpeg" alt="">
+                        </div>
+                        <p class="title ff-noto"><?= $a['schedule_title'] ?></p>
+                        <svg class="icon-star svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
+                        </svg>
+                        <span class="num ff-airbnb">(<?= $a['rating'] ?>)</span>
 
-                    <p class="date ff-airbnb">2021/06/25 - 06/27</p>
-                    <span class="price ff-airbnb">$ TWD 5,200 / 人</span>
-                </div>
-                <div class="carousel-cell none">
-                    <svg class="icon-heart svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
-                    </svg>
-                    <img src="./images/奇萊主北4.jpg" alt="">
-                    <p class="title ff-noto">奇萊主峰</p>
-                    <svg class="icon-star svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                    </svg>
-                    <span class="num ff-airbnb">(5)</span>
+                        <p class="date ff-airbnb"><?= $a['departure_date'] ?></p>
+                        <span class="price ff-airbnb">$ TWD <?= $a['price'] ?> / 人</span>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
 
-                    <p class="date ff-airbnb">2021/7/6 - 07/8</p>
-                    <span class="price ff-airbnb">$ TWD 6,300 / 人</span>
-                </div>
             </div>
         </div>
     </section>
@@ -451,9 +574,25 @@
     <?php include __DIR__ . '/parts-php/html-footer.php'; ?>
     <?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
 
+    <script>
+        function deleteItem(e){
+            let me =$(e.currentTarget);
+            let sid = me.closest('section').attr('data-sid');
+
+            $.get('favorites-api.php', {action:'delete', pid: sid}, function(data){
+                console.log('ajax');
+            }, 'json');
+        };
+    </script>
 
 
     <script>
+
+    // 讓金額數字添加千位數逗點
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
     // 查看照片modal顯示carousel
     const checkPicture = document.querySelector('.text-image');
     const carouselModal = document.querySelector('.carousel-modal');
@@ -500,12 +639,57 @@
 
     hearts.forEach(heart => {
         heart.addEventListener('click', () => {
-            console.log('hi');
             heart.classList.toggle('open');
         });
     });
-    </script>
 
+    //carousel 推薦行程
+
+    const prev = document.querySelector('#prev');
+    const next = document.querySelector('#next');
+    let page = document.querySelector('.page').textContent;
+    const board = document.querySelector('.wrap-img');
+
+    next.addEventListener('click', function() {
+        if(page < 3){
+            board.style.left = `${-1103 * page}px`;
+            page++;
+        } 
+    });
+
+    prev.addEventListener('click', function() {
+        page--;
+        if( page > 1){
+            board.style.left = `${(-1103 * page) + (1103 * (page - 1))}px`;
+        } else if(page = 1){
+            board.style.left = '0px';
+        }
+    })
+    
+
+    </script>
+    <script>
+        const addToFavorites = document.querySelectorAll('.icon-heart');
+
+        addToFavorites.forEach(function(favorite){
+            favorite.addEventListener('click', function (e) {
+                if(e.target.classList.contains('open')){
+                    console.log(e.target);
+                    const card = $(this).closest('.buy-now-section'); 
+                    const pid = card.attr('data-sid');
+
+                    $.get('favorites-api.php', {action:'add', pid}, function(data){
+                        showFavoritesCount(data);
+                        console.log(data);
+                    }, 'json');
+                    
+                } else{
+                    deleteItem(e);
+                    
+                }
+            })
+        })
+    </script>
 
 
 

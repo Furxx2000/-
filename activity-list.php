@@ -1,3 +1,16 @@
+<?php include __DIR__. '/parts-php/config.php'; ?>
+<?php
+$title = '行程列表';
+$pageName = 'activity-list';
+
+
+
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +24,7 @@
 </head>
 
 <body>
+
     <?php include __DIR__ . '/parts-php/html-navbar.php'; ?>
     <section class="hero-section">
         <div class="container">
@@ -30,401 +44,135 @@
         <div class="container">
             <div class="filter-section flex">
                 <div class="filterBox">
-                    <svg class="icon-star svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                    </svg>
-                    <p class="text ff-noto">評分</p>
+                    <div onclick="changeKind(0)">
+                        <svg class="icon-star svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
+                        </svg>
+                        <p class="text ff-noto">評分</p>
+                    </div>
+                    <div class="rank box" >
+                        <ul>
+                            <li class="ff-noto all" data-sid="0" onclick="changeRating(0)">
+                                <p class="text ff-noto">全部</p>
+                            </li>
+                            <li class="ff-airbnb" onclick="changeRating(5)">5</li>
+                            <li class="ff-airbnb" onclick="changeRating(4)">4</li>
+                            <li class="ff-airbnb" onclick="changeRating(3)">3</li>
+                            <li class="ff-airbnb" onclick="changeRating(2)">2</li>
+                            <li class="ff-airbnb" onclick="changeRating(1)">1</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="filterBox">
-                    <svg class="icon-place svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
-                    </svg>
-                    <p class="text ff-noto">位置</p>
+                    <div onclick="changeKind(1)">
+                        <svg class="icon-place svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
+                        </svg>
+                        <p class="text ff-noto" >位置</p>
+                    </div>
+                    <div class="place box" >
+                        <ul>
+                            <li class="ff-noto all" data-sid="0" onclick="changePlace('')">
+                                <p class="text ff-noto">全部</p>
+                            </li>
+                            <li class="ff-noto" onclick="changePlace('北')">北</li>
+                            <li class="ff-noto" onclick="changePlace('中')">中</li>
+                            <li class="ff-noto" onclick="changePlace('南')">南</li>
+                            <li class="ff-noto" onclick="changePlace('東')">東</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="filterBox">
-                    <svg class="icon-difficulty svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
-                    </svg>
-                    <p class="text ff-noto">難度</p>
+                    <div onclick="changeKind(2)">
+                        <svg class="icon-difficulty svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
+                        </svg>
+                        <p class="text ff-noto" >難度</p>
+                    </div>
+                    <!-- 在每個不同篩選器class中加入changeKind()function，讓系統辨認目前選到的是哪個filter -->
+                    <div class="level box">
+                        <ul>
+                            <li class="ff-noto all" data-sid="0" onclick="changeLevel(0)">
+                                <p class="text ff-noto">全部</p>
+                            </li>
+                            <li class="ff-airbnb" onclick="changeLevel('A')">A</li>
+                            <li class="ff-airbnb" onclick="changeLevel('B')">B</li>
+                            <li class="ff-airbnb" onclick="changeLevel('C')">C</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="filterBox">
-                    <svg class="icon-time svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
-                    </svg>
-                    <p class="text ff-noto">時間</p>
+                    <div onclick="changeKind(3)">
+                        <svg class="icon-time svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
+                        </svg>
+                        <p class="text ff-noto" >時間</p>
+                    </div>
+                    <div class="days box">
+                        <ul>
+                            <li class="ff-noto all" data-sid="0" onclick="changeDays(0)">
+                                <p class="text ff-noto">全部</p>
+                            </li>
+                            <li class="ff-noto" onclick="changeDays(1)">1天</li>
+                            <li class="ff-noto" onclick="changeDays(2)">2天</li>
+                            <li class="ff-noto" onclick="changeDays(3)">3天</li>
+                            <li class="ff-noto" onclick="changeDays(4)">4天</li>
+                            <li class="ff-noto" onclick="changeDays(5)">5天</li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="filterBox">
-                    <svg class="icon-price svg">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-price"></use>
-                    </svg>
-                    <p class="text ff-noto">價格</p>
+                    <div onclick="changeKind(4)">
+                        <svg class="icon-price svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-price"></use>
+                        </svg>
+                        <p class="text ff-noto" >價格</p>
+                    </div>
+                    <div class="price box">
+                        <ul>
+                            <li class="ff-noto all" data-sid="0" onclick="changePrice(0, 18000)">
+                                <p class="text ff-noto">全部</p>
+                            </li>
+                            <!-- <?php foreach($m_f_rows as $m): ?>
+                            <li class="ff-noto" data-sid="<?= $m['sid'] ?>" onclick="changeCate(<?= $m['sid'] ?>)">
+                                <p class="text ff-noto"><?= $m['filter_name'] ?></p>
+                            </li>
+                            <?php endforeach; ?> -->
+                            <li class="ff-airbnb" onclick="changePrice(1000, 5000)">$5,000 以下</li>
+                            <li class="ff-airbnb" onclick="changePrice(5001, 10000)">$5,000 - $10,000</li>
+                            <li class="ff-airbnb" onclick="changePrice(10001, 18000)">$10,000 以上</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <div class="a-list">
 
-            <div class="activity-card">
-                <div class="activity-card-image"></div>
-                <div class="activity-description">
-                    <div class="floor-1 flex">
-                        <p class="text ff-noto">嘉明湖</p>
-                        <svg class="icon-heart svg">
-                            <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
-                        </svg>
-                    </div>
-                    <div class="floor-2">
-                        <div class="floor-2-1 flex">
-                            <span>
-                                <svg class="icon-star svg">
-                                    <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                                </svg>
-                            </span>
-                            <span class="ff-airbnb">4.5</span>
-                            <span class="ff-noto">(24則評價)</span>
-                        </div>
-                        <div class="floors flex">
-                            <div class="floor-2-2">
-                                <span>
-                                    <svg class="icon-place svg">
-                                        <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
-                                    </svg>
-                                </span>
-                                <span class="ff-noto">台灣 - 台中</span>
-                            </div>
-                            <div class="floor-2-3 flex">
-                                <div class="floor-2-3-1">
-                                    <span>
-                                        <svg class="icon-difficulty svg">
-                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="ff-noto">行程難度: 容易</span>
-                                </div>
-                                <div class="floor-2-3-2">
-                                    <span>
-                                        <svg class="icon-time svg">
-                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="ff-noto">行程難度: 3天</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="floor-3">
-                        <p class="text ff-noto">
-                            台灣最高的高山湖泊,它的形成有著各種的傳說，而隕石撞擊而成的湖泊是目前最常被提及的說法之一。這裏同時也是大型野生動物常常出現的地方，夜間於三千公尺左右的山屋時，水鹿就會悄悄地到來！本行程規劃健行向陽山、三叉山兩座3000公尺高山，連綿十多公里的高山草原景觀，絕對讓你驚嘆不已!!
-                        </p>
-                    </div>
 
-                    <div class="floor-4">
-                        <div class="top-section flex">
-                            <div class="leftBox">
-                                <p class="text ff-noto">剩餘名額：7</p>
-                            </div>
-                            <div class="rightBox">
-                                <p class="text ff-airbnb">NTD 6,300</p>
-                            </div>
-                        </div>
-                        <div class="bottom-section flex">
-                            <div class="leftBox">
-                                <p class="text ff-noto">出發日期 2021/04/02</p>
-                            </div>
-                            <a href="./activity-detail.php">
-                                <div class="activity-section-cta ff-noto">
-                                    查看行程
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="activity-card">
-                <div class="activity-card-image"></div>
-                <div class="activity-description">
-                    <div class="floor-1 flex">
-                        <p class="text ff-noto">嘉明湖</p>
-                        <svg class="icon-heart svg">
-                            <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
-                        </svg>
-                    </div>
-                    <div class="floor-2">
-                        <div class="floor-2-1 flex">
-                            <span>
-                                <svg class="icon-star svg">
-                                    <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                                </svg>
-                            </span>
-                            <span class="ff-airbnb">4.5</span>
-                            <span class="ff-noto">(24則評價)</span>
-                        </div>
-                        <div class="floors flex">
-                            <div class="floor-2-2">
-                                <span>
-                                    <svg class="icon-place svg">
-                                        <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
-                                    </svg>
-                                </span>
-                                <span class="ff-noto">台灣 - 台中</span>
-                            </div>
-                            <div class="floor-2-3 flex">
-                                <div class="floor-2-3-1">
-                                    <span>
-                                        <svg class="icon-difficulty svg">
-                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="ff-noto">行程難度: 容易</span>
-                                </div>
-                                <div class="floor-2-3-2">
-                                    <span>
-                                        <svg class="icon-time svg">
-                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="ff-noto">行程難度: 3天</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="floor-3">
-                        <p class="text ff-noto">
-                            台灣最高的高山湖泊,它的形成有著各種的傳說，而隕石撞擊而成的湖泊是目前最常被提及的說法之一。這裏同時也是大型野生動物常常出現的地方，夜間於三千公尺左右的山屋時，水鹿就會悄悄地到來！本行程規劃健行向陽山、三叉山兩座3000公尺高山，連綿十多公里的高山草原景觀，絕對讓你驚嘆不已!!
-                        </p>
-                    </div>
-
-                    <div class="floor-4">
-                        <div class="top-section flex">
-                            <div class="leftBox">
-                                <p class="text ff-noto">剩餘名額：7</p>
-                            </div>
-                            <div class="rightBox">
-                                <p class="text ff-airbnb">NTD 6,300</p>
-                            </div>
-                        </div>
-                        <div class="bottom-section flex">
-                            <div class="leftBox">
-                                <p class="text ff-noto">出發日期 2021/04/02</p>
-                            </div>
-                            <a href="./activity-detail.php">
-                                <div class="activity-section-cta ff-noto">
-                                    查看行程
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="activity-card">
-                <div class="activity-card-image"></div>
-                <div class="activity-description">
-                    <div class="floor-1 flex">
-                        <p class="text ff-noto">嘉明湖</p>
-                        <svg class="icon-heart svg">
-                            <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
-                        </svg>
-                    </div>
-                    <div class="floor-2">
-                        <div class="floor-2-1 flex">
-                            <span>
-                                <svg class="icon-star svg">
-                                    <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                                </svg>
-                            </span>
-                            <span class="ff-airbnb">4.5</span>
-                            <span class="ff-noto">(24則評價)</span>
-                        </div>
-                        <div class="floors flex">
-                            <div class="floor-2-2">
-                                <span>
-                                    <svg class="icon-place svg">
-                                        <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
-                                    </svg>
-                                </span>
-                                <span class="ff-noto">台灣 - 台中</span>
-                            </div>
-                            <div class="floor-2-3 flex">
-                                <div class="floor-2-3-1">
-                                    <span>
-                                        <svg class="icon-difficulty svg">
-                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="ff-noto">行程難度: 容易</span>
-                                </div>
-                                <div class="floor-2-3-2">
-                                    <span>
-                                        <svg class="icon-time svg">
-                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="ff-noto">行程難度: 3天</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="floor-3">
-                        <p class="text ff-noto">
-                            台灣最高的高山湖泊,它的形成有著各種的傳說，而隕石撞擊而成的湖泊是目前最常被提及的說法之一。這裏同時也是大型野生動物常常出現的地方，夜間於三千公尺左右的山屋時，水鹿就會悄悄地到來！本行程規劃健行向陽山、三叉山兩座3000公尺高山，連綿十多公里的高山草原景觀，絕對讓你驚嘆不已!!
-                        </p>
-                    </div>
-
-                    <div class="floor-4">
-                        <div class="top-section flex">
-                            <div class="leftBox">
-                                <p class="text ff-noto">剩餘名額：7</p>
-                            </div>
-                            <div class="rightBox">
-                                <p class="text ff-airbnb">NTD 6,300</p>
-                            </div>
-                        </div>
-                        <div class="bottom-section flex">
-                            <div class="leftBox">
-                                <p class="text ff-noto">出發日期 2021/04/02</p>
-                            </div>
-                            <a href="./activity-detail.php">
-                                <div class="activity-section-cta ff-noto">
-                                    查看行程
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="activity-card">
-                <div class="activity-card-image"></div>
-                <div class="activity-description">
-                    <div class="floor-1 flex">
-                        <p class="text ff-noto">嘉明湖</p>
-                        <svg class="icon-heart svg">
-                            <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
-                        </svg>
-                    </div>
-                    <div class="floor-2">
-                        <div class="floor-2-1 flex">
-                            <span>
-                                <svg class="icon-star svg">
-                                    <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
-                                </svg>
-                            </span>
-                            <span class="ff-airbnb">4.5</span>
-                            <span class="ff-noto">(24則評價)</span>
-                        </div>
-                        <div class="floors flex">
-                            <div class="floor-2-2">
-                                <span>
-                                    <svg class="icon-place svg">
-                                        <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
-                                    </svg>
-                                </span>
-                                <span class="ff-noto">台灣 - 台中</span>
-                            </div>
-                            <div class="floor-2-3 flex">
-                                <div class="floor-2-3-1">
-                                    <span>
-                                        <svg class="icon-difficulty svg">
-                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="ff-noto">行程難度: 容易</span>
-                                </div>
-                                <div class="floor-2-3-2">
-                                    <span>
-                                        <svg class="icon-time svg">
-                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="ff-noto">行程難度: 3天</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="floor-3">
-                        <p class="text ff-noto">
-                            台灣最高的高山湖泊,它的形成有著各種的傳說，而隕石撞擊而成的湖泊是目前最常被提及的說法之一。這裏同時也是大型野生動物常常出現的地方，夜間於三千公尺左右的山屋時，水鹿就會悄悄地到來！本行程規劃健行向陽山、三叉山兩座3000公尺高山，連綿十多公里的高山草原景觀，絕對讓你驚嘆不已!!
-                        </p>
-                    </div>
-
-                    <div class="floor-4">
-                        <div class="top-section flex">
-                            <div class="leftBox">
-                                <p class="text ff-noto">剩餘名額：7</p>
-                            </div>
-                            <div class="rightBox">
-                                <p class="text ff-airbnb">NTD 6,300</p>
-                            </div>
-                        </div>
-                        <div class="bottom-section flex">
-                            <div class="leftBox">
-                                <p class="text ff-noto">出發日期 2021/04/02</p>
-                            </div>
-                            <a href="./activity-detail.php">
-                                <div class="activity-section-cta ff-noto">
-                                    查看行程
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
             </div>
         </div>
 
         <section class="pagination-section">
-            <div class="container">
+            <div class="container flex">
+                <a href="javascript: backwardPage()">
+                    <li class="arrow">
+                        <svg class="icon-arrow_back_ios svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-arrow_back_ios"></use>
+                        </svg>
+                    </li>
+                </a>
                 <ul class="pagination flex">
-                    <a href="#">
-                        <li class="arrow-forward">
-                            <svg class="icon-arrow_back_ios svg">
-                                <use xlink:href="./icomoon/symbol-defs.svg#icon-arrow_back_ios"></use>
-                            </svg>
-                        </li>
-                    </a>
-                    <a href="#">
-                        <li class="ff-airbnb text-first">
-                            1
-                        </li>
-                    </a>
-                    <a href="#">
-                        <li class="ff-airbnb">
-                            2
-                        </li>
-                    </a>
-                    <a href="#">
-                        <li class="ff-airbnb">
-                            3
-                        </li>
-                    </a>
-                    <a href="#">
-                        <li class="ff-airbnb">
-                            4
-                        </li>
-                    </a>
-                    <a href="#">
-                        <li class="ff-airbnb">
-                            5
-                        </li>
-                    </a>
-                    <a href="#">
-                        <li class="arrow-backward">
-                            <svg class="icon-arrow_forward_ios svg">
-                                <use xlink:href="./icomoon/symbol-defs.svg#icon-arrow_forward_ios"></use>
-                            </svg>
-                        </li>
-                    </a>
+
+
+
                 </ul>
+                <a href="javascript: forwardPage()">
+                    <li class="arrow">
+                        <svg class="icon-arrow_forward_ios svg">
+                            <use xlink:href="./icomoon/symbol-defs.svg#icon-arrow_forward_ios"></use>
+                        </svg>
+                    </li>
+                </a>
             </div>
         </section>
     </section>
@@ -436,4 +184,275 @@
     <div class="spaceForFixed-mobile"></div>
 
     <?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
+
+    <script>
+    let cate = 0;
+    let rating = 0;
+    let place = 0;
+    let page = 1;
+    let days = 0;
+    let level = 0;
+    let priceLow = 0;
+    let priceHigh = 18000;
+    let aData = {}; //商品資料
+    let placeFilter = $('.place .all');
+    let kind = 1;
+    const a_list = $('.a-list');
+    const pagination = $('.pagination');
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+
+
+    const activityTpl = o => {
+
+        return `<div class="activity-card">
+                    <div class="activity-card-image">
+                        <img src="./images/${o.schedule_id}/${o.schedule_id}.jpeg" class="card-img-top" alt="">
+                    </div>
+                    <div class="activity-description">
+                        <div class="floor-1 flex">
+                            <p class="text ff-noto">${o.schedule_title}</p>
+                            <svg class="icon-heart svg">
+                                <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
+                            </svg>
+                        </div>
+                        <div class="floor-2">
+                            <div class="floor-2-1 flex">
+                                <span>
+                                    <svg class="icon-star svg">
+                                        <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
+                                    </svg>
+                                </span>
+                                <span class="num ff-airbnb">${o.rating}</span>
+                            </div>
+                            <div class="floors flex">
+                                <div class="floor-2-2">
+                                    <span>
+                                        <svg class="icon-place svg">
+                                            <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="ff-noto">${o.location}</span>
+                                </div>
+                                <div class="floor-2-3 flex">
+                                    <div class="floor-2-3-1">
+                                        <span>
+                                            <svg class="icon-difficulty svg">
+                                                <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
+                                            </svg>
+                                        </span>
+                                        <span class="ff-noto">行程難度: ${o.level}</span>
+                                    </div>
+                                    <div class="floor-2-3-2">
+                                        <span>
+                                            <svg class="icon-time svg">
+                                                <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
+                                            </svg>
+                                        </span>
+                                        <span class="ff-noto">行程時間: ${o.days}天</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="floor-3">
+                            <p class="text ff-noto">
+                                ${o.short_info}
+                            </p>
+                        </div>
+
+                        <div class="floor-4">
+                            <div class="top-section flex">
+                                <div class="leftBox">
+                                    <p class="text ff-noto">剩餘名額：${o.left_number}</p>
+                                </div>
+                                <div class="rightBox">
+                                    <p class="text ff-airbnb">TWD ${dollarCommas(o.price)}</p>
+                                </div>
+                            </div>
+                            <div class="bottom-section flex">
+                                <div class="leftBox">
+                                    <p class="text ff-noto">出發日期： ${o.departure_date}</p>
+                                </div>
+                                <a href="./activity-detail.php?sid=${o.sid}">
+                                    <div class="activity-section-cta ff-noto">
+                                        查看行程
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>`;
+    }
+
+    const pageBtnTpl = n => {
+        return `<a href="javascript: changePage(${n})">
+                    <li class="ff-airbnb text-first ${ n===page ? 'active' : ''}">
+                        <p class="num ff-airbnb">${n}</p>
+                    </li>
+                </a>`;
+    }
+
+    // getActivitys();
+
+    // 輸出資料新增加kind，可以作為changeKind()的資料來源
+    function getActivitys() {
+        $.get('activity-list-api.php', {
+            cate,
+            page,
+            kind,
+            rating,
+            place,
+            days,
+            level,
+            priceLow,
+            priceHigh
+        }, function(data) {
+            aData = data;
+            renderActivitys();
+            renderPagination();
+        }, 'json');
+    }
+
+    placeFilter.eq(0).click();
+
+
+
+    function changeCate(c) {
+        cate = c;
+        page = 1;
+        getActivitys();
+    }
+
+    function changeRating(r){
+        rating = r;
+        page = 1;
+        getActivitys();
+    }
+
+    function changePlace(p){
+        place = p;
+        page = 1;
+        getActivitys();
+    }
+
+    function changeDays(d){
+        days = d;
+        page = 1;
+        getActivitys();
+    }
+
+    function changeLevel(l){
+        level = l;
+        page = 1;
+        getActivitys();
+    }
+
+    function changePrice(low, high){
+        page = 1;
+        priceLow = low;
+        priceHigh = high;
+        getActivitys();
+    } 
+
+    // 換頁時產生平滑移動效果回到篩選處
+    function ScrollBack() {
+        window.scrollTo({
+            top: 783,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    function changePage(p) {
+        page = p;
+        getActivitys();
+        ScrollBack()
+        // window.document.body.scrollTop = 0;
+        // window.document.documentElement.scrollTo(0, 783, 'smooth');
+    }
+
+    // 新增種類(放在每個篩選器class裡，點擊時觸發不同篩選項目)
+    function changeKind(k) {
+        kind = k;
+        page = 1;
+    }
+
+    function backwardPage() {
+        page = page - 1;
+        if (!(page < 1)) {
+            getActivitys();
+            ScrollBack()
+        }
+    }
+
+    function forwardPage() {
+        if (!(page >= aData.totalPages)) {
+            page++;
+            getActivitys();
+            ScrollBack()
+        }
+    }
+
+    // 產生商品畫面的區塊
+
+    function renderActivitys() {
+        a_list.html('');
+        if (aData.rows && aData.rows.forEach) {
+            aData.rows.forEach(el => {
+                a_list.append(activityTpl(el))
+            });
+        }
+    }
+
+    function renderPagination() {
+        pagination.html('');
+        for (let i = page - 2; i <= page + 2; i++) {
+            if (i >= 1 && i <= aData.totalPages) {
+                pagination.append(pageBtnTpl(i));
+            }
+        }
+    }
+    </script>
+
+    <script>
+    // 點擊開啟條件篩選
+
+
+    $('.filterBox').click(function() {
+
+        $(this).find('div').toggleClass('open');
+        $(this).siblings().find('div').removeClass('open');       
+
+        $(this).find('svg').toggleClass('open');
+        $(this).siblings().find('svg').removeClass('open');
+
+        $(this).find('p').toggleClass('open');
+        $(this).siblings().find('p').removeClass('open');
+
+        if($(this).find('li').hasClass('stay')){
+            $(this).find('p').toggleClass('permanent');
+            $(this).find('svg').toggleClass('permanent');
+        } 
+    })
+
+    $('.filterBox li').click(function(){
+        $(this).toggleClass('stay');
+        $(this).siblings().removeClass('stay');
+    })
+
+    // 點擊愛心變紅，使用jq on('click')抓取動態生成元素
+    let heart = $('.a-list svg')
+
+    $('.a-list').on('click', 'svg', function() {
+        $(this).toggleClass('open');
+    })
+
+    </script>
+
+
+
     <?php include __DIR__ . '/parts-php/html-endingTag.php'; ?>

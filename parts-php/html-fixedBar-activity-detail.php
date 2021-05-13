@@ -1,7 +1,8 @@
+
 <section id="fixed-section" class="fixed-section">
     <div id="homepage-container" class="homepage-container flex">
         <div class="fixed-functions">
-            <p class="text ff-noto"><span class="num ff-airbnb">$6,300</span> / 人 </p>
+            <p class="text ff-noto"><span class="num ff-airbnb">$<?= $row['price'] ?></span> / 人 </p>
         </div>
 
 

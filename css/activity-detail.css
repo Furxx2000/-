@@ -428,6 +428,10 @@ nav div.signup-btn:hover {
 
 /* ---------------------hero-section-mobile-------------------------- */
 
+section.hero-section div.hero-section-image-desktop {
+  display: none;
+}
+
 /*-------------------activity-detail-section-mobile------------------------ */
 
 section.activity-detail-section div.activity-detail-section-image {
@@ -767,14 +771,14 @@ section.other-activity-section div.carousel {
   width: 100%;
 }
 
-section.other-activity-section div.carousel div.carousel-cell {
+section.other-activity-section div.carousel li.carousel-cell {
   position: relative;
   flex: 1 1 375px;
   margin: 0 1.5rem;
   border-radius: 0.5rem;
 }
 
-section.other-activity-section div.carousel div.carousel-cell svg.icon-heart {
+section.other-activity-section div.carousel li.carousel-cell svg.icon-heart {
   position: absolute;
   top: 3%;
   left: 87%;
@@ -787,34 +791,35 @@ section.other-activity-section div.carousel div.carousel-cell svg.icon-heart {
   transition: 0.25s;
 }
 
-section.other-activity-section div.carousel div.carousel-cell img {
+section.other-activity-section div.carousel li.carousel-cell img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border-radius: 0.5rem;
   box-shadow: -1px 0 6px rgba(0, 0, 0, 0.301);
 }
 
-section.other-activity-section div.carousel div.carousel-cell p.title {
+section.other-activity-section div.carousel li.carousel-cell p.title {
   display: inline;
   font-size: 1.2rem;
   vertical-align: middle;
 }
 
-section.other-activity-section div.carousel div.carousel-cell svg.icon-star {
+section.other-activity-section div.carousel li.carousel-cell svg.icon-star {
   fill: var(--primary-color);
   width: 1rem;
 }
 
-section.other-activity-section div.carousel div.carousel-cell p.date {
+section.other-activity-section div.carousel li.carousel-cell p.date {
   vertical-align: middle;
   margin: 0.2rem 0;
 }
 
-section.other-activity-section div.carousel div.carousel-cell span {
+section.other-activity-section div.carousel li.carousel-cell span {
   vertical-align: middle;
 }
 
-section.other-activity-section div.carousel div.carousel-cell span.price {
+section.other-activity-section div.carousel li.carousel-cell span.price {
   font-size: 1.2rem;
   display: inline-block;
   font-weight: 600;
@@ -1154,13 +1159,15 @@ section.buy-now-section div.activity-info {
 }
 
 section.buy-now-section div.activity-info div.leftBox {
-  background-image: url(../images/Nan_hu_mountain.jpg);
   width: 60%;
   height: 100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 5px;
+}
+
+section.buy-now-section div.activity-info div.leftBox img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.3rem;
 }
 
 section.buy-now-section div.activity-info div.rightBox p.title {
@@ -1236,8 +1243,24 @@ section.buy-now-section div.sign-up-cta:active {
   }
 
   div.module-navbar div.navbar-right div.cart {
-    display: block;
-    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  div.module-navbar div.navbar-right span.nav-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    background-color: var(--primary-color);
   }
 
   div.module-navbar div.navbar-right div.user-icon {
@@ -1359,17 +1382,20 @@ section.buy-now-section div.sign-up-cta:active {
   }
 
   section.hero-section div.hero-section-image-desktop {
+    display: block;
     position: absolute;
     left: 48.5%;
     top: 30%;
     transform: translateX(-50%);
-    background-image: url(../images/向陽大壁.jpeg);
     width: 60%;
     height: 450px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 0.8rem;
+  }
+
+  section.hero-section div.hero-section-image-desktop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
   }
 
   /*-------------------activity-detail-section-desktop------------------------ */
@@ -1519,6 +1545,7 @@ section.buy-now-section div.sign-up-cta:active {
     align-self: flex-start;
     margin-right: 1rem;
     margin-bottom: 3rem;
+    height: 370px;
   }
 
   section.mountain-intro-section
@@ -1527,6 +1554,8 @@ section.buy-now-section div.sign-up-cta:active {
     li
     img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     border-radius: 0.5rem;
   }
 
@@ -1567,7 +1596,7 @@ section.buy-now-section div.sign-up-cta:active {
   section.activity-intro-section div.activity-intro-image {
     background-image: url(../images/activity-intro-image.jpg);
     height: 400px;
-    background-position: 65% 65%;
+    background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 0.5rem;
@@ -1593,11 +1622,12 @@ section.buy-now-section div.sign-up-cta:active {
     background-color: var(--fourth-color);
     box-shadow: -1px 0 6px rgba(0, 0, 0, 0.151);
     height: 100%;
+    padding: 1rem;
   }
 
   section.activity-intro-section div.activity-daily-intro div.left p.text {
     color: white;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 2;
   }
@@ -1610,6 +1640,7 @@ section.buy-now-section div.sign-up-cta:active {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    padding: 0 1.5rem;
   }
 
   section.activity-intro-section
@@ -1623,13 +1654,14 @@ section.buy-now-section div.sign-up-cta:active {
     letter-spacing: 2px;
     line-height: 2;
     text-indent: 2.5rem;
+    height: 260px;
   }
 
   section.activity-intro-section
     div.activity-daily-intro
     div.right
     div.right-bottom {
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     margin-top: 2rem;
   }
@@ -1761,6 +1793,7 @@ section.buy-now-section div.sign-up-cta:active {
 
   section.other-activity-section div.flexBox {
     margin-bottom: 2rem;
+    padding-right: 1.1rem;
   }
 
   section.other-activity-section div.carousel-button {
@@ -1784,6 +1817,11 @@ section.buy-now-section div.sign-up-cta:active {
     transform: scale(1.05);
   }
 
+  section.other-activity-section div.flex div.arrow-button:active {
+    transform: scale(0.9);
+    box-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+  }
+
   section.other-activity-section div.flex svg {
     display: inline-block;
     width: 1rem;
@@ -1801,10 +1839,32 @@ section.buy-now-section div.sign-up-cta:active {
     padding: 0 1rem;
   }
 
-  section.other-activity-section div.carousel div.carousel-cell {
+  section.other-activity-section div.carousel {
+    max-width: 1103px;
+    height: 311px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  section.other-activity-section div.carousel ul.wrap-img {
+    width: 3309px;
+    height: 311px;
+    display: flex;
+    position: absolute;
+    left: 0px;
+    padding: 0;
+    margin: 0;
+    transition: 0.5s;
+  }
+
+  section.other-activity-section div.carousel li.carousel-cell {
     display: block;
     flex: 1 1 30%;
-    margin: 0 1rem;
+    margin: 0.2rem 1rem;
+  }
+
+  section.other-activity-section li.carousel-cell div.carousel-image {
+    height: 232px;
   }
 
   /* ------------------comment-section-desktop------------------- */

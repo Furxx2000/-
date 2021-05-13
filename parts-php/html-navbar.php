@@ -81,6 +81,7 @@
                     <svg class="icon-cart svg">
                         <use xlink:href="./icomoon/symbol-defs.svg#icon-cart"></use>
                     </svg>
+                    <span class="nav-badge ff-airbnb">0</span>
                 </div>
             </a>
             <div class="user-icon flex none">
