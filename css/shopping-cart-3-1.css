@@ -776,8 +776,24 @@ div.delete-warning-card div.btns p.confirm-btn:active {
   }
 
   div.module-navbar div.navbar-right div.cart {
-    display: block;
-    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  div.module-navbar div.navbar-right span.nav-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    background-color: var(--primary-color);
   }
 
   div.module-navbar div.navbar-right div.user-icon {

@@ -85,8 +85,8 @@ ul {
 .mt-4 {
   margin-top: 4rem !important;
 }
-.ml-5 {
-  margin-left: 5rem !important;
+.ml-6 {
+  margin-left: 6.7rem !important;
 }
 .mr-2 {
   margin-right: 2rem !important;
@@ -468,20 +468,36 @@ section.progress-bar-section
   div.line {
   position: absolute;
   border: 1px solid #bbbbbb;
-  width: 61px;
+  width: 70px;
   z-index: -20;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* -----------------------noItem-mobile------------------------------------ */
+
+div.noItem {
+  margin: 40vh auto;
+  width: 90%;
+  transform: translateY(-50%);
+  background-color: rgb(255, 237, 133);
+  border-radius: 0.5rem;
+  border: 1.5px solid white;
+  padding: 1.5rem;
+}
+
+div.noItem p.text {
+  color: var(--third-color);
+  line-height: 1.7;
+  letter-spacing: 1px;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 /* -----------------------shopping-cart-section-mobile--------------------- */
 
 section.shopping-cart-section div.container {
   padding: 1rem 1rem;
-}
-
-section.shopping-cart-section h2.title {
-  display: none;
 }
 
 section.shopping-cart-section div.shopping-cart {
@@ -521,10 +537,9 @@ section.shopping-cart-section div.left-1 {
 }
 
 section.shopping-cart-section div.left-1-1 {
-  width: 70px;
+  width: 90px;
   height: 70px;
   margin-right: 1rem;
-  margin-bottom: 0.3rem;
 }
 
 section.shopping-cart-section div.left-1-1 img {
@@ -532,10 +547,6 @@ section.shopping-cart-section div.left-1-1 img {
   height: 100%;
   border-radius: 0.3rem;
   vertical-align: middle;
-}
-
-section.shopping-cart-section div.left div.picture {
-  width: 90px;
 }
 
 section.shopping-cart-section div.left-1-2 {
@@ -586,8 +597,8 @@ section.shopping-cart-section div.left-2 p.add {
   cursor: pointer;
 }
 
-section.shopping-cart-section div.left-2 p.minus {
-  background-color: var(--fifth-color);
+section.shopping-cart-section div.left-2 p.minus.open {
+  background-color: var(--fifth-color) !important;
 }
 
 p.minus:active,
@@ -603,12 +614,12 @@ section.shopping-cart-section div.left-2 svg {
 }
 
 section.shopping-cart-section div.left-3 {
-  width: 115px;
+  width: 110px;
   text-align: right;
 }
 
 section.shopping-cart-section div.left-3 span {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--primary-color);
 }
@@ -632,7 +643,7 @@ section.shopping-cart-section div.right svg {
 section.shopping-cart-section div.total {
   width: 100%;
   text-align: right;
-  padding: 5rem 0 1rem 0;
+  padding: 3rem 0 1rem 0;
   border-bottom: 1.5px solid #cccccc;
 }
 
@@ -652,7 +663,7 @@ section.shopping-cart-section div.checkout-cta {
   width: fit-content;
   padding-top: 2rem;
   position: absolute;
-  left: 60%;
+  left: 62%;
 }
 
 section.shopping-cart-section div.checkout-cta:active {
@@ -716,7 +727,7 @@ section.fixed-section svg.icon-cart {
   fill: none;
 }
 
-/* -----------------------delete-item-modal---------------------- */
+/* -----------------------delete-item-modal-mobile--------------------- */
 
 div.delete-item-modal {
   position: fixed;
@@ -830,8 +841,24 @@ div.delete-warning-card div.btns p.confirm-btn:active {
   }
 
   div.module-navbar div.navbar-right div.cart {
-    display: block;
-    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  div.module-navbar div.navbar-right span.nav-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    background-color: var(--primary-color);
   }
 
   div.module-navbar div.navbar-right div.user-icon {
@@ -925,7 +952,7 @@ div.delete-warning-card div.btns p.confirm-btn:active {
     display: none;
   }
 
-  /* ----------------------progress-bar-section----------------------- */
+  /* ----------------------progress-bar-section-desktop---------------------- */
 
   section.progress-bar-section ul.progress-bar {
     padding: 3% 15%;
@@ -1026,23 +1053,28 @@ div.delete-warning-card div.btns p.confirm-btn:active {
     width: 310px;
   }
 
+  /* -----------------------noItem-desktop-------------------------*/
+
+  div.noItem {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 300px;
+    border-radius: 2rem;
+    line-height: 10px;
+  }
+
+  div.noItem p.text {
+    margin: 0 auto;
+  }
+
   /* -----------------------shopping-cart-section-desktop--------------------- */
 
   section.shopping-cart-section div.container {
     padding: 1rem 25%;
   }
 
-  section.shopping-cart-section h2.title {
-    margin: 0 auto;
-    font-size: 2rem;
-    color: var(--sixth-color);
-    letter-spacing: 1px;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
   section.shopping-cart-section div.shopping-cart {
-    position: relative;
     padding: 2rem 2rem 7.5rem 2rem;
     background-color: white;
     border-radius: 1rem;
@@ -1055,7 +1087,6 @@ div.delete-warning-card div.btns p.confirm-btn:active {
 
   section.shopping-cart-section div.align span.line {
     width: 45.5%;
-    vertical-align: middle;
   }
 
   section.shopping-cart-section div.align span.line2 {
@@ -1067,46 +1098,29 @@ div.delete-warning-card div.btns p.confirm-btn:active {
 
   section.shopping-cart-section div.shopping-cart div.align h2.text {
     font-size: 1.5rem;
-    color: var(--sixth-color);
-    letter-spacing: 1px;
     text-align: center;
     margin: 0 0.6rem;
   }
 
   section.shopping-cart-section div.itemBox {
-    width: 100%;
     margin-bottom: 2rem;
   }
 
   section.shopping-cart-section div.left {
     flex: 0 1 90%;
     border-radius: 0.6rem;
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
   section.shopping-cart-section div.left-1-1 {
-    width: 100px;
-    height: 100px;
-    margin-right: 1rem;
-  }
-
-  section.shopping-cart-section div.left-1-1 img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0.3rem;
-    vertical-align: middle;
-  }
-
-  section.shopping-cart-section div.left div.picture {
     width: 180px;
+    height: 100px;
   }
 
   section.shopping-cart-section div.left-1-2 p.title {
-    font-weight: 500;
     font-size: 1.1rem;
     margin-bottom: 1rem;
     width: 340px;
-    color: var(--sixth-color);
   }
 
   section.shopping-cart-section div.left-1-2 p.date {
@@ -1116,115 +1130,64 @@ div.delete-warning-card div.btns p.confirm-btn:active {
   section.shopping-cart-section div.left-1-2 p.text {
     color: var(--fifth-color);
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   section.shopping-cart-section div.left-2 p.num {
-    display: inline-block;
     font-weight: 500;
     font-size: 1.1rem;
     margin: 0 1rem;
-    vertical-align: middle;
   }
 
   section.shopping-cart-section div.left-2 p.minus,
   section.shopping-cart-section div.left-2 p.add {
-    display: inline-block;
     width: 2rem;
     height: 2rem;
-    border-radius: 50%;
-    background-color: var(--third-color);
-    color: white;
     font-size: 1.1rem;
     font-weight: 500;
     padding-top: 0.28rem;
-    text-align: center;
-    cursor: pointer;
-  }
-
-  p.minus:active,
-  p.add:active {
-    transform: scale(0.9);
   }
 
   section.shopping-cart-section div.left-2 svg {
-    display: inline-block;
-    fill: white;
     width: 1.5rem;
     height: 1.5rem;
   }
 
   section.shopping-cart-section div.left-3 {
-    width: 115px;
-    text-align: right;
+    width: 130px;
   }
 
   section.shopping-cart-section div.left-3 span {
     font-size: 1.2rem;
-    font-weight: 500;
-    color: var(--primary-color);
   }
 
   section.shopping-cart-section div.right {
     flex: 0 1 10%;
-    text-align: center;
-    cursor: pointer;
     margin: auto 0;
-  }
-
-  section.shopping-cart-section div.right:active {
-    transform: scale(0.9);
   }
 
   section.shopping-cart-section div.right svg {
     width: 1.5rem;
     height: 1.5rem;
-    fill: var(--third-color);
   }
 
   section.shopping-cart-section div.total {
-    width: 100%;
-    text-align: right;
     padding: 5rem 0 2rem 0;
-    border-bottom: 1.5px solid #cccccc;
   }
 
   section.shopping-cart-section div.total p.text {
-    display: inline-block;
-    margin-left: 2rem;
     font-size: 1.5rem;
-    color: var(--primary-color);
-    font-weight: 500;
-  }
-
-  section.shopping-cart-section div.total p.ff-noto {
-    color: var(--sixth-color);
   }
 
   section.shopping-cart-section div.checkout-cta {
-    width: fit-content;
-    padding-top: 2rem;
-    position: absolute;
     left: 83%;
   }
 
-  section.shopping-cart-section div.checkout-cta:active {
-    transform: scale(0.9);
-  }
-
   section.shopping-cart-section div.checkout-cta p.text {
-    text-align: right;
-    font-size: 1.2rem;
-    font-weight: 400;
-    background-color: var(--primary-color);
-    border-radius: 0.4rem;
     padding: 0.8rem 2rem;
-    color: white;
-    letter-spacing: 1px;
-    cursor: pointer;
   }
 
-  /* --------------------------delete-item-modal-------------------------- */
+  /* --------------------------delete-item-modal-desktop------------------------- */
 
   div.delete-warning-card {
     width: 400px;
@@ -1251,41 +1214,16 @@ div.delete-warning-card div.btns p.confirm-btn:active {
   }
 
   div.delete-warning-card p.text {
-    margin: 0 auto;
-    color: var(--sixth-color);
     font-size: 1.4rem;
-    letter-spacing: 1px;
-    line-height: 2;
-    text-align: center;
-    font-weight: 500;
-  }
-
-  div.delete-warning-card div.btns {
-    justify-content: space-around;
-    padding-top: 1.5rem;
   }
 
   div.delete-warning-card div.btns p.cancel-btn {
-    text-align: center;
-    width: 30%;
-    color: white;
     padding: 0.5rem 1.5rem 0.6rem 1.5rem;
-    background-color: var(--fourth-color);
-    border-radius: 0.4rem;
-    margin: 0;
     font-size: 1.2rem;
-    cursor: pointer;
   }
 
   div.delete-warning-card div.btns p.confirm-btn {
-    text-align: center;
-    width: 30%;
-    color: white;
     padding: 0.5rem 1.5rem 0.6rem 1.5rem;
-    background-color: var(--primary-color);
-    border-radius: 0.4rem;
-    margin: 0;
-    cursor: pointer;
     font-size: 1.2rem;
   }
 

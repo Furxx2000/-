@@ -529,6 +529,19 @@ section.order-detail-section div.orderer-info-form {
   border-radius: 0.3rem;
 }
 
+section.order-detail-section span.small {
+  font-size: 0.5rem;
+  color: rgb(219, 71, 71);
+  display: inline-block;
+  margin: 0.3rem 0 1rem 0;
+}
+
+section.order-detail-section li:not(li.checkbox) label.text {
+  margin-right: 1rem;
+  letter-spacing: 1px;
+  color: var(--fifth-color);
+}
+
 section.order-detail-section div.orderer-info-form h4.text {
   margin: 0;
   color: var(--primary-color);
@@ -544,13 +557,17 @@ section.order-detail-section ul.form-items li.flex:not(.checkbox, .btns) {
   display: block;
 }
 
-section.order-detail-section ul.form-items li.flex input:not(.checkbox) {
-  outline: none;
+section.order-detail-section
+  ul.form-items
+  li.flex
+  input:not(.checkbox, .forward-btn) {
   border: none;
   border-bottom: 1.5px solid #bbbbbb;
   background-color: transparent;
   width: 100%;
-  margin: 0.8rem 0;
+  margin-top: 0.5rem;
+  height: 30px;
+  color: var(--third-color);
 }
 
 section.order-detail-section ul.form-items li.flex p.text {
@@ -561,6 +578,10 @@ section.order-detail-section ul.form-items li.flex p.text {
 
 section.order-detail-section ul.form-items li.checkbox {
   margin: 1.5rem 0 2.5rem 0;
+}
+
+section.order-detail-section ul.form-items li.checkbox label {
+  color: var(--primary-color);
 }
 
 section.order-detail-section ul.form-items li.checkbox input {
@@ -579,7 +600,7 @@ section.order-detail-section ul.form-items li.btns {
 }
 
 section.order-detail-section ul.form-items li.btns a:active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 section.order-detail-section ul.form-items li.btns div.backward-btn {
@@ -598,6 +619,7 @@ section.order-detail-section ul.form-items li.btns input.forward-btn {
   background-color: var(--primary-color);
   border-radius: 0.5rem;
   cursor: pointer;
+  border: none;
 }
 
 /* ----------------------footer-section-mobile----------------------- */
@@ -645,92 +667,6 @@ section.fixed-section svg.icon-cart {
   fill: none;
 }
 
-/* -----------------------delete-item-modal---------------------- */
-
-div.delete-item-modal {
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  pointer-events: none;
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: 0.25s;
-}
-
-div.delete-item-modal.open {
-  opacity: 1;
-  pointer-events: all;
-}
-
-div.delete-item-modal div.container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
-
-div.delete-warning-card {
-  background-color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 300px;
-  height: 180px;
-  transform: translate(-50%, -50%);
-  border-radius: 0.7rem;
-  padding: 1.5rem;
-}
-
-div.delete-warning-card svg {
-  text-align: right;
-  width: 1rem;
-  height: 1rem;
-}
-
-div.delete-warning-card p.text {
-  margin: 0 auto;
-  color: var(--sixth-color);
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  line-height: 2;
-  text-align: center;
-  font-weight: 500;
-}
-
-div.delete-warning-card div.btns {
-  justify-content: space-around;
-  padding-top: 1.5rem;
-}
-
-div.delete-warning-card div.btns p.cancel-btn {
-  text-align: center;
-  width: 30%;
-  color: white;
-  padding: 0.3rem 1.1rem 0.4rem 1.1rem;
-  background-color: var(--fourth-color);
-  border-radius: 0.4rem;
-  margin: 0;
-  cursor: pointer;
-}
-
-div.delete-warning-card div.btns p.confirm-btn {
-  text-align: center;
-  width: 30%;
-  color: white;
-  padding: 0.3rem 1.1rem 0.4rem 1.1rem;
-  background-color: var(--primary-color);
-  border-radius: 0.4rem;
-  margin: 0;
-  cursor: pointer;
-}
-
-div.delete-warning-card div.btns p.cancel-btn:active,
-div.delete-warning-card div.btns p.confirm-btn:active {
-  transform: scale(0.9);
-}
-
 @media only screen and (min-width: 1420px) {
   body {
     background-color: #f4f4f4;
@@ -759,8 +695,24 @@ div.delete-warning-card div.btns p.confirm-btn:active {
   }
 
   div.module-navbar div.navbar-right div.cart {
-    display: block;
-    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  div.module-navbar div.navbar-right span.nav-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    background-color: var(--primary-color);
   }
 
   div.module-navbar div.navbar-right div.user-icon {
@@ -1008,16 +960,22 @@ div.delete-warning-card div.btns p.confirm-btn:active {
     margin: 2rem 0;
   }
 
+  section.order-detail-section span.small {
+    flex: 1 1 100%;
+    padding-left: 20%;
+    margin: 0.3rem 0 0 0;
+  }
+
   section.order-detail-section
     div.orderer-info-form
     ul.form-items
     li.flex
     input:not(.checkbox, .forward-btn) {
-    width: 60%;
-    margin-right: 3rem;
+    width: 80%;
     border: 1.5px solid var(--fifth-color);
     border-radius: 0.5rem;
-    height: 28px;
+    height: 35px;
+    padding: 0 0.5rem;
   }
 
   section.order-detail-section div.orderer-info-form ul.form-items li.checkbox {
@@ -1035,71 +993,6 @@ div.delete-warning-card div.btns p.confirm-btn:active {
 
   section.order-detail-section div.orderer-info-form ul.form-items li.btns {
     margin-top: 5rem;
-  }
-
-  /* --------------------------delete-item-modal-------------------------- */
-
-  div.delete-warning-card {
-    width: 400px;
-    height: 250px;
-    padding: 1.5rem;
-  }
-
-  div.delete-warning-card svg {
-    display: inline-block;
-    margin: 0;
-    margin-left: auto;
-    width: 1.3rem;
-    height: 1.3rem;
-    fill: var(--sixth-color);
-    cursor: pointer;
-  }
-
-  div.delete-warning-card svg:active {
-    transform: scale(0.9);
-  }
-
-  div.delete-warning-card div.flex {
-    margin-bottom: 1rem;
-  }
-
-  div.delete-warning-card p.text {
-    margin: 0 auto;
-    color: var(--sixth-color);
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    line-height: 2;
-    text-align: center;
-    font-weight: 500;
-  }
-
-  div.delete-warning-card div.btns {
-    justify-content: space-around;
-    padding-top: 1.5rem;
-  }
-
-  div.delete-warning-card div.btns p.cancel-btn {
-    text-align: center;
-    width: 30%;
-    color: white;
-    padding: 0.5rem 1.5rem 0.6rem 1.5rem;
-    background-color: var(--fourth-color);
-    border-radius: 0.4rem;
-    margin: 0;
-    font-size: 1.2rem;
-    cursor: pointer;
-  }
-
-  div.delete-warning-card div.btns p.confirm-btn {
-    text-align: center;
-    width: 30%;
-    color: white;
-    padding: 0.5rem 1.5rem 0.6rem 1.5rem;
-    background-color: var(--primary-color);
-    border-radius: 0.4rem;
-    margin: 0;
-    cursor: pointer;
-    font-size: 1.2rem;
   }
 
   /* --------------------------footer-section-desktop--------------------- */

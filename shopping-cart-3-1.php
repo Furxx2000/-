@@ -12,7 +12,7 @@
 
 <body>
     <?php include __DIR__ . '/parts-php/html-navbar.php'; ?>
-    
+
     <section class="progress-bar-section hero-section">
         <div class="container">
             <ul class="progress-bar flex">
@@ -60,7 +60,7 @@
                         填寫信用卡資料
                         <svg class="icon-play svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-play"></use>
-                        </svg> 
+                        </svg>
                     </p>
                     <div class="outer-circle">
                         <div class="inner-circle">
@@ -83,76 +83,90 @@
         </div>
     </section>
 
-    <section class="order-detail-section">
+    <section class="order-detail-section hero-section">
         <div class="container">
             <h2 class="title ff-noto">個人資料填寫(保險用)</h2>
             <div class="orderer-info-form">
-                <form action="./shopping-cart-4.php" method="post">
+                <form name="form2" action="./shopping-cart-4.php" method="post" novalidate
+                    onsubmit="checkForm(); return false">
                     <h4 class="text ff-noto">訂購人資訊</h4>
                     <ul class="form-items">
                         <li class="box flex">
-                            <label id="name" for="name" class="text ff-noto">姓名</label> 
-                            <input class="ff-noto" type="text" name="name" required>
+                            <label for="name" class="text ff-noto">姓名</label>
+                            <input id="name" class="ff-noto" type="text" name="name" required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex gender">
-                            <label for="gender" class="text ff-noto">性別</label>   
+                            <label for="gender" class="text ff-noto">性別</label>
                             <div class="box">
-                                <input id="male" class="male" type="radio" name="gender" value="male"  required>
+                                <input id="male" class="male" type="radio" name="male" value="male" required>
 
-                                <label for="male" class="text ff-noto">男</label> 
+                                <label for="male" class="text ff-noto">男</label>
 
-                                <input id="female" class="female" type="radio" name="gender" value="female"  required>
+                                <input id="female" class="female" type="radio" name="female" value="female" required>
 
                                 <label for="female" class="text ff-noto">女</label>
+                                <span class="small ff-noto"></span>
                             </div>
                         </li>
                         <li class="box flex">
-                            <label id="pid" for="pid" class="text ff-noto">身分證字號</label>
-                            <input class="ff-airbnb" type="text" name="pid" required>
+                            <label for="personalId" class="text ff-noto">身分證字號</label>
+                            <input id="personalId" class="ff-noto" type="text" name="personalId" required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
-                            <label id="birth-date" for="birth-date" class="text ff-noto">出生年月日</label>
-                            <input class="ff-airbnb" type="date" name="birth-date" placeholder="1990/01/01" required>
+                            <label for="birthDate" class="text ff-noto">出生年月日</label>
+                            <input id="birthDate" class="ff-noto" type="date" name="birthDate" placeholder="1990/01/01"
+                                required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
-                            <label id="email" for="email" class="text ff-noto">電子信箱</label>
-                            <input class="ff-airbnb" type="email" name="email" required>
+                            <label for="email" class="text ff-noto">電子信箱</label>
+                            <input id="email" class="ff-noto" type="email" name="email" required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
-                            <label id="phone-number" for="phone-number" class="text ff-noto">連絡電話</label>
-                            <input class="ff-airbnb" type="tel" name="tel" required>
+                            <label for="mobile" class="text ff-noto">連絡電話</label>
+                            <input id="mobile" class="ff-noto" type="text" name="mobile" required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
-                            <label id="address" for="address" class="text ff-noto">聯絡地址</label>
-                            <input class="ff-noto" type="text" name="address" required>
-                        </li>                    
-                        <li class="box flex">
-                            <label id="line-id" for="line-id" class="text ff-noto">LineID</label> 
-                            <input class="ff-airbnb" type="text" name="line-id" required>
+                            <label for="address" class="text ff-noto">聯絡地址</label>
+                            <input id="address" class="ff-noto" type="text" name="address" required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
-                            <label id="country" for="country" class="text ff-noto">國籍</label>
-                            <input class="ff-airbnb" type="text" name="country" required>
+                            <label for="lineId" class="text ff-noto">Line ID</label>
+                            <input id="lineId" class="ff-noto" type="text" name="lineId" required>
                         </li>
                         <li class="box flex">
-                            <label id="critical-illness" for="critical-illness" class="text ff-noto">重大疾病</label>
-                            <input class="ff-airbnb" type="text" name="critical-illness" required>
+                            <label for="country" class="text ff-noto">國籍</label>
+                            <input id="country" class="ff-noto" type="text" name="country" required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
-                            <label id="emergency-contact" for="emergency-contact-name" class="text ff-noto">緊急聯絡人</label>
-                            <input class="ff-noto" type="text" name="emergency-contact-name" required>
+                            <label for="criticalIllness" class="text ff-noto">重大疾病</label>
+                            <input id="criticalIllness" class="ff-noto" type="text" name="criticalIllness" required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
-                            <label id="emergency-contact-relation" for="emergency-contact-relation" class="text ff-noto">緊急聯絡人關係</label>
-                            <input class="ff-noto" type="text" name="emergency-contact-relation" required>
+                            <label for="emergencyContact" class="text ff-noto">緊急聯絡人</label>
+                            <input id="emergencyContact" class="ff-noto" type="text" name="emergencyContact" required>
+                            <span class="small ff-noto"></span>
+                        </li>
+                        <li class="box flex">
+                            <label for="emergencyContactRelation" class="text ff-noto">緊急聯絡人關係</label>
+                            <input id="emergencyContactRelation" class="ff-noto" type="text"
+                                name="emergencyContactRelation" required>
+                            <span class="small ff-noto"></span>
                         </li>
                         <li class="btns flex">
-                            <a href="./shopping-cart-3.php">   
+                            <a href="./shopping-cart-3.php">
                                 <div class="backward-btn ff-noto">上一步</div>
                             </a>
-                  
-                                <input type="submit" name="order-info" value="下一步" class="forward-btn ff-noto">
-       
+
+                            <input type="submit" name="order-info" value="下一步" class="forward-btn ff-noto">
+
                         </li>
                     </ul>
                 </form>
@@ -160,22 +174,6 @@
         </div>
     </section>
 
-    <div class="delete-item-modal">
-        <div class="container">
-            <div class="delete-warning-card">
-                <div class="flex">
-                    <svg class="icon-cross svg none">
-                        <use xlink:href="./icomoon/symbol-defs.svg#icon-cross"></use>
-                    </svg>
-                </div>
-                <p class="text ff-noto">刪除後的商品將無法復原<br>確認刪除嗎?</p>
-                <div class="btns flex">
-                    <p class="cancel-btn ff-noto">取消</p>
-                    <p class="confirm-btn ff-noto">確認</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <?php include __DIR__ . '/parts-php/html-footer.php'; ?>
@@ -184,21 +182,76 @@
 
     <?php include __DIR__ . '/parts-php/html-fixedBar.php'; ?>
     <?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
-    
-    <script>
-        const delItemModal = document.querySelector('.delete-item-modal');
-        const delItemBtns = document.querySelectorAll('.icon-cross');
-        const exitDelPage = document.querySelector('.delete-item-modal .icon-cross');
-
-        exitDelPage.addEventListener('click', () => {
-            delItemModal.classList.remove('open');
-        })
-
-    </script>
 
     <script>
-        
+    const email_re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
+    const $name = $('#name');
+    const $email = $('#email');
+    const $mobile = $('#mobile');
+    const $address = $('#address');
+    const $personalId = $('#personalId');
+    const $country = $('#country');
+    const $criticalIllness = $('#criticalIllness');
+    const $emergencyContact = $('#emergencyContact');
+    const $emergencyContactRelation = $('#emergencyContactRelation');
+    const $checkBox = document.querySelectorAll('li.gender input');
+    const inputs = document.querySelectorAll('ul input:not(input.forward-btn)');
 
+    inputs.forEach(function(el) {
+        el.addEventListener('keyup', returnColor);
+
+        function returnColor() {
+            if (window.matchMedia("(max-width: 700px)").matches) {
+                $(this).css('border-bottom', '1px solid #bbbbbb');
+            } else {
+                $(this).css('border', '1px solid #bbbbbb');
+            }
+            $(this).next().text('');
+        }
+    })
+
+    function checkForm() {
+
+        let isPass = true;
+
+        if ($name.val().length < 2) {
+            isPass = false;
+            if (window.matchMedia("(max-width: 700px)").matches) {
+                $name.css('border-bottom', '1px solid rgb(219, 71, 71)');
+            } else {
+                $name.css('border', '1px solid rgb(219, 71, 71)');
+            }
+            $name.next().text('請輸入正確的姓名');
+        }
+        if (!email_re.test($email.val())) {
+            isPass = false;
+            if (window.matchMedia("(max-width: 700px)").matches) {
+                $email.css('border-bottom', '1px solid rgb(219, 71, 71)');
+            } else {
+                $email.css('border', '1px solid rgb(219, 71, 71)');
+            }
+            $email.next().text('請輸入正確的e-mail');
+        }
+        if (!mobile_re.test($mobile.val())) {
+            isPass = false;
+            if (window.matchMedia("(max-width: 700px)").matches) {
+                $mobile.css('border-bottom', '1px solid rgb(219, 71, 71)');
+            } else {
+                $mobile.css('border', '1px solid rgb(219, 71, 71)');
+            }
+            $mobile.next().text('請輸入正確的聯絡電話');
+        }
+        if ($address.val() === '') {
+            isPass = false;
+            if (window.matchMedia("(max-width: 700px)").matches) {
+                $address.css('border-bottom', '1px solid rgb(219, 71, 71)');
+            } else {
+                $address.css('border', '1px solid rgb(219, 71, 71)');
+            }
+            $address.next().text('請輸入正確的聯絡地址');
+        }
+    }
     </script>
 
     <?php include __DIR__ . '/parts-php/html-endingTag.php'; ?>

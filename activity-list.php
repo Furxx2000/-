@@ -48,9 +48,9 @@ $pageName = 'activity-list';
                         <svg class="icon-star svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
                         </svg>
-                        <p class="text ff-noto">評分</p>
+                        <p class="title ff-noto">評分</p>
                     </div>
-                    <div class="rank box" >
+                    <div class="rank box">
                         <ul>
                             <li class="ff-noto all" data-sid="0" onclick="changeRating(0)">
                                 <p class="text ff-noto">全部</p>
@@ -68,9 +68,9 @@ $pageName = 'activity-list';
                         <svg class="icon-place svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-place"></use>
                         </svg>
-                        <p class="text ff-noto" >位置</p>
+                        <p class="title ff-noto">位置</p>
                     </div>
-                    <div class="place box" >
+                    <div class="place box">
                         <ul>
                             <li class="ff-noto all" data-sid="0" onclick="changePlace('')">
                                 <p class="text ff-noto">全部</p>
@@ -87,7 +87,7 @@ $pageName = 'activity-list';
                         <svg class="icon-difficulty svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-difficulty"></use>
                         </svg>
-                        <p class="text ff-noto" >難度</p>
+                        <p class="title ff-noto">難度</p>
                     </div>
                     <!-- 在每個不同篩選器class中加入changeKind()function，讓系統辨認目前選到的是哪個filter -->
                     <div class="level box">
@@ -106,7 +106,7 @@ $pageName = 'activity-list';
                         <svg class="icon-time svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-time"></use>
                         </svg>
-                        <p class="text ff-noto" >時間</p>
+                        <p class="title ff-noto">時間</p>
                     </div>
                     <div class="days box">
                         <ul>
@@ -126,18 +126,13 @@ $pageName = 'activity-list';
                         <svg class="icon-price svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-price"></use>
                         </svg>
-                        <p class="text ff-noto" >價格</p>
+                        <p class="title ff-noto">價格</p>
                     </div>
                     <div class="price box">
                         <ul>
                             <li class="ff-noto all" data-sid="0" onclick="changePrice(0, 18000)">
                                 <p class="text ff-noto">全部</p>
                             </li>
-                            <!-- <?php foreach($m_f_rows as $m): ?>
-                            <li class="ff-noto" data-sid="<?= $m['sid'] ?>" onclick="changeCate(<?= $m['sid'] ?>)">
-                                <p class="text ff-noto"><?= $m['filter_name'] ?></p>
-                            </li>
-                            <?php endforeach; ?> -->
                             <li class="ff-airbnb" onclick="changePrice(1000, 5000)">$5,000 以下</li>
                             <li class="ff-airbnb" onclick="changePrice(5001, 10000)">$5,000 - $10,000</li>
                             <li class="ff-airbnb" onclick="changePrice(10001, 18000)">$10,000 以上</li>
@@ -203,6 +198,14 @@ $pageName = 'activity-list';
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     };
 
+    if (location.hash) {
+        let p = 1 * location.hash.slice(1);
+        if (!isNaN(p)) {
+            page = p;
+            console.log('p:', p);
+            console.log('page:', page);
+        }
+    }
 
     const activityTpl = o => {
 
@@ -289,7 +292,7 @@ $pageName = 'activity-list';
     }
 
     const pageBtnTpl = n => {
-        return `<a href="javascript: changePage(${n})">
+        return `<a href="#${n}" onclick="changePage(${n})">
                     <li class="ff-airbnb text-first ${ n===page ? 'active' : ''}">
                         <p class="num ff-airbnb">${n}</p>
                     </li>
@@ -300,6 +303,17 @@ $pageName = 'activity-list';
 
     // 輸出資料新增加kind，可以作為changeKind()的資料來源
     function getActivitys() {
+        console.log({
+            cate,
+            page,
+            kind,
+            rating,
+            place,
+            days,
+            level,
+            priceLow,
+            priceHigh
+        });
         $.get('activity-list-api.php', {
             cate,
             page,
@@ -327,36 +341,36 @@ $pageName = 'activity-list';
         getActivitys();
     }
 
-    function changeRating(r){
+    function changeRating(r) {
         rating = r;
         page = 1;
         getActivitys();
     }
 
-    function changePlace(p){
+    function changePlace(p) {
         place = p;
         page = 1;
         getActivitys();
     }
 
-    function changeDays(d){
+    function changeDays(d) {
         days = d;
         page = 1;
         getActivitys();
     }
 
-    function changeLevel(l){
+    function changeLevel(l) {
         level = l;
         page = 1;
         getActivitys();
     }
 
-    function changePrice(low, high){
+    function changePrice(low, high) {
         page = 1;
         priceLow = low;
         priceHigh = high;
         getActivitys();
-    } 
+    }
 
     // 換頁時產生平滑移動效果回到篩選處
     function ScrollBack() {
@@ -371,8 +385,6 @@ $pageName = 'activity-list';
         page = p;
         getActivitys();
         ScrollBack()
-        // window.document.body.scrollTop = 0;
-        // window.document.documentElement.scrollTo(0, 783, 'smooth');
     }
 
     // 新增種類(放在每個篩選器class裡，點擊時觸發不同篩選項目)
@@ -424,8 +436,10 @@ $pageName = 'activity-list';
 
     $('.filterBox').click(function() {
 
+        $(this).find('p')
+
         $(this).find('div').toggleClass('open');
-        $(this).siblings().find('div').removeClass('open');       
+        $(this).siblings().find('div').removeClass('open');
 
         $(this).find('svg').toggleClass('open');
         $(this).siblings().find('svg').removeClass('open');
@@ -433,16 +447,30 @@ $pageName = 'activity-list';
         $(this).find('p').toggleClass('open');
         $(this).siblings().find('p').removeClass('open');
 
-        if($(this).find('li').hasClass('stay')){
+        if ($(this).find('li:not(li.all)').hasClass('stay')) {
             $(this).find('p').toggleClass('permanent');
             $(this).find('svg').toggleClass('permanent');
-        } 
+        }
     })
 
-    $('.filterBox li').click(function(){
+    const boxItem = document.querySelectorAll('.filterBox li');
+
+    boxItem.forEach(item => {
+        item.addEventListener('click', () => {
+            console.log(`${item.textContent}`);
+        })
+    })
+
+
+    $('.filterBox li').click(function() {
         $(this).toggleClass('stay');
         $(this).siblings().removeClass('stay');
+
+        const text = $(this).text()
+        console.log(text);
+
     })
+
 
     // 點擊愛心變紅，使用jq on('click')抓取動態生成元素
     let heart = $('.a-list svg')
@@ -450,7 +478,6 @@ $pageName = 'activity-list';
     $('.a-list').on('click', 'svg', function() {
         $(this).toggleClass('open');
     })
-
     </script>
 
 

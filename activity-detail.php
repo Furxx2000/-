@@ -14,20 +14,20 @@ $a_sql = "SELECT * FROM schedule ORDER BY RAND() LIMIT 9";
 $a_stmt = $pdo->query($a_sql);
 $a_rows = $a_stmt->fetchAll();
 
-$_SESSION['user']['id'] = 1;
-$type = 1;
-$target_id = $row['sid'];
-$f_sql = "INSERT INTO `favorites` (`id`, `member_id`, `type`, `target_id`, `date`)
-                        VALUES (NULL, ?, ?, ?, NOW())";
+// $_SESSION['user']['id'] = 1;
+// $type = 1;
+// $target_id = $row['sid'];
+// $f_sql = "INSERT INTO `favorites` (`id`, `member_id`, `type`, `target_id`, `date`)
+//                         VALUES (NULL, ?, ?, ?, NOW())";
 
-$f_stmt = $pdo->prepare($f_sql);
-$f_stmt->execute([
-    $_SESSION['user']['id'],
-    $type,
-    $target_id
-]);
+// $f_stmt = $pdo->prepare($f_sql);
+// $f_stmt->execute([
+//     $_SESSION['user']['id'],
+//     $type,
+//     $target_id
+// ]);
 
-$favorite_sid = $pdo->lastInsertId();
+// $favorite_sid = $pdo->lastInsertId();
 
 
 
@@ -43,13 +43,13 @@ $favorite_sid = $pdo->lastInsertId();
     <title>行程細節頁</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <style>
-        section.activity-detail-section div.activity-detail-section-image {
-            background-image: url(<?= WEB_ROOT ?>/images/<?= $row['schedule_id']. "/". $row['schedule_id'] ?>_1.jpeg);
-        }
+    section.activity-detail-section div.activity-detail-section-image {
+        background-image: url(<?= WEB_ROOT ?>/images/<?= $row['schedule_id']. "/". $row['schedule_id'] ?>_1.jpeg);
+    }
 
-        section.activity-intro-section div.activity-intro-image {
-            background-image: url(<?= WEB_ROOT ?>/images/<?= $row['schedule_id']. "/". $row['schedule_id'] ?>_5.jpeg);
-        }
+    section.activity-intro-section div.activity-intro-image {
+        background-image: url(<?= WEB_ROOT ?>/images/<?= $row['schedule_id']. "/". $row['schedule_id'] ?>_5.jpeg);
+    }
     </style>
 </head>
 
@@ -83,7 +83,7 @@ $favorite_sid = $pdo->lastInsertId();
                 <p class="text-price ff-airbnb">TWD<?= ($row['price']) ?></p>
             </div>
 
-            
+
             <section id="fixed-section" class="fixed-section">
                 <div id="homepage-container" class="homepage-container flex">
                     <div class="fixed-functions">
@@ -96,11 +96,11 @@ $favorite_sid = $pdo->lastInsertId();
                     </div>
 
 
-                        <a href="./shopping-cart-1.php">
-                            <div class="fixed-functions">
-                                <p class="text btn ff-noto">加入購物車</p>
-                            </div>
-                        </a>
+                    <a href="./shopping-cart-1.php">
+                        <div class="fixed-functions">
+                            <p class="text btn ff-noto">加入購物車</p>
+                        </div>
+                    </a>
                 </div>
 
 
@@ -113,12 +113,14 @@ $favorite_sid = $pdo->lastInsertId();
                         </div>
                         <div class="activity-info flex">
                             <div class="leftBox">
-                                <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>.jpeg" alt="">
+                                <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>.jpeg"
+                                    alt="">
                             </div>
                             <div class="rightBox">
                                 <p class="title ff-noto"><?= $row['schedule_title'] ?></p>
-                                <p class="text ff-noto">TWD <span class="num ff-airbnb"><?= $row['price'] ?></span> / 人</p>
-                                <svg class="icon-heart svg none">
+                                <p class="text ff-noto">TWD <span class="num ff-airbnb"><?= number_format($row['price']) ?></span> / 人
+                                </p>
+                                <svg class="icon-heart svg none" data-f_sid="0">
                                     <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
                                 </svg>
                             </div>
@@ -127,10 +129,7 @@ $favorite_sid = $pdo->lastInsertId();
                             <div class="select-box flex">
                                 <p class="text ff-noto">日期</p>
                                 <select name="date" id="date" class="ff-airbnb">
-                                    <option value="1">7/3(六)-7/4(四)</option>
-                                    <option value="2">7/13(二)-7/14(三)</option>
-                                    <option value="3">7/17(日)-7/18(一)</option>
-                                    <option value="4">7/20(二)-7/21(三)</option>
+                                    <option value="1"><?= $row['departure_date'] ?></option>
                                 </select>
                             </div>
                             <div class="select-box flex">
@@ -150,7 +149,6 @@ $favorite_sid = $pdo->lastInsertId();
                                     <option value="2">韋丞</option>
                                 </select>
                             </div>
-                            <span class="text ff-noto none">瀏覽</span>
                         </div>
 
                         <div class="notes">
@@ -171,16 +169,17 @@ $favorite_sid = $pdo->lastInsertId();
                         </div>
 
                         <div class="price none">
-                            <p class="text ff-airbnb">TWD <span class="num ff-airbnb"><?= $row['price'] ?></span> / 人</p>
+                            <p class="text ff-airbnb">TWD <span class="num ff-airbnb"><?= number_format($row['price']) ?></span> / 人
+                            </p>
                         </div>
 
                         <div class="buy-btns flex">
                             <a href=""></a>
-                                <div class="sign-up-cta ff-noto">立即報名</div>
+                            <div class="sign-up-cta ff-noto">立即報名</div>
                             </a>
-                            <a href="./shopping-cart-1.php">
-                                <div class="sign-up-cta ff-noto none">加入購物車</div>
-                            </a>
+
+                            <div class="sign-up-cta ff-noto none">加入購物車</div>
+
                         </div>
 
                     </div>
@@ -255,12 +254,14 @@ $favorite_sid = $pdo->lastInsertId();
                             <?= $row['info1'] ?>
                         </p>
                     </li>
-                 
+
                     <li class="picture none">
-                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_2.jpeg" alt="">
+                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_2.jpeg"
+                            alt="">
                     </li>
                     <li class="picture none">
-                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_3.jpeg" alt="">
+                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_3.jpeg"
+                            alt="">
                     </li>
                     <li class="text">
                         <p class="title ff-noto">
@@ -285,7 +286,8 @@ $favorite_sid = $pdo->lastInsertId();
                         </p>
                     </li>
                     <li class="picture none">
-                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_4.jpeg" alt="">
+                        <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_4.jpeg"
+                            alt="">
                     </li>
                 </ul>
                 <div class="mountain-intro-cta ff-noto">更多</div>
@@ -386,7 +388,8 @@ $favorite_sid = $pdo->lastInsertId();
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-heart"></use>
                         </svg>
                         <div class="carousel-image">
-                            <img src="<?= WEB_ROOT ?>/images/<?= $a['schedule_id'] ?>/<?= $a['schedule_id'] ?>.jpeg" alt="">
+                            <img src="<?= WEB_ROOT ?>/images/<?= $a['schedule_id'] ?>/<?= $a['schedule_id'] ?>.jpeg"
+                                alt="">
                         </div>
                         <p class="title ff-noto"><?= $a['schedule_title'] ?></p>
                         <svg class="icon-star svg">
@@ -575,19 +578,43 @@ $favorite_sid = $pdo->lastInsertId();
     <?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
 
     <script>
-        function deleteItem(e){
-            let me =$(e.currentTarget);
-            let sid = me.closest('section').attr('data-sid');
+    // 使用Ajax方法加入購物車
+    const addToCartBtn = $('.sign-up-cta');
 
-            $.get('favorites-api.php', {action:'delete', pid: sid}, function(data){
-                console.log('ajax');
-            }, 'json');
-        };
+    addToCartBtn.click(function() {
+        const card = $(this).closest('section');
+        const sid = card.attr('data-sid');
+        const qty = card.find('select#num').val();
+
+        $.get('cart-api-2.php', {
+            action: 'add',
+            sid,
+            qty
+        }, function(data) {
+            console.log(data);
+            showCartCount(data); //更新選單上數量的提示
+        }, 'json');
+    })
     </script>
 
 
     <script>
+    //刪除愛心收藏
+    function deleteItem(event) {
+        let me = $(event.currentTarget);
+        let sid = me.closest('section').attr('data-sid');
 
+        $.get('favorites-api.php', {
+            action: 'delete',
+            pid: sid
+        }, function(data) {
+            console.log('ajax');
+        }, 'json');
+    };
+    </script>
+
+
+    <script>
     // 讓金額數字添加千位數逗點
     const dollarCommas = function(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -647,48 +674,58 @@ $favorite_sid = $pdo->lastInsertId();
 
     const prev = document.querySelector('#prev');
     const next = document.querySelector('#next');
-    let page = document.querySelector('.page').textContent;
+    let pageSpan = document.querySelector('.page');
     const board = document.querySelector('.wrap-img');
 
     next.addEventListener('click', function() {
-        if(page < 3){
+        let page = pageSpan.innerText * 1;
+        if (page < 3) {
             board.style.left = `${-1103 * page}px`;
             page++;
-        } 
+        }
+        pageSpan.innerText = page;
     });
 
     prev.addEventListener('click', function() {
+        let page = pageSpan.innerText * 1;
         page--;
-        if( page > 1){
+        if (page > 1) {
             board.style.left = `${(-1103 * page) + (1103 * (page - 1))}px`;
-        } else if(page = 1){
+        } else if (page = 1) {
             board.style.left = '0px';
         }
+        pageSpan.innerText = page;
     })
-    
-
     </script>
+
+
     <script>
-        const addToFavorites = document.querySelectorAll('.icon-heart');
+    //點擊愛心後加入收藏
+    const addToFavorites = document.querySelectorAll('.icon-heart');
 
-        addToFavorites.forEach(function(favorite){
-            favorite.addEventListener('click', function (e) {
-                if(e.target.classList.contains('open')){
-                    console.log(e.target);
-                    const card = $(this).closest('.buy-now-section'); 
-                    const pid = card.attr('data-sid');
+    addToFavorites.forEach(function(favorite) {
+        favorite.addEventListener('click', function(e) {
+            if (e.currentTarget.classList.contains('open')) {
+                console.log(e.currentTarget);
+                const card = $(this).closest('.buy-now-section');
+                const pid = card.attr('data-sid');
 
-                    $.get('favorites-api.php', {action:'add', pid}, function(data){
-                        showFavoritesCount(data);
-                        console.log(data);
-                    }, 'json');
-                    
-                } else{
-                    deleteItem(e);
-                    
-                }
-            })
+                let f_Pid = card.find('.icon-heart').attr('data-')
+
+                $.get('favorites-api.php', {
+                    action: 'add',
+                    pid
+                }, function(data) {
+                    showFavoritesCount(data);
+                    console.log(data);
+                }, 'json');
+
+            } else {
+                deleteItem(e);
+
+            }
         })
+    })
     </script>
 
 

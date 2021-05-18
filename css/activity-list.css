@@ -511,6 +511,7 @@ section.activity-section div.filter-section div.filterBox div.box {
   transition: 0.5s;
   left: -18px;
   padding: 0.2rem 0;
+  border: 1px solid #cccccc;
 }
 
 section.activity-section div.filter-section div.filterBox div.rank {
@@ -542,7 +543,7 @@ section.activity-section
   div.filter-section
   div.filterBox
   div:first-child
-  p.text.open {
+  p.title.open {
   color: var(--primary-color);
 }
 
@@ -550,7 +551,7 @@ section.activity-section
   div.filter-section
   div.filterBox
   div:first-child
-  p.text.permanent {
+  p.title.permanent {
   color: var(--primary-color) !important;
 }
 
@@ -598,7 +599,8 @@ section.activity-section div.filter-section div.filterBox svg.permanent {
   fill: var(--primary-color) !important;
 }
 
-section.activity-section div.filter-section div.filterBox p.text {
+section.activity-section div.filter-section div.filterBox p.text,
+section.activity-section div.filter-section p.title {
   color: white;
 }
 
@@ -1080,6 +1082,16 @@ section.fixed-section svg.icon-cart {
 
   section.activity-section div.filter-section div.filterBox p.text {
     font-size: 1.2rem;
+  }
+
+  section.activity-section div.filter-section div.filterBox div.box {
+    width: 120px;
+    left: 6px;
+  }
+
+  section.activity-section div.filter-section div.filterBox div.price {
+    width: 160px;
+    left: -10px;
   }
 
   /* -------------------------行程卡片區域-桌機版
