@@ -50,7 +50,3 @@ heroSection.addEventListener("click", (e) => {
     dropDownBox.classList.remove("open");
   }
 });
-
-if (window.matchMedia("(min-width: 700px)").matches) {
-  $(".comments .carousel").attr("data-flickity", '{ "groupCells": true }');
-}

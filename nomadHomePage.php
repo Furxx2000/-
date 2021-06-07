@@ -6,7 +6,7 @@ $m_rows = $m_stmt->fetchAll();
 
 
 
-$c_sql = "SELECT * FROM `stars` JOIN `members` ON stars.member_id = members.id ORDER BY RAND() LIMIT 8";
+$c_sql = "SELECT * FROM `members` JOIN `stars` ON stars.member_id = members.id ORDER BY RAND() LIMIT 8";
 $c_stmt = $pdo->query($c_sql);
 $c_rows = $c_stmt->fetchAll();
 
