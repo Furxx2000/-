@@ -403,7 +403,7 @@ $a_sql = "SELECT * FROM schedule ORDER BY RAND() LIMIT 9";
                             <span class="num ff-airbnb">(<?= $a['rating'] ?>)</span>
 
                             <p class="date ff-airbnb"><?= $a['departure_date'] ?></p>
-                            <span class="price ff-airbnb">$ TWD <?= number_format($a['price']) ?> / 人</span>
+                            <span class="price ff-airbnb">$ <?= number_format($a['price']) ?> TWD / 人</span>
                         </a>
                     </li>
 
