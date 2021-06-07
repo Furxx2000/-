@@ -1,3 +1,124 @@
+<?php include __DIR__. '/parts-php/config.php'; ?>
+<?php 
+$title = '感謝購買';
+$pageName = 'shopping-cart-confirm';
+
+if(! isset($_SESSION['user']) or (empty($_SESSION['cart']) && empty($_SESSION['p_cart']))){
+    header('Location: activity-list.php');
+    exit;
+}
+
+$p_total = 0;
+foreach($_SESSION['p_cart'] as $p){
+    $p_total += $p['product_price'] * $p['quantity'];
+}
+
+$s_total = 0;
+foreach($_SESSION['cart'] as $v){
+    $s_total += $v['price'] * $v['quantity'];
+}
+
+$total = $p_total + $s_total;
+
+$o_sql = "INSERT INTO `orders`
+                (`sid`, `member_sid`, `amount`, `order_date`) 
+                VALUES 
+                (NULL, ?, ?, NOW())";
+$o_stmt = $pdo->prepare($o_sql);
+$o_stmt->execute([
+    $_SESSION['user']['id'],
+    $total,
+]);
+
+$order_sid = $pdo->lastInsertId();
+
+
+$d_sql = "INSERT INTO `order_details`
+                (`member_sid`, `order_sid`, `product_sid`, `schedule_sid`, `price`, `quantity`,
+                `orderer`, `orderer_mobile`, `orderer_email`, `recipient`,
+                `recipient_mobile`, `recipient_email`)
+                VALUES 
+                (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$d_stmt = $pdo->prepare($d_sql);
+
+
+if(! empty($_SESSION['p_cart']) && ! empty($_SESSION['cart'])){
+    foreach($_SESSION['p_cart'] as $p){
+        $d_stmt->execute([
+            $_SESSION['user']['id'],
+            $order_sid,
+            $p['sid'],
+            0,
+            $p['product_price'],
+            $p['quantity'],
+            $_SESSION['name'],
+            $_SESSION['mobile'],
+            $_SESSION['email'],
+            $_SESSION['name2'],
+            $_SESSION['mobile2'],
+            $_SESSION['email2'],
+        ]);
+    }
+
+    foreach($_SESSION['cart'] as $v){
+        $d_stmt->execute([
+            $_SESSION['user']['id'],
+            $order_sid,
+            0,
+            $v['sid'],
+            $v['price'],
+            $v['quantity'],
+            $_SESSION['name3'],
+            $_SESSION['mobile3'],
+            $_SESSION['email3'],
+            $_SESSION['name3'],
+            $_SESSION['mobile3'],
+            $_SESSION['email3'],
+        ]);
+    }
+} else if(! empty($_SESSION['p_cart'])){
+    foreach($_SESSION['p_cart'] as $p){
+        $d_stmt->execute([
+            $_SESSION['user']['id'],
+            $order_sid,
+            $p['sid'],
+            0,
+            $p['product_price'],
+            $p['quantity'],
+            $_SESSION['name'],
+            $_SESSION['mobile'],
+            $_SESSION['email'],
+            $_SESSION['name2'],
+            $_SESSION['mobile2'],
+            $_SESSION['email2'],
+        ]);
+    }
+} else if(! empty($_SESSION['cart'])){
+    foreach($_SESSION['cart'] as $v){
+        $d_stmt->execute([
+            $_SESSION['user']['id'],
+            $order_sid,
+            0,
+            $v['sid'],
+            $v['price'],
+            $v['quantity'],
+            $_SESSION['name3'],
+            $_SESSION['mobile3'],
+            $_SESSION['email3'],
+            $_SESSION['name3'],
+            $_SESSION['mobile3'],
+            $_SESSION['email3'],
+        ]);
+    }
+}
+
+
+$sql = "SELECT * FROM `order_details` LEFT JOIN `orders` ON order_details.order_sid = orders.sid WHERE `order_sid`=$order_sid";
+$row = $pdo->query($sql)->fetch();
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +133,7 @@
 
 <body>
     <?php include __DIR__ . '/parts-php/html-navbar.php'; ?>
-    
+
     <section class="progress-bar-section hero-section">
         <div class="container">
             <ul class="progress-bar flex">
@@ -60,7 +181,7 @@
                         填寫信用卡資料
                         <svg class="icon-play svg">
                             <use xlink:href="./icomoon/symbol-defs.svg#icon-play"></use>
-                        </svg> 
+                        </svg>
                     </p>
                     <div class="outer-circle">
                         <div class="inner-circle">
@@ -98,164 +219,77 @@
         <div class="container">
             <div class="shopping-cart">
                 <div class="order-date">
-                    <p class="text ff-noto">於2021/04/19購買清單</p>
+                    <p class="text ff-noto">於<?= $row['order_date'] ?>購買清單</p>
                 </div>
-                <div class="itemBox flex">
+                <?php foreach($_SESSION['p_cart'] as $p): ?>
+                <div class="itemBox flex" data-sid="<?= $p['sid'] ?>">
                     <div class="left flex">
                         <div class="left-1 flex">
-                            <div class="left-1-1">
-                                <img src="./images/backpack3-1.jpg" alt="">
+                            <div class="left-1-1 product-image">
+                                <img src="<?= WEB_ROOT ?>/mountain-bag/<?= $p['product_id'] ?>.jpg" alt="">
                             </div>
-                            <div class="left-1-2">
-                                <p class="title ff-airbnb">
-                                    (QUECHUA) 30L 多隔層休閒健行背包
+                            <div class="left-1-2  w300">
+                                <p class="title ff-noto product-name">
+                                    <?= $p['product_name'] ?>
                                 </p>
-                                <p class="text ff-airbnb">
-                                    商品編號：12315164465
+                                <p class="text ff-noto">
+                                    <?= $p['product_id'] ?>
                                 </p>
                             </div>
                         </div>
                         <div class="left-2">
-                      
-                            <p class="num ff-airbnb">1件</p>
-                         
+                            <p class="num ff-noto quantity" data-qty="<?= $p['quantity'] ?>">
+                                <?= $p['quantity'] ?>&nbsp&nbsp&nbsp件
+                            </p>
                         </div>
-                        <div class="left-3"><span class="num ff-airbnb">$649 TWD</span></div>
+                        <div class="left-3">
+                            <span class="num ff-airbnb price" data-price="<?= $p['product_price'] ?>">
+                                $ <?= number_format($p['product_price'] * $p['quantity']) ?> TWD
+                            </span>
+                        </div>
                     </div>
-                
                 </div>
+                <?php endforeach; ?>
 
-                <div class="itemBox flex">
+                <?php foreach($_SESSION['cart'] as $v): ?>
+                <div class="itemBox flex" data-sid="<?= $v['sid'] ?>">
                     <div class="left flex">
                         <div class="left-1 flex">
-                            <div class="left-1-1">
-                                <img src="./images/Black Diamond -TRAIL TREKKING 1.jpeg" alt="">
-                            </div>
-                            <div class="left-1-2">
-                                <p class="title ff-airbnb">
-                                Black Diamond 美國】TRAIL TREKKING 快扣登山杖 （女款）
-                                </p>
-                                <p class="text ff-airbnb">
-                                    商品編號：456789123
-                                </p>
-                            </div>
-                        </div>
-                        <div class="left-2">
-                            
-                            <p class="num ff-airbnb">1件</p>
-                            
-                        </div>
-                        <div class="left-3"><span class="num ff-airbnb">$1,710 TWD</span></div>
-                    </div>
-                    
-                </div>
+                            <div class="left-1-1 schedule-image">
 
-                <div class="itemBox flex">
-                    <div class="left flex">
-                        <div class="left-1 flex">
-                            <div class="left-1-1">
-                                <img src="./images/sleepingBag.jpg" alt="">
-                            </div>
-                            <div class="left-1-2">
-                                <p class="title ff-airbnb">
-                                【THERMAREST】Hyperion -6°C 羽絨睡袋 L
-                                </p>
-                                <p class="text ff-airbnb">
-                                    商品編號：856456786
-                                </p>
-                            </div>
-                        </div>
-                        <div class="left-2">
-                            
-                            <p class="num ff-airbnb">1件</p>
-                            
-                        </div>
-                        <div class="left-3"><span class="num ff-airbnb">$17,100 TWD</span></div>
-                    </div>
-                    
-                </div>
+                                <img src="<?= WEB_ROOT ?>/images/<?= $v['schedule_id'] ?>/<?= $v['schedule_id'] ?>.jpeg"
+                                    class="card-img-top" alt="">
 
-                <div class="itemBox flex">
-                    <div class="left flex">
-                        <div class="left-1 flex">
-                            <div class="left-1-1 picture">
-                                <img src="./images/he_huan_shan.jpeg" alt="">
                             </div>
                             <div class="left-1-2 w150">
                                 <p class="title ff-airbnb date">
-                                    2020/5/04 - 05/06
+                                    <?= $v['departure_date'] ?>
                                 </p>
                                 <p class="text ff-airbnb">
-                                    合歡山三日行程
+                                    <?= $v['schedule_title'] ?>
                                 </p>
                             </div>
                         </div>
-                        <div class="left-2 ml-5">
-                            
-                            <p class="num ff-airbnb">1 人</p>
-                            
+                        <div class="left-2 ml-6">
+                            <p class="num ff-noto quantity" data-qty="<?= $v['quantity'] ?>">
+                                <?= $v['quantity'] ?>&nbsp&nbsp&nbsp人
+                            </p>
                         </div>
-                        <div class="left-3"><span class="num ff-airbnb">$7,550 TWD</span></div>
-                    </div>
-                    
-                </div>
 
-                <div class="itemBox flex">
-                    <div class="left flex">
-                        <div class="left-1 flex">
-                            <div class="left-1-1 picture">
-                                <img src="./images/Nan_hu_mountain_2.jpeg" alt="">
-                            </div>
-                            <div class="left-1-2 w150">
-                                <p class="title ff-airbnb date">
-                                    2020/6/18 - 06/20
-                                </p>
-                                <p class="text ff-airbnb">
-                                    南湖大山三日行程
-                                </p>
-                            </div>
+                        <div class="left-3">
+                            <span class="num ff-airbnb price" data-price="<?= $v['price'] ?>">
+                                $ <?= number_format($v['price'] * $v['quantity']) ?> TWD
+                            </span>
                         </div>
-                        <div class="left-2 ml-5">
-                            
-                            <p class="num ff-airbnb">1 人</p>
-                            
-                        </div>
-                        <div class="left-3"><span class="num ff-airbnb">$6,500 TWD</span></div>
-                    </div>
-                    
-                </div>
 
-                <div class="itemBox flex">
-                    <div class="left flex">
-                        <div class="left-1 flex">
-                            <div class="left-1-1 picture">
-                                <img src="./images/大霸尖山.jpg" alt="">
-                            </div>
-                            <div class="left-1-2 w150">
-                                <p class="title ff-airbnb date">
-                                    2020/5/25 - 05/27
-                                </p>
-                                <p class="text ff-airbnb">
-                                    大霸尖山三日行程
-                                </p>
-                            </div>
-                        </div>
-                        <div class="left-2 ml-5">
-                            
-                            <p class="num ff-airbnb">1 人</p>
-                            
-                        </div>
-                        <div class="left-3"><span class="num ff-airbnb">$7,000 TWD</span></div>
                     </div>
-                    
                 </div>
-
+                <?php endforeach; ?>
                 <div class="total">
                     <p class="text ff-noto">總計金額</p>
-                    <p class="text ff-airbnb">$40,509 TWD</p>
+                    <p class="text ff-airbnb totalPrice">$ <?= number_format($row['amount']) ?> TWD</p>
                 </div>
             </div>
-        </div>
     </section>
 
     <section class="order-detail-section">
@@ -264,7 +298,7 @@
                 <h4 class="title ff-noto">訂單詳細資訊</h4>
                 <div class="flex">
                     <p class="text ff-noto">訂單編號</p>
-                    <p class="text ff-noto">4561235745</p>
+                    <p class="text ff-noto">45612357<?= $row['order_sid'] ?></p>
                 </div>
             </div>
 
@@ -280,46 +314,70 @@
                 <h4 class="title ff-noto">訂購人資訊</h4>
                 <div class="flex">
                     <p class="text ff-noto">姓名</p>
-                    <p class="txet ff-noto">Diana</p>
+                    <p class="text ff-noto"><?= $row['orderer'] ?></p>
                 </div>
                 <div class="flex">
                     <p class="text ff-noto">連絡電話</p>
-                    <p class="txet ff-noto">0913555444</p>
+                    <p class="text ff-noto"><?= $row['orderer_mobile'] ?></p>
                 </div>
                 <div class="flex">
                     <p class="text ff-noto">E-mail</p>
-                    <p class="text ff-noto">Diana0112@gmail.com</p>
+                    <p class="text ff-noto"><?= $row['orderer_email'] ?></p>
                 </div>
             </div>
 
+            <?php if(! empty($_SESSION['p_cart'])): ?>
             <div class="info-box">
                 <h4 class="title ff-noto">收貨人資訊</h4>
                 <div class="flex">
                     <p class="text ff-noto">姓名</p>
-                    <p class="text ff-noto">Steph</p>
+                    <p class="text ff-noto"><?= $row['recipient'] ?></p>
                 </div>
                 <div class="flex">
                     <p class="text ff-noto">連絡電話</p>
-                    <p class="text ff-noto">0951222464</p>
+                    <p class="text ff-noto"><?= $row['recipient_mobile'] ?></p>
                 </div>
                 <div class="flex">
                     <p class="text ff-noto">E-mail</p>
-                    <p class="text ff-noto">steph0515@gmail.com</p>
+                    <p class="text ff-noto"><?= $row['recipient_email'] ?></p>
                 </div>
             </div>
-            <a href="./nomadHomePage.php"><div class="homePage-btn ff-noto">返回首頁</div></a>
+            <?php else: ?>
+            <?php endif; ?>
+            <a href="./activity-list.php">
+                <div class="homePage-btn ff-noto">返回行程列表</div>
+            </a>
         </div>
-        
+
     </section>
 
-    
+
+
 
 
     <?php include __DIR__ . '/parts-php/html-footer.php'; ?>
-
-    <div class="spaceForFixed-mobile"></div>
-
     <?php include __DIR__ . '/parts-php/html-fixedBar.php'; ?>
+    <div class="spaceForFixed-mobile"></div>
     <?php include __DIR__ . '/parts-php/html-scripts.php'; ?>
+    <script>
+    const quantity = $('.quantity');
+    const dollarCommas = function(n) {
+        return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    };
+    </script>
+
+
 
     <?php include __DIR__ . '/parts-php/html-endingTag.php'; ?>
+
+    <?php unset($_SESSION['p_cart']); ?>
+    <?php unset($_SESSION['cart']); ?>
+    <?php unset($_SESSION['name']); ?>
+    <?php unset($_SESSION['mobile']); ?>
+    <?php unset($_SESSION['email']); ?>
+    <?php unset($_SESSION['name2']); ?>
+    <?php unset($_SESSION['mobile2']); ?>
+    <?php unset($_SESSION['email2']); ?>
+    <?php unset($_SESSION['name3']); ?>
+    <?php unset($_SESSION['mobile3']); ?>
+    <?php unset($_SESSION['email3']); ?>

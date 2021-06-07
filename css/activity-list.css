@@ -103,6 +103,10 @@ ul {
   stroke: rgb(219, 71, 71) !important;
 }
 
+.icon-heart:active {
+  transform: scale(0.8) !important;
+}
+
 /* --------------------Side-navbar-mobile------------------- */
 
 div.side-navbar {
@@ -177,19 +181,19 @@ div.side-navbar div.icon-arrow-down:hover {
 }
 
 div.side-navbar div.icon-arrow-down.hide {
-  transform: scale(0);
+  transform: translateY(10px) scale(0);
 }
 
 div.side-navbar div.icon-arrow-down.show {
-  transform: scale(1);
+  transform: translateY(-10px) scale(1);
 }
 
 div.side-navbar div.icon-arrow-up.hide {
-  transform: scale(0);
+  transform: translateY(-10px) scale(0);
 }
 
 div.side-navbar div.icon-arrow-up.show {
-  transform: scale(1);
+  transform: translateY(10px) scale(1);
 }
 
 div.side-navbar div.icon-arrow-up {
@@ -229,6 +233,7 @@ div.module-navbar div.navbar-left {
 div.module-navbar div.navbar-left img {
   width: 100%;
   object-fit: cover;
+  vertical-align: middle;
 }
 
 div.navbar-right div.hamburger {
@@ -311,7 +316,6 @@ nav.menu-btn {
 nav {
   position: fixed;
   z-index: 1000;
-  /* transform: translateX(100%); */
   width: 80%;
   right: -100%;
   top: 0;
@@ -367,8 +371,6 @@ div.login-btn {
   border: 2px solid var(--primary-color);
   padding: 0.5rem;
   font-weight: 500;
-  font-size: 1rem;
-  transition: 0.5s;
 }
 
 nav div.signup-btn {
@@ -380,9 +382,7 @@ nav div.signup-btn {
   border-radius: 2.5rem;
   padding: 0.5rem;
   font-weight: 500;
-  font-size: 1rem;
   border: 2px solid var(--primary-color);
-  transition: 0.5s;
 }
 
 nav div.logout-btn,
@@ -394,6 +394,45 @@ div.login-btn:hover {
 nav div.signup-btn:hover {
   background-color: white;
   color: var(--primary-color);
+}
+
+nav div.user-account {
+  display: inline-block;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+nav div.user-account img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+nav p.userName {
+  display: inline-block;
+  color: var(--fourth-color);
+  margin-bottom: 3rem;
+  vertical-align: middle;
+}
+
+nav p.logout {
+  margin: 2rem 0;
+  width: 80px;
+  text-align: center;
+  background-color: white;
+  color: var(--fifth-color);
+  border-radius: 2.5rem;
+  border: 2px solid var(--fifth-color);
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+nav p.logout:active {
+  transform: scale(0.95);
 }
 
 .module-modal {
@@ -511,6 +550,7 @@ section.activity-section div.filter-section div.filterBox div.box {
   transition: 0.5s;
   left: -18px;
   padding: 0.2rem 0;
+  border: 1px solid #cccccc;
 }
 
 section.activity-section div.filter-section div.filterBox div.rank {
@@ -542,7 +582,7 @@ section.activity-section
   div.filter-section
   div.filterBox
   div:first-child
-  p.text.open {
+  p.title.open {
   color: var(--primary-color);
 }
 
@@ -550,7 +590,7 @@ section.activity-section
   div.filter-section
   div.filterBox
   div:first-child
-  p.text.permanent {
+  p.title.permanent {
   color: var(--primary-color) !important;
 }
 
@@ -598,7 +638,8 @@ section.activity-section div.filter-section div.filterBox svg.permanent {
   fill: var(--primary-color) !important;
 }
 
-section.activity-section div.filter-section div.filterBox p.text {
+section.activity-section div.filter-section div.filterBox p.text,
+section.activity-section div.filter-section p.title {
   color: white;
 }
 
@@ -640,7 +681,7 @@ section.activity-section div.activity-description div.floor-1 svg.icon-heart {
   fill: none;
   stroke: var(--sixth-color);
   stroke-width: 2px;
-  transition: 0.25s;
+  transition: 0.1s;
   width: 1.5rem;
   cursor: pointer;
 }
@@ -735,7 +776,7 @@ section.activity-section div.activity-description div.floor-3 p.text {
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 1.5;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -862,14 +903,13 @@ div.spaceForFixed-mobile {
 
 section.fixed-section {
   background-color: white;
-  border-top: 1px solid var(--fourth-color);
   padding: 0.7rem 0.5rem;
   position: fixed;
   z-index: 998;
   bottom: 0;
   right: 0;
   left: 0;
-  transition: 0.5s ease-in-out;
+  box-shadow: -1px 0 6px rgba(0, 0, 0, 0.2);
 }
 
 section.fixed-section div.homepage-container {
@@ -889,6 +929,12 @@ section.fixed-section svg {
 section.fixed-section svg.icon-cart {
   stroke: var(--fourth-color);
   fill: none;
+}
+
+section.fixed-section span.nav-badge {
+  color: var(--primary-color);
+  font-weight: 800;
+  font-size: 1.1rem;
 }
 
 @media only screen and (min-width: 1420px) {
@@ -921,6 +967,10 @@ section.fixed-section svg.icon-cart {
     vertical-align: middle;
   }
 
+  div.module-navbar div.navbar-right div.cart svg.icon-cart:hover {
+    transform: rotate(-15deg);
+  }
+
   div.module-navbar div.navbar-right span.nav-badge {
     display: flex;
     justify-content: center;
@@ -946,6 +996,37 @@ section.fixed-section svg.icon-cart {
     position: relative;
   }
 
+  div.module-navbar div.left-box div.user-account {
+    width: 2.8rem;
+    height: 2.8rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.35s;
+  }
+
+  div.module-navbar div.left-box div.user-account:hover {
+    box-shadow: 0 0 2px 5px rgba(255, 255, 255, 0.8);
+  }
+
+  div.module-navbar div.left-box div.user-account img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  div.module-navbar div.left-box svg.icon-account-user {
+    width: 2.8rem;
+    height: 2.8rem;
+    fill: white;
+    border-radius: 50%;
+    transition: 0.35s;
+  }
+
+  div.module-navbar div.left-box svg.icon-account-user:hover {
+    box-shadow: 0 0 2px 5px rgba(255, 255, 255, 0.8);
+  }
+
   div.module-navbar div.left-box div.dropDown-box.open {
     transform: translate(0, 0);
     opacity: 1;
@@ -959,10 +1040,12 @@ section.fixed-section svg.icon-cart {
     width: 200px;
     background-color: white;
     border-radius: 0.5rem;
+    border: 1.5px solid #cccccc;
     transform: translateY(10px);
     opacity: 0;
     pointer-events: none;
     transition: 0.5s;
+    z-index: 1;
   }
 
   div.module-navbar div.left-box div.dropDown-box li {
@@ -1050,12 +1133,17 @@ section.fixed-section svg.icon-cart {
   section.hero-section svg.icon-arrow-down {
     width: 5rem;
     height: 5rem;
+    transition: 0.35s;
+  }
+
+  section.hero-section svg.icon-arrow-down:hover {
+    transform: translate(-50%, 30px);
   }
 
   /* ---------------------行程--篩選器區塊-桌機版----------------------- */
 
   section.activity-section {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
   }
 
@@ -1082,18 +1170,29 @@ section.fixed-section svg.icon-cart {
     font-size: 1.2rem;
   }
 
+  section.activity-section div.filter-section div.filterBox div.box {
+    width: 120px;
+    left: 6px;
+  }
+
+  section.activity-section div.filter-section div.filterBox div.price {
+    width: 160px;
+    left: -10px;
+  }
+
   /* -------------------------行程卡片區域-桌機版
 ---------------- */
 
   section.activity-section div.activity-card {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin-bottom: 8rem;
   }
 
   section.activity-section div.activity-card div.activity-card-image {
-    width: 60%;
-    height: 550px;
+    width: 70%;
+    height: 510px;
   }
 
   section.activity-section div.activity-card div.activity-card-image img {
@@ -1120,14 +1219,24 @@ section.fixed-section svg.icon-cart {
     margin-right: 2rem;
   }
 
+  section.activity-section div.activity-description div.floor-3 p.text {
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 145px;
+  }
+
   /* ---------------------pagination-section-desktop---------------- */
 
   section.pagination-section ul.pagination {
-    width: 50%;
+    width: 40%;
   }
 
   section.pagination-section ul.pagination li {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 
   /* --------------------------footer-section-desktop---------------------- */

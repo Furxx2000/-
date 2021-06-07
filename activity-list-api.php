@@ -36,51 +36,7 @@ $where .= " AND price >= $priceLow AND price <= $priceHigh ";
 
 
 
-
-
-
-// $r_f_sql = "SELECT * FROM rank_filter WHERE parent_sid = 0";
-// $r_f_rows = $pdo->query($r_f_sql)->fetchAll();
-
-// $p_f_sql = "SELECT * FROM place_filter WHERE parent_sid = 0";
-// $p_f_rows = $pdo->query($p_f_sql)->fetchAll();
-
-// $l_f_sql = "SELECT * FROM level_filter WHERE parent_sid = 0";
-// $l_f_rows = $pdo->query($l_f_sql)->fetchAll();
-
-// $d_f_sql = "SELECT * FROM days_filter WHERE parent_sid = 0";
-// $d_f_rows = $pdo->query($d_f_sql)->fetchAll();
-
-// $m_f_sql = "SELECT * FROM price_filter WHERE parent_sid = 0";
-// $m_f_rows = $pdo->query($m_f_sql)->fetchAll();
-
-
 $kind = isset($_GET['kind']) ? intval($_GET['kind']) : 0;
-
-
-// $p_filter = isset($_GET['cate']) ? intval($_GET['cate']) : 0;
-// $qs = [];
-// $where = ' WHERE 1 ';
-// if(! empty($p_filter)){
-//     if($kind === 1){
-//         $where .=" AND place_sid = $p_filter";
-//         $qs['cate'] = $p_filter; 
-//     } elseif($kind === 2){
-//         $where .=" AND level_sid = $p_filter";
-//         $qs['cate'] = $p_filter;
-//     } elseif($kind === 3){
-//         $where .=" AND days = $p_filter";
-//         $qs['cate'] = $p_filter;
-//     } elseif($kind === 0){
-//         $where .=" AND floor(rating) = $p_filter";
-//         $qs['cate'] = $p_filter;
-//     } elseif($kind === 4) {
-//         $where .=" AND price_sid = $p_filter";
-//         $qs['cate'] = $p_filter;
-//     }
-    
-// }
-
 
 
 
@@ -102,6 +58,17 @@ $p_sql = sprintf("SELECT * FROM schedule $where LIMIT %s, %s", ($page-1)*$perPag
 
 $rows = $pdo->query($p_sql)->fetchAll();
 
+if (!empty($_SESSION['user'])) {
+    $mid = intval($_SESSION['user']['id']);
+    $where .= " AND f.`type`=1 AND f.`member_id`=$mid";
+    //f代表favorites的縮寫
+
+    $f_sql = sprintf("SELECT f.target_id FROM schedule s 
+    LEFT JOIN favorites f ON f.target_id=s.sid
+    $where");
+    $favorites = $pdo->query($f_sql)->fetchAll();
+}
+
 echo json_encode([
     'perPage' => $perPage,
     'page' => $page,
@@ -109,4 +76,5 @@ echo json_encode([
     'totalRows' => $totalRows,
     'totalPages' => $totalPages,
     'rows' => $rows,
+    'favorites' => $favorites ?? '',
 ], JSON_UNESCAPED_UNICODE);

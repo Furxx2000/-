@@ -177,19 +177,19 @@ div.side-navbar div.icon-arrow-down:hover {
 }
 
 div.side-navbar div.icon-arrow-down.hide {
-  transform: scale(0);
+  transform: translateY(10px) scale(0);
 }
 
 div.side-navbar div.icon-arrow-down.show {
-  transform: scale(1);
+  transform: translateY(-10px) scale(1);
 }
 
 div.side-navbar div.icon-arrow-up.hide {
-  transform: scale(0);
+  transform: translateY(-10px) scale(0);
 }
 
 div.side-navbar div.icon-arrow-up.show {
-  transform: scale(1);
+  transform: translateY(10px) scale(1);
 }
 
 div.side-navbar div.icon-arrow-up {
@@ -229,6 +229,7 @@ div.module-navbar div.navbar-left {
 div.module-navbar div.navbar-left img {
   width: 100%;
   object-fit: cover;
+  vertical-align: middle;
 }
 
 div.navbar-right div.hamburger {
@@ -305,15 +306,14 @@ div.navbar-right div.hamburger {
 }
 
 nav.menu-btn {
-  transform: translateX(0%);
+  right: 0;
 }
 
 nav {
   position: fixed;
   z-index: 1000;
-  transform: translateX(100%);
   width: 80%;
-  right: 0;
+  right: -100%;
   top: 0;
   background-color: white;
   height: 200vh;
@@ -367,8 +367,6 @@ div.login-btn {
   border: 2px solid var(--primary-color);
   padding: 0.5rem;
   font-weight: 500;
-  font-size: 1rem;
-  transition: 0.5s;
 }
 
 nav div.signup-btn {
@@ -380,9 +378,7 @@ nav div.signup-btn {
   border-radius: 2.5rem;
   padding: 0.5rem;
   font-weight: 500;
-  font-size: 1rem;
   border: 2px solid var(--primary-color);
-  transition: 0.5s;
 }
 
 nav div.logout-btn,
@@ -394,6 +390,45 @@ div.login-btn:hover {
 nav div.signup-btn:hover {
   background-color: white;
   color: var(--primary-color);
+}
+
+nav div.user-account {
+  display: inline-block;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-right: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+nav div.user-account img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+nav p.userName {
+  display: inline-block;
+  color: var(--fourth-color);
+  margin-bottom: 3rem;
+  vertical-align: middle;
+}
+
+nav p.logout {
+  margin: 2rem 0;
+  width: 80px;
+  text-align: center;
+  background-color: white;
+  color: var(--fifth-color);
+  border-radius: 2.5rem;
+  border: 2px solid var(--fifth-color);
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+nav p.logout:active {
+  transform: scale(0.95);
 }
 
 .module-modal {
@@ -415,7 +450,7 @@ nav div.signup-btn:hover {
   pointer-events: all;
 }
 
-/* ----------------------progress-bar-section----------------------- */
+/* ----------------------progress-bar-section-mobile---------------------- */
 
 section.progress-bar-section ul.progress-bar {
   padding: 3% 8%;
@@ -538,7 +573,7 @@ section.credit-card-section h2.title {
 }
 
 section.credit-card-section div.card-info {
-  border-radius: 0.5rem;
+  border-radius: 0.9rem;
   background: linear-gradient(45deg, rgb(70, 69, 69), var(--third-color));
   padding: 1rem;
   height: 230px;
@@ -616,27 +651,35 @@ section.credit-card-section form.card-form ul {
   padding: 1.5rem;
 }
 
+section.credit-card-section span.small {
+  font-size: 0.5rem;
+  color: rgb(219, 71, 71);
+  display: inline-block;
+  margin: 0.3rem 0 1rem 0;
+}
+
 section.credit-card-section form.card-form ul li.box {
   display: block;
 }
 
-section.credit-card-section form.card-form ul li.box p.text {
-  font-size: 0.8rem;
-  color: var(--third-color);
+section.credit-card-section form.card-form ul li.box label.text {
+  margin-right: 1rem;
   letter-spacing: 1px;
+  color: var(--fifth-color);
 }
 
 section.credit-card-section form.card-form ul li.box input {
-  outline: none;
   border: none;
   border-bottom: 1.5px solid #bbbbbb;
   background-color: transparent;
   width: 100%;
-  margin: 0.8rem 0;
+  margin-top: 0.5rem;
+  height: 30px;
+  color: var(--third-color);
 }
 
 section.credit-card-section form.card-form ul li.btns {
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 section.credit-card-section form.card-form ul li.btns div.backward-btn {
@@ -649,7 +692,6 @@ section.credit-card-section form.card-form ul li.btns div.backward-btn {
 }
 
 section.credit-card-section form.card-form ul li.btns input.forward-btn {
-  outline: none;
   border: none;
   background-color: var(--primary-color);
   font-size: 1.1rem;
@@ -657,6 +699,12 @@ section.credit-card-section form.card-form ul li.btns input.forward-btn {
   padding: 0.7rem 2.2rem 0.6rem 2.2rem;
   border-radius: 0.5rem;
   letter-spacing: 1px;
+  cursor: pointer;
+}
+
+section.credit-card-section form.card-form ul li.btns div.backward-btn:active,
+section.credit-card-section form.card-form ul li.btns input.forward-btn:active {
+  transform: scale(0.95);
 }
 /* ----------------------footer-section-mobile----------------------- */
 
@@ -680,7 +728,6 @@ section.fixed-section {
   bottom: 0;
   right: 0;
   left: 0;
-  transition: 0.5s ease-in-out;
   box-shadow: -1px 0 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -703,7 +750,13 @@ section.fixed-section svg.icon-cart {
   fill: none;
 }
 
-/* -----------------------delete-item-modal---------------------- */
+section.fixed-section span.nav-badge {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* -----------------------delete-item-modal-mobile--------------------- */
 
 div.delete-item-modal {
   position: fixed;
@@ -712,14 +765,14 @@ div.delete-item-modal {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
+  display: none;
   pointer-events: none;
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.25s ease-out;
 }
 
 div.delete-item-modal.open {
-  opacity: 1;
+  display: block;
   pointer-events: all;
 }
 
@@ -736,14 +789,10 @@ div.delete-warning-card {
   left: 50%;
   width: 300px;
   height: 180px;
-  transform: translate(-50%, -50%) scale(0.5);
+  transform: translate(-50%, -50%);
   border-radius: 0.7rem;
   padding: 2.5rem;
   transition: all 0.25s ease-out;
-}
-
-div.delete-warning-card.open {
-  transform: translate(-50%, -50%) scale(1);
 }
 
 div.delete-warning-card svg {
@@ -804,8 +853,28 @@ div.delete-warning-card p.text svg.icon-warning-rounded:active {
   }
 
   div.module-navbar div.navbar-right div.cart {
-    display: block;
-    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    vertical-align: middle;
+  }
+
+  div.module-navbar div.navbar-right div.cart svg.icon-cart:hover {
+    transform: rotate(-15deg);
+  }
+
+  div.module-navbar div.navbar-right span.nav-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: 1rem;
+    color: white;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    background-color: var(--primary-color);
   }
 
   div.module-navbar div.navbar-right div.user-icon {
@@ -817,6 +886,37 @@ div.delete-warning-card p.text svg.icon-warning-rounded:active {
   div.module-navbar div.left-box {
     width: 50px;
     position: relative;
+  }
+
+  div.module-navbar div.left-box div.user-account {
+    width: 2.8rem;
+    height: 2.8rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.35s;
+  }
+
+  div.module-navbar div.left-box div.user-account:hover {
+    box-shadow: 0 0 2px 5px rgba(255, 255, 255, 0.8);
+  }
+
+  div.module-navbar div.left-box div.user-account img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  div.module-navbar div.left-box svg.icon-account-user {
+    width: 2.8rem;
+    height: 2.8rem;
+    fill: white;
+    border-radius: 50%;
+    transition: 0.35s;
+  }
+
+  div.module-navbar div.left-box svg.icon-account-user:hover {
+    box-shadow: 0 0 2px 5px rgba(255, 255, 255, 0.8);
   }
 
   div.module-navbar div.left-box div.dropDown-box.open {
@@ -832,6 +932,7 @@ div.delete-warning-card p.text svg.icon-warning-rounded:active {
     width: 200px;
     background-color: white;
     border-radius: 0.5rem;
+    border: 1.5px solid #cccccc;
     transform: translateY(10px);
     opacity: 0;
     pointer-events: none;
@@ -1061,10 +1162,6 @@ div.delete-warning-card p.text svg.icon-warning-rounded:active {
     font-size: 1.2rem;
     font-weight: 500;
     margin-top: 2rem;
-    /* border: 1px solid var(--sixth-color);
-    padding: 0.7rem 1.8rem;
-    width: fit-content;
-    border-radius: 0.5rem; */
   }
 
   section.credit-card-section div.credit-card div.chooseCards {
@@ -1089,19 +1186,21 @@ div.delete-warning-card p.text svg.icon-warning-rounded:active {
 
   section.credit-card-section form.card-form ul li.box {
     display: flex;
+    margin: 2rem 0;
+  }
+
+  section.credit-card-section span.small {
+    flex: 1 1 100%;
+    padding-left: 40%;
+    margin: 0.3rem 0 0 0;
   }
 
   section.credit-card-section form.card-form ul li.box input {
-    width: 200px;
-    border: 1px solid var(--fifth-color);
-    background-color: white;
+    width: 60%;
+    border: 1.5px solid var(--fifth-color);
     border-radius: 0.5rem;
-    height: 28px;
-    cursor: pointer;
-  }
-
-  section.credit-card-section form.card-form ul li.box p.text {
-    font-size: 1.2rem;
+    height: 35px;
+    padding: 0 0.5rem;
   }
 
   /* --------------------------delete-item-modal-desktop------------------------- */
