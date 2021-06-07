@@ -709,6 +709,7 @@ $a_sql = "SELECT * FROM schedule ORDER BY RAND() LIMIT 9";
     })
 
 
+
     // 讓金額數字添加千位數逗點
     const dollarCommas = function(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")

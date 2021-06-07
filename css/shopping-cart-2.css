@@ -1203,7 +1203,6 @@ div.delete-warning-card div.btns p.confirm-btn:active {
   }
 
   section.shopping-cart-section div.shopping-cart {
-    position: relative;
     padding: 2rem 2rem 7.5rem 2rem;
     background-color: white;
     border-radius: 1rem;

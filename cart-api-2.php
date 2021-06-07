@@ -78,5 +78,4 @@ switch($action){
 }
 
 echo json_encode([$_SESSION['cart'], $_SESSION['p_cart'],], JSON_UNESCAPED_UNICODE);
-// echo json_encode($_SESSION['p_cart'], JSON_UNESCAPED_UNICODE);
 ?>

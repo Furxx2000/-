@@ -332,6 +332,17 @@ $pageName = 'activity-list';
 
     // 輸出資料新增加kind，可以作為changeKind()的資料來源
     function getActivitys() {
+        console.log({
+            cate,
+            page,
+            kind,
+            rating,
+            place,
+            days,
+            level,
+            priceLow,
+            priceHigh
+        });
         $.get('activity-list-api.php', {
             cate,
             page,
@@ -476,11 +487,6 @@ $pageName = 'activity-list';
     })
 
     const boxItem = document.querySelectorAll('.filterBox li');
-
-    boxItem.forEach(item => {
-        item.addEventListener('click', () => {
-        })
-    })
 
 
     $('.filterBox li').click(function() {

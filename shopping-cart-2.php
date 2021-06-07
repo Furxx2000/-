@@ -227,7 +227,6 @@ $pageName = 'cart';
                 <?php endforeach; ?>
 
 
-
                 <div class="total">
                     <p class="text ff-noto">總計金額</p>
                     <p class="text ff-airbnb totalPrice"></p>
