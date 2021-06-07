@@ -85,6 +85,19 @@ ul li {
     text-decoration: none;
   }
 
+  div.cross {
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+    margin-right: 1.5rem;
+  }
+
+  img.close {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .dropdown ul li a:hover {
     background: #babfc886;
     color: #369;
@@ -382,11 +395,13 @@ ul li {
   }
 
   .btn-primary {
-    margin-top: 10px;
-    margin-left: 33%;
+    display: block;
+    margin: 1rem auto;
     background-color: #f0a520;
     color: #424642;
     border-style: none;
+    padding: 0.7rem 1.6rem 0.8rem 1.6rem;
+    border-radius: 0.5rem;
   }
   .equ_img_four {
     margin-left: 10%;
@@ -452,7 +467,6 @@ ul li {
   }
   .card1 {
     display: block;
-    height: 785px;
   }
 
   .card2 {

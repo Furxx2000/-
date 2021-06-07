@@ -381,7 +381,9 @@ $p3_rows = $p_stmt3->fetchAll();
                     </g>
                 </svg>
                 <div class="mountain_box">
-                    <img class="close close_info" src="./icomoon/svg/close.svg">
+                    <div class="cross">
+                        <img class="close close_info" src="./icomoon/svg/close.svg">
+                    </div>
                     <div class="mountain_info">
                         <div class="mountain_name">
                             <div id="main_mountain" class="main_mountain">玉山 &emsp; </div>
