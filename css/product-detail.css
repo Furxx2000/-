@@ -37,8 +37,14 @@
   background-repeat: no-repeat;
   background-size: contain;
   transform: translateY(20px);
+  transition: 0.1s;
   fill: none;
 }
+
+.love:active {
+  transform: translateY(20px) scale(0.8) !important;
+}
+
 .fill {
   fill: #a75353;
 }
