@@ -705,14 +705,15 @@ ul {
 .member_commnet_btn_wrap {
   display: flex;
   align-self: flex-end;
+  margin-top: 0.5rem;
 }
 .member_comment .btn {
   border-radius: 40px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .member_comment .btn.adj_time {
-  width: 120px;
-  height: 45px;
+  width: 110px;
+  height: 40px;
   background: transparent;
   border: 1px solid var(--nomad4);
 }
@@ -1056,7 +1057,6 @@ input[type="file"] {
   .member_content_userimg {
     min-width: 100px;
     height: 100px;
-    background: #333;
   }
   .member_content_username {
     padding: 0 50px;
