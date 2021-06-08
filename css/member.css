@@ -883,7 +883,7 @@ input[type="file"] {
   width: 100%;
 }
 .member_achivetment_bar_progress.bar_02 {
-  width: 60%;
+  width: 100%;
 }
 @media (min-width: 992px) {
   /* -------------------modal---------------------- */
