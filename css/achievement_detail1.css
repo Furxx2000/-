@@ -145,7 +145,8 @@ div.box div.cardinfobox div.boxinfo svg.icon-star {
 
 div.box div.cardinfobox div.boxinfo span.num {
   font-size: 0.8rem;
-  color: var(--third-color);
+  font-weight: 500;
+  color: black;
 }
 
 div.box div.cardinfobox div.boxinfo span.text {
@@ -339,6 +340,10 @@ div.box div.trophy {
     border-radius: 50%;
   }
 
+  div.navbartop div.textbox span.rank {
+    color: white;
+  }
+
   div.module-navbar div.dropDown-box ul {
     margin-top: 1rem;
   }
@@ -404,7 +409,7 @@ div.box div.trophy {
     height: 40px;
   }
 
-  div.navbartop div.textbox span.rank {
+  div.navbartop div.textbox span {
     color: white;
     font-size: 24px;
   }

@@ -7,9 +7,34 @@ if(! isset($_SESSION['user'])){
     header('Location: signUp.php');
     exit;
 }
+$a = 1;
+$b = 1;
+$c = 2;
+$d = 2;
+ 
+$total_schedule = 30;
+$m_id = intval($_SESSION['user']['id']);
+$sql = "SELECT s.* FROM `order_details` o
+JOIN `schedule` s ON o.schedule_sid=s.sid
+WHERE o.`member_sid`=$m_id ";
 
+    $stmt = $pdo->query($sql);
+    $rows = $stmt->fetchAll();
 
+$count_sql = "SELECT COUNT(*) FROM `order_details` WHERE member_sid = $m_id and schedule_sid > 1";
+$count_stmt = $pdo->query($count_sql);
+$count = $count_stmt->fetchColumn();
 
+$pur_sql = "SELECT * FROM `orders` JOIN `order_details` ON orders.member_sid = $m_id AND orders.sid = order_details.order_sid JOIN `schedule` ON order_details.schedule_sid = schedule.sid ORDER BY orders.order_date DESC"; 
+
+$purchase = $pdo->query($pur_sql)->fetchAll();
+$total_a = $a*$count;
+$total_b = $b*$count;
+$total_c = $c*$count;
+$total_d = $d*$count;
+$total = $total_a + $total_b  + $total_c + $total_d;
+$bar_num = ($count / 30)*100;
+$achievement = 6 * $count;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,11 +88,17 @@ if(! isset($_SESSION['user'])){
                 <?php endif; ?>
                 <div class="textbox">
                     <h1 class="title ff-noto"><?= htmlentities($_SESSION['user']['nickname']) ?></h1>
-                    <span class="rank ff-raleway">Gold</span>
+                    <span class="rank ff-raleway"><?php if ($achievement < 10){
+                        echo 'Silver';
+                        }else if($achievement < 20 ){
+                        echo 'Gold';
+                        }else {
+                        echo 'Platinum';
+                        } ?></span>
                     <div class="trophy">
                         <img src="./img/p2-gold-trophy.png">
                     </div>
-                    <span1 class="ff-noto">於2018年5月加入Nomad</span1>
+                    <span1 class="ff-noto">於2021年5月加入Nomad</span1>
                 </div>
             </div>
         </div>
@@ -87,11 +118,13 @@ if(! isset($_SESSION['user'])){
                 <div class="trophy-img flex">
                     <div class="box">
                         <p class="text ff-noto">已完成行程</p>
-                        <p class="num ff-raleway">5</p>
+                        <p class="num ff-raleway"><?= $count ?></p>
                     </div>
                     <div class="chart">
-                        <p id="value1" class="num ff-raleway">100</p>
-                        <div class="bar"></div>
+                        <p id="value1" class="num ff-raleway"><?= $bar_num  ?></p>
+                        <div class="bar">
+                            <div class="bar-done" data-done="<?= $bar_num ?>"></div>
+                        </div>
                     </div>
                 </div>
                 <ul class="trophy-box flex">
@@ -99,29 +132,29 @@ if(! isset($_SESSION['user'])){
                         <div class="img">
                             <img src="./img/p1-platinum-trophy.png" alt="">
                         </div>
-                        <span class="num ff-raleway">4</span>
+                        <span class="num ff-raleway"><?= $total_a ?></span>
                     </li>
                     <li>
                         <div class="img">
                             <img src="./img/p2-gold-trophy.png" alt="">
                         </div>
-                        <span class="num ff-raleway">4</span>
+                        <span class="num ff-raleway"><?= $total_b ?></span>
                     </li>
                     <li>
                         <div class="img">
                             <img src="./img/p3-silver-trophy.png" alt="">
                         </div>
-                        <span class="num ff-raleway">7</span>
+                        <span class="num ff-raleway"><?= $total_c ?></span>
                     </li>
                     <li>
                         <div class="img">
                             <img src="./img/p4-bronze-trophy.png" alt="">
                         </div>
-                        <span class="num ff-raleway">17</span>
+                        <span class="num ff-raleway"><?= $total_d ?></span>
                     </li>
 
                     <li class="trophy-point">
-                        <p class="text ff-noto">合計：<span class="num ff-raleway">32</span></p>
+                        <p class="text ff-noto">合計：<span class="num ff-raleway"><?= $total ?></span></p>
                     </li>
                 </ul>
             </div>
@@ -129,22 +162,21 @@ if(! isset($_SESSION['user'])){
 
         <!-- ----------------底下是小卡------------------ -->
         <div class="container1">
-
-            <div class="cardinfobox flex">
+            <?php foreach($purchase as $p): ?>
+            <div class="cardinfobox flex" data-sid=<?= $p['sid']?>>
                 <div class="imgbox">
-                    <a href="./achievement_detail1.php">
-                        <img src="./img/奇萊主北4.jpg" alt="">
+                    <a href="./achievement_detail1.php?sid=<?= $p['sid']?>">
+                        <img src="./images/<?= $p['schedule_id'] ?>/<?= $p['schedule_id'] ?>.jpeg" alt="">
                     </a>
                 </div>
                 <div class="boxinfo">
-                    <h4 class="title ff-noto">奇萊主峰</h4>
+                    <h4 class="title ff-noto"><?= $p['schedule_title'] ?></h4>
                     <svg class="icon-star svg">
                         <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
                     </svg>
                     <span class="num ff-raleway">5</span>
-                    <span class="text ff-noto">(20則評價)</span>
-                    <p class="text ff-noto">B級</p>
-                    <p class="departure_date ff-noto">2021年6月9日-21日</p>
+                    <p class="text ff-noto"><?= $p['level'] ?>級</p>
+                    <p class="departure_date ff-noto"><?= $p['departure_date'] ?></p>
                     <p class="percentage ff-raleway">100%</p>
                     <div class="bars">
                         <div class="progressBar-up"></div>
@@ -155,31 +187,31 @@ if(! isset($_SESSION['user'])){
                             <div class="img">
                                 <img src="./img/p1-platinum-trophy.png" alt="">
                             </div>
-                            <span class="num ff-raleway">1</span>
+                            <span class="num ff-raleway"><?= $a ?></span>
                         </li>
                         <li>
                             <div class="img">
                                 <img src="./img/p2-gold-trophy.png" alt="">
                             </div>
-                            <span class="num ff-raleway">1</span>
+                            <span class="num ff-raleway"><?= $b ?></span>
                         </li>
                         <li>
                             <div class="img">
                                 <img src="./img/p3-silver-trophy.png" alt="">
                             </div>
-                            <span class="num ff-raleway">2</span>
+                            <span class="num ff-raleway"><?= $c ?></span>
                         </li>
                         <li>
                             <div class="img">
                                 <img src="./img/p4-bronze-trophy.png" alt="">
                             </div>
-                            <span class="num ff-raleway">2</span>
+                            <span class="num ff-raleway"><?= $d ?></span>
                         </li>
                     </ul>
                 </div>
             </div>
-
-            <div class="cardinfobox flex">
+            <?php endforeach; ?>
+            <!-- <div class="cardinfobox flex">
                 <div class="imgbox">
                     <a href="./achievement_detail1.php">
                         <img src="./images/B0004/B0004.jpeg" alt="">
@@ -376,20 +408,7 @@ if(! isset($_SESSION['user'])){
             </div>
 
 
-            <div class="cardinfobox"></div>
-        </div>
-        <div class="page">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="25px" height="25px">
-                <path
-                    d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" />
-            </svg>
-            <span class="num ff-raleway">1</span>
-            <span class="num ff-raleway">2</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" width="25px" height="25px">
-
-                <path
-                    d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" />
-            </svg>
+            <div class="cardinfobox"></div> -->
         </div>
 
     </div>
@@ -434,15 +453,18 @@ if(! isset($_SESSION['user'])){
         // 更改變量以修改數字的速度，從0增加到（ms）
         let SPEED = 20;
         // 百分比值
-        let limit = parseInt(document.getElementById("value1").innerHTML, 10);
+        let limit = parseInt(Math.floor(document.getElementById("value1").innerHTML), 10);
 
-        for (let i = 0; i <= limit; i++) {
-            setTimeout(function() {
-                document.getElementById("value1").innerHTML = i + "%";
-            }, SPEED * i);
-        }
+        document.getElementById("value1").innerHTML = limit + "%";
+
     }
-
     increase();
+    const progress = document.querySelector('.bar-done');
+    setTimeout(() => {
+        progress.style.width = progress.getAttribute('data-done') + '%';
+        progress.style.opacity = 1;
+    }, 500);
+
+    console.log(progress.getAttribute('.data-done') + '%');
     </script>
     <?php include __DIR__. '/parts-php/html-endingTag.php'; ?>

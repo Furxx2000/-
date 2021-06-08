@@ -4,10 +4,17 @@ if(! isset($_SESSION['user'])){
     header('Location: signUp.php');
     exit;
 }
+$m_id = intval($_SESSION['user']['id']);
+$sid = isset($_GET['sid']) ? intval($_GET['sid']) : 0;
 
+$sql = "SELECT * FROM schedule WHERE sid = $sid";
+    $stmt = $pdo->query($sql);
+    $row = $stmt->fetch();
 
-
-
+$count_sql = "SELECT COUNT(*) FROM `order_details` WHERE member_sid = $m_id and schedule_sid > 1";
+$count_stmt = $pdo->query($count_sql);
+$count = $count_stmt->fetchColumn();
+$achievement = 6 * $count;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +44,7 @@ if(! isset($_SESSION['user'])){
 
         0% {
             background: url(./img/w6.png)no-repeat;
+
         }
 
         25% {
@@ -87,7 +95,13 @@ if(! isset($_SESSION['user'])){
                 <?php endif; ?>
                 <div class="textbox">
                     <h1 class="title ff-noto"><?= htmlentities($_SESSION['user']['nickname']) ?></h1>
-                    <span class="rank ff-raleway">Gold</span>
+                    <span class="rank ff-raleway"><?php if ($achievement < 10){
+    echo 'Silver';
+}else if($achievement < 20 ){
+   echo 'Gold';
+}else {
+    echo 'Platinum';
+} ?></span>
                     <div class="trophy">
                         <img src="./img/p2-gold-trophy.png">
                     </div>
@@ -104,17 +118,17 @@ if(! isset($_SESSION['user'])){
 
         <div class="cardinfobox flex">
             <div class="imgbox">
-                <img src="./img/奇萊主北4.jpg" alt="">
+                <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>.jpeg" alt="">
             </div>
             <div class="boxinfo">
-                <h4 class="title ff-noto">奇萊主峰</h4>
+                <h4 class="title ff-noto"><?= $row['schedule_title'] ?></h4>
                 <svg class="icon-star svg">
                     <use xlink:href="./icomoon/symbol-defs.svg#icon-star"></use>
                 </svg>
                 <span class="num ff-raleway">5</span>
-                <span class="text ff-noto">(20則評價)</span>
-                <p class="text ff-noto">B級</p>
-                <p class="departure_date ff-noto">2021年6月9日-21日</p>
+                <!-- <span class="text ff-noto">(20則評價)</span> -->
+                <p class="text ff-noto"><?= $row['level'] ?>級</p>
+                <p class="departure_date ff-noto"><?= $row['departure_date'] ?></p>
                 <p id="value1" class="percentage ff-raleway">100%</p>
                 <div class="bars">
                     <div class="progressBar-up"></div>
@@ -161,7 +175,7 @@ if(! isset($_SESSION['user'])){
                         <img src="./img/p1-platinum-trophy.png" alt="">
                     </div>
                     <div>
-                        <span class="text ff-noto">金色奇萊</span>
+                        <span class="text ff-noto">金色山脈</span>
                         <p class="text ff-noto">極為珍貴 8%</p>
                     </div>
                 </div>
@@ -183,7 +197,7 @@ if(! isset($_SESSION['user'])){
                         <p class="text ff-noto">非常珍貴 18%</p>
                     </div>
                 </div>
-                <p class="title ff-noto">登頂奇萊北峰</p>
+                <p class="title ff-noto">登頂<?= substr($row['info2-title'],0,-3) ?></p>
                 <p class="text ff-noto">攀登海拔 3,607公尺</p>
             </div>
         </div>
@@ -202,7 +216,7 @@ if(! isset($_SESSION['user'])){
                         <p class="text ff-noto">珍貴 28%</p>
                     </div>
                 </div>
-                <p class="title ff-noto">抵達奇萊稜線草原</p>
+                <p class="title ff-noto">抵達<?= substr($row['info1-title'],0,-3) ?></p>
                 <p class="text ff-noto">攀登海拔 3,300公尺</p>
             </div>
         </div>
@@ -217,12 +231,12 @@ if(! isset($_SESSION['user'])){
                         <img src="./img/p3-silver-trophy.png" alt="">
                     </div>
                     <div>
-                        <span class="text ff-noto">稀有動物</span>
+                        <span class="text ff-noto">登山望遠</span>
                         <p class="text ff-noto">珍貴 33%</p>
                     </div>
                 </div>
-                <p class="title ff-noto">找到奇萊長鬃山羊</p>
-                <p class="text ff-noto">攀登海拔 2,000公尺</p>
+                <p class="title ff-noto">抵達<?= substr($row['info3-title'],0,-3) ?></p>
+                <p class="text ff-noto">攀登海拔 3,000公尺</p>
             </div>
         </div>
 
@@ -259,8 +273,8 @@ if(! isset($_SESSION['user'])){
                         <p class="text ff-noto">一般 56%</p>
                     </div>
                 </div>
-                <p class="title ff-noto">抵達奇萊山口</p>
-                <p class="text ff-noto">攀登海拔 3,150公尺</p>
+                <p class="title ff-noto">抵達山口</p>
+                <p class="text ff-noto">攀登海拔 1,150公尺</p>
             </div>
         </div>
     </div>
@@ -289,5 +303,4 @@ if(! isset($_SESSION['user'])){
 
     increase();
     </script>
-
     <?php include __DIR__. '/parts-php/html-endingTag.php'; ?>

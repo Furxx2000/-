@@ -195,14 +195,21 @@ div.trophy-img div.chart p.num {
 }
 
 div.trophy-img div.bar {
-  animation: load 2.5s normal forwards;
+  /* animation: load 2.5s normal forwards; */
   box-shadow: 0 10px 40px -10px rgb(0, 0, 0);
   border-radius: 1rem;
-  background: var(--secondary-color);
+  background: #ccc;
   height: 3px;
-  width: 0;
+  width: 100%;
 }
-
+.bar .bar-done {
+  height: 100%;
+  border-radius: 1rem;
+  background: var(--secondary-color);
+  width: 0;
+  opacity: 0;
+  transition: 1s ease;
+}
 div.trophy ul.trophy-box {
   justify-content: flex-start;
   align-items: flex-end;
@@ -276,7 +283,8 @@ div.container1 div.boxinfo svg.icon-star {
 
 div.container1 div.boxinfo span.num {
   font-size: 0.8rem;
-  color: var(--third-color);
+  font-weight: 500;
+  color: black;
 }
 
 div.container1 div.boxinfo span.text {
@@ -525,12 +533,12 @@ section.footer-section {
   }
 
   .bar {
-    animation: load 3s normal forwards;
+    /* animation: load 3s normal forwards; */
     box-shadow: 0 10px 40px -10px rgb(0, 0, 0);
     border-radius: 100px;
     background: #cf7500;
     height: 20px;
-    width: 0;
+    width: 100%;
   }
 
   div.trophy ul.trophy-box {
@@ -644,7 +652,7 @@ section.footer-section {
     }
 
     100% {
-      width: 100%;
+      width: 50%;
     }
   }
 }
