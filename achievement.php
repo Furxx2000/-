@@ -211,6 +211,7 @@ $achievement = 6 * $count;
                 </div>
             </div>
             <?php endforeach; ?>
+            <div class="cardinfobox"></div>
             <!-- <div class="cardinfobox flex">
                 <div class="imgbox">
                     <a href="./achievement_detail1.php">
