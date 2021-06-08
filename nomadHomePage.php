@@ -235,7 +235,7 @@ $c_rows = $c_stmt->fetchAll();
     <div class="container">
         <h2 class="title ff-raleway">加入超過100,000名<br />探險者的戶外社群</h2>
         <a href="notebook.php">
-            <h3 class="title ff-raleway none">瀏覽登山記事</h3>
+            <h3 class="title ff-noto none">瀏覽登山記事</h3>
         </a>
         <div class="comments">
             <div class="carousel" data-flickity='{ "wrapAround": true }'>
