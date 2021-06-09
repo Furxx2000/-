@@ -167,7 +167,7 @@ $achievement = 6 * $count;
     <div class="parentBox flex">
         <div class="successbox col-12 col-md-12 col-lg-4 col-xl-4">
             <div class="success-img-box">
-                <img src="./img/金色奇萊山.jpeg" alt="">
+                <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>.jpeg" alt="">
             </div>
             <div class="success-description">
                 <div class="success-flex flex">
@@ -185,7 +185,7 @@ $achievement = 6 * $count;
 
         <div class="successbox col-12 col-md-12 col-lg-4 col-xl-4 ">
             <div class="success-img-box">
-                <img src="./img/黑色奇萊山.jpeg" alt="">
+                <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_2.jpeg" alt="">
             </div>
             <div class="success-description">
                 <div class="success-flex flex">
@@ -193,7 +193,7 @@ $achievement = 6 * $count;
                         <img src="./img/p2-gold-trophy.png" alt="">
                     </div>
                     <div>
-                        <span class="text ff-noto">黑色奇萊</span>
+                        <span class="text ff-noto">高山之巔</span>
                         <p class="text ff-noto">非常珍貴 18%</p>
                     </div>
                 </div>
@@ -204,7 +204,7 @@ $achievement = 6 * $count;
 
         <div class="successbox col-12 col-md-12 col-lg-4 col-xl-4 ">
             <div class="success-img-box">
-                <img src="./img/奇萊稜線.jpeg" alt="">
+                <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_3.jpeg" alt="">
             </div>
             <div class="success-description">
                 <div class="success-flex flex">
@@ -223,7 +223,7 @@ $achievement = 6 * $count;
 
         <div class="successbox col-12 col-md-12 col-lg-4 col-xl-4 ">
             <div class="success-img-box">
-                <img src="./img/奇萊水鹿.jpeg" alt="">
+                <img src="<?= WEB_ROOT ?>/images/<?= $row['schedule_id'] ?>/<?= $row['schedule_id'] ?>_4.jpeg" alt="">
             </div>
             <div class="success-description">
                 <div class="success-flex flex">
