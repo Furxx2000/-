@@ -179,7 +179,7 @@ $pageName = 'singUp';
                 function(data) {
                     if (data.success) {
                         // alert('登入成功');
-                        location.href = 'member.php';
+                        window.history.back();
 
                     } else {
                         $('.alert_body').css('top', '0%');
