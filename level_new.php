@@ -518,7 +518,9 @@ $p3_rows = $p_stmt3->fetchAll();
                     </div>
                 </div>
                 <div class="level_light_box">
-                    <img class="close close_level" src="./icomoon/svg/close2.svg">
+                    <div class="cross">
+                        <img class="close close_level" src="./icomoon/svg/close2.svg">
+                    </div>
                     <div class="info-text">
                         <p class="level_info_title">百岳路線難度分級</p>
                         <p class="season_title">一般季節</p>
