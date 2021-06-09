@@ -180,7 +180,7 @@ $pageName = 'singUp';
                     if (data.success) {
                         // alert('登入成功');
                         location.href = 'member.php';
-                        console.log(data);
+
                     } else {
                         $('.alert_body').css('top', '0%');
                         $('.alert_error_login').addClass('alert_show');
@@ -245,27 +245,6 @@ $pageName = 'singUp';
             );
         }
     });
-    // function sendEmail(){
-    //     $('#reset_btn_01').on('click', function(){
-    //         if($forgot_email.val() != ""){
-    //             $forgot_email.css('border','1px solid green');
-
-    //             $.ajax({
-    //                 url:'signUp.php',
-    //                 method:'POST',
-    //                 dataType:'text',
-    //                 data:{
-    //                     email: $forgot_email.val()
-    //                 },success: function(response){
-    //                     console.log(response);
-    //                 }
-    //             });
-
-    //         }else{
-    //             $forgot_email.css('border','1px solid #cd071e');
-    //         }
-    //     });
-    // }
     </script>
 
 
