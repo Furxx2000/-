@@ -14,7 +14,7 @@ ul li {
 }
 .btn-info {
   font-size: 16px;
-  padding: 5px;
+  padding: 0.5rem 1.2rem;
   border-style: none;
   border-radius: 5px;
   background-color: #123132eb;
@@ -709,6 +709,7 @@ ul li {
     position: absolute;
     z-index: -1;
     transform: translate(60px, 100px);
+    padding: 0.7rem 1.5rem;
     /* transform: translateY(200px); */
   }
   .level_page_flexbox {
