@@ -228,7 +228,7 @@
                 </div>
 
                 <div class="rule rule2">
-                    <h2 class="title-2">關於高山症</h2>
+                    <h2 class="title-2 wa">關於高山症</h2>
                     <div class="text-box  text3">
                         <h5>
                             你不能不知道的高山症 </h5>

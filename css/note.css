@@ -31,7 +31,11 @@ h2 {
   white-space: nowrap;
   overflow: hidden;
   border-right: 0.09em solid;
-  animation: typing 3s steps(15) infinite, caret 3s steps(15) infinite;
+  animation: typing 5s steps(15) infinite, caret 3s steps(15) infinite;
+}
+
+.wa {
+  width: 12ch;
 }
 
 .rule {
