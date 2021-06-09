@@ -58,7 +58,7 @@ $pageName = 'singUp';
                     <small class="form-text error"></small>
                     <input type="password" placeholder="密碼" class="input" class="input" id="password_login"
                         name="password" required />
-                    <span class="link"><a href="#" class="link" id="wanna_signUp">註冊</a></span>
+                    <span class="link">還沒加入我們?<a href="#" class="link" id="wanna_signUp">註冊</a></span>
                     <!-- <a href="#" class="link" id="forgot_password">忘記密碼?</a> -->
                     <button class="btn btn_dark">登入</button>
                 </form>
@@ -226,11 +226,11 @@ $pageName = 'singUp';
 
             $(".container--signup").css(
                 "transform",
-                "translateX(100%)"
+                "translateX(0)"
             );
             $(".container--signin").css(
                 "transform",
-                "translateX(0%)"
+                "translateX(-100%)"
             );
         } else if ($('.container--signin').css('transform', 'translateX(0%)')) {
             console.log('hi');
