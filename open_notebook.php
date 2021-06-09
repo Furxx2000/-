@@ -103,16 +103,16 @@ if (!empty($_SESSION['user'])) {
                 <div class="sections">
                     <section class="active">
                         <div class="form_group">
-                            <input type="text" placeholder="Title" id="diarytitle" name="diarytitle" required>
+                            <input type="text" placeholder="標題" id="diarytitle" name="diarytitle" required>
                             <small class="form-text error"></small>
                         </div>
                         <div class="images form_group">
                             <div class="pic" type="file" name="info_image" id="info_image" required>
-                                ADD
+                                新增照片
                             </div>
                         </div>
                         <div class="form_group">
-                            <textarea type="text" placeholder="Enter Description" id="text_infor" name="text_infor"
+                            <textarea type="text" placeholder="內容（至少30字）" id="text_infor" name="text_infor"
                                 required></textarea>
                             <small class="form-text error"></small>
                         </div>
@@ -120,8 +120,8 @@ if (!empty($_SESSION['user'])) {
                 </div>
                 <footer>
                     <ul>
-                        <li><span id="reset">reset</span></li>
-                        <button type="submit" class="send">Send</button>
+                        <li><span id="reset">重置</span></li>
+                        <button type="submit" class="send">發文</button>
                     </ul>
 
                 </footer>
