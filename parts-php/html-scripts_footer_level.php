@@ -265,13 +265,13 @@ $(document).ready(function() {
             const a4 = 'http://localhost/nomad/product-detail.php?sid=' + data.p_rows[3].sid
             console.log(a1);
 
-            const eq1 = 'big-photo/' + data.p_rows[0].product_id + '.jpg'
+            const eq1 = 'mountain-bag/small/' + data.p_rows[0].product_id + '.jpg'
             console.log(eq1);
-            const eq2 = 'big-photo/' + data.p_rows[1].product_id + '.jpg'
+            const eq2 = 'mountain-bag/small/' + data.p_rows[1].product_id + '.jpg'
             console.log(eq2);
-            const eq3 = 'big-photo/' + data.p_rows[2].product_id + '.jpg'
+            const eq3 = 'mountain-bag/small/' + data.p_rows[2].product_id + '.jpg'
             console.log(eq3);
-            const eq4 = 'big-photo/' + data.p_rows[3].product_id + '.jpg'
+            const eq4 = 'mountain-bag/small/' + data.p_rows[3].product_id + '.jpg'
             console.log(eq4);
 
             $('#eq1').attr('src', eq1);
