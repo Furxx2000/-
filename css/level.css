@@ -803,6 +803,8 @@ ul li {
     background-color: #f0a520;
     color: #424642;
     border-style: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1.2rem;
   }
   /* .equ_img_four{
     margin: 0 20px;
@@ -878,6 +880,8 @@ ul li {
     position: absolute;
     z-index: 3;
     transform: translate(235px, 200px);
+    font-size: 1.2rem;
+    padding: 0.7rem 1.5rem;
   }
   div.level_page_flexbox svg {
     /* margin-top: 30px; */
@@ -895,6 +899,7 @@ ul li {
     max-width: 30%;
     /* height: 100vh; */
     margin: 40px auto;
+    padding: 0.5rem 0 1rem 0;
   }
   .main_mountain {
     font-size: 33px;
@@ -989,7 +994,6 @@ ul li {
   }
   .card1 {
     display: block;
-    height: 795px;
   }
 
   .card2 {
