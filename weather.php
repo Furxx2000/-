@@ -469,47 +469,47 @@ $rows2 = $pdo->query($m_sql)->fetchAll();
                         <div id="week_mobile">
                             <div class="week_mobile_weather first">
                                 <div class="week_small">
-                                    <p>星期五</p>
+                                    <p>星期六</p>
                                     <div class="weather_icon_container">
                                         <img id="weather_icon_mn1" src="./icomoon/svg/cloudy.svg">
                                     </div>
-                                    <p>5/28</p>
-                                </div>
-                            </div>
-                            <div class="week_mobile_weather">
-                                <div class="week_small">
-                                    <p>星期六</p>
-                                    <div class="weather_icon_container">
-                                        <img id="weather_icon_mn2" src="./icomoon/svg/cloudy.svg">
-                                    </div>
-                                    <p>5/29</p>
+                                    <p><?php echo date("m-d",strtotime('+1 day')); ?></p>
                                 </div>
                             </div>
                             <div class="week_mobile_weather">
                                 <div class="week_small">
                                     <p>星期日</p>
                                     <div class="weather_icon_container">
-                                        <img id="weather_icon_mn3" src="./icomoon/svg/sun.svg">
+                                        <img id="weather_icon_mn2" src="./icomoon/svg/cloudy.svg">
                                     </div>
-                                    <p>5/30</p>
+                                    <p><?php echo date("m-d",strtotime('+2 day')); ?></p>
                                 </div>
                             </div>
                             <div class="week_mobile_weather">
                                 <div class="week_small">
                                     <p>星期一</p>
                                     <div class="weather_icon_container">
-                                        <img id="weather_icon_mn4" src="./icomoon/svg/sun.svg">
+                                        <img id="weather_icon_mn3" src="./icomoon/svg/sun.svg">
                                     </div>
-                                    <p>5/31</p>
+                                    <p><?php echo date("m-d",strtotime('+3 day')); ?></p>
                                 </div>
                             </div>
                             <div class="week_mobile_weather">
                                 <div class="week_small">
                                     <p>星期二</p>
                                     <div class="weather_icon_container">
+                                        <img id="weather_icon_mn4" src="./icomoon/svg/sun.svg">
+                                    </div>
+                                    <p><?php echo date("m-d",strtotime('+4 day')); ?></p>
+                                </div>
+                            </div>
+                            <div class="week_mobile_weather">
+                                <div class="week_small">
+                                    <p>星期三</p>
+                                    <div class="weather_icon_container">
                                         <img id="weather_icon_mn5" src="./icomoon/svg/sun.svg">
                                     </div>
-                                    <p>6/1</p>
+                                    <p><?php echo date("m-d",strtotime('+5 day')); ?></p>
                                 </div>
                             </div>
 
@@ -517,7 +517,7 @@ $rows2 = $pdo->query($m_sql)->fetchAll();
                         </div>
                         <div class="week_container">
                             <div class="week_date">
-                                <p>星期五<br>5/28</p>
+                                <p>星期六<br> <?php echo date("m-d",strtotime('+1 day')); ?></p>
                             </div>
                             <div class="week_weather_icon">
                                 <img id="weather_icon_dn1" src="./icomoon/svg/cloudy.svg">
@@ -529,7 +529,7 @@ $rows2 = $pdo->query($m_sql)->fetchAll();
                         </div>
                         <div class="week_container">
                             <div class="week_date">
-                                <p>星期六<br>5/29</p>
+                                <p>星期日<br><?php echo date("m-d",strtotime('+2 day')); ?></p>
                             </div>
                             <div class="week_weather_icon">
                                 <img id="weather_icon_dn2" src="./icomoon/svg/cloudy.svg">
@@ -541,7 +541,7 @@ $rows2 = $pdo->query($m_sql)->fetchAll();
                         </div>
                         <div class="week_container">
                             <div class="week_date">
-                                <p>星期日<br>5/30</p>
+                                <p>星期一<br><?php echo date("m-d",strtotime('+3 day')); ?></p>
                             </div>
                             <div class="week_weather_icon">
                                 <img id="weather_icon_dn3" src="./icomoon/svg/sun.svg">
@@ -553,7 +553,7 @@ $rows2 = $pdo->query($m_sql)->fetchAll();
                         </div>
                         <div class="week_container">
                             <div class="week_date">
-                                <p>星期一<br>5/31</p>
+                                <p>星期二<br><?php echo date("m-d",strtotime('+4 day')); ?></p>
                             </div>
                             <div class="week_weather_icon">
                                 <img id="weather_icon_dn4" src="./icomoon/svg/sun.svg">
@@ -565,7 +565,7 @@ $rows2 = $pdo->query($m_sql)->fetchAll();
                         </div>
                         <div class="week_container">
                             <div class="week_date">
-                                <p>星期二<br>6/1</p>
+                                <p>星期三<br><?php echo date("m-d",strtotime('+5 day')); ?></p>
                             </div>
                             <div class="week_weather_icon">
                                 <img id="weather_icon_dn5" src="./icomoon/svg/sun.svg">
