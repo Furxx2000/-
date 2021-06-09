@@ -32,6 +32,15 @@ h3 {
   width: 50%;
   margin: 20px 0;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
 }
 
 .product_all {
