@@ -1332,8 +1332,7 @@ section.buy-now-section div.sign-up-cta:active {
 /* ---------------------------------modalCart-mobile------------------------------------------ */
 
 div.modalCart {
-  opacity: 0;
-  visibility: hidden;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -1347,13 +1346,11 @@ div.modalCart {
 }
 
 div.modalCart.show {
-  opacity: 1;
-  visibility: visible;
-  /* pointer-events: all; */
+  display: block;
 }
 
 div.modalCart-container {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
