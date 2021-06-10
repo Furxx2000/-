@@ -818,7 +818,6 @@ input {
   }
 
   .nodate {
-    position: absolute;
     left: 111px;
     top: 34px;
   }
