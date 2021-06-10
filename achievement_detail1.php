@@ -105,7 +105,7 @@ $achievement = 6 * $count;
                     <div class="trophy">
                         <img src="./img/p2-gold-trophy.png">
                     </div>
-                    <span1 class="ff-noto">於2018年5月加入Nomad</span1>
+                    <span1 class="ff-noto">於2021年5月加入Nomad</span1>
                 </div>
             </div>
         </div>
