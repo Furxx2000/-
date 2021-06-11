@@ -46,6 +46,7 @@ $pageName = 'singUp';
                     <small class="form-text error"></small>
                     <span class="link">已經有帳號了?<a href="#" class="link" id="have_account">登入</a></span>
                     <button class="btn btn_dark">註冊</button>
+                    <button class="auto_input" id="auto_input_SignUp" type="button">自動</button>
                 </form>
             </div>
 
@@ -61,6 +62,8 @@ $pageName = 'singUp';
                     <span class="link">還沒加入我們?<a href="#" class="link" id="wanna_signUp">註冊</a></span>
                     <!-- <a href="#" class="link" id="forgot_password">忘記密碼?</a> -->
                     <button class="btn btn_dark">登入</button>
+                    <button class="auto_input" id="auto_input_SignIn" type="button">自動</button>
+                    <button class="auto_input auto_input_new" id="auto_input_SignIn_new" type="button">自動</button>
                 </form>
             </div>
 
@@ -244,6 +247,20 @@ $pageName = 'singUp';
 
             );
         }
+    });
+
+    $('#auto_input_SignUp').click(function() {
+        $('#nickname').val('Nomad');
+        $('#email').val('Nomad@gmail.com');
+        $('#password').val('12345');
+    });
+    $('#auto_input_SignIn').click(function() {
+        $('#email_login').val('aaa@gmail.com');
+        $('#password_login').val('12345');
+    });
+    $('#auto_input_SignIn_new').click(function() {
+        $('#email_login').val('Nomad@gmail.com');
+        $('#password_login').val('12345');
     });
     </script>
 
