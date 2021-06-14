@@ -105,39 +105,37 @@ $pageName = 'form';
                     </div>
                     <ul class="card-number flex">
                         <li class="group-1">
-                            <span>●</span>
-                            <span>●</span>
-                            <span>●</span>
-                            <span>●</span>
-                        </li>
-                        <li class="group-2">
-                            <span>●</span>
-                            <span>●</span>
-                            <span>●</span>
-                            <span>●</span>
-                        </li>
-                        <li class="group-3">
-                            <span>●</span>
-                            <span>●</span>
-                            <span>●</span>
-                            <span>●</span>
-                        </li>
-                        <li class="group-4">
-                            <span class="num ff-airbnb">4</span>
-                            <span class="num ff-airbnb">5</span>
-                            <span class="num ff-airbnb">6</span>
-                            <span class="num ff-airbnb">7</span>
+                            <span class="ff-noto">●●●● ●●●● ●●●● ●●●●</span>
+                            <!-- <span data-num="0">●</span>
+                            <span data-num="1">●</span>
+                            <span data-num="2">●</span>
+                            <span data-num="3">●</span>
+                            &nbsp;&nbsp;&nbsp;
+                            <span data-num="4">●</span>
+                            <span data-num="5">●</span>
+                            <span data-num="6">●</span>
+                            <span data-num="7">●</span>
+                            &nbsp;&nbsp;&nbsp;
+                            <span data-num="8">●</span>
+                            <span data-num="9">●</span>
+                            <span data-num="10">●</span>
+                            <span data-num="11">●</span>
+                            &nbsp;&nbsp;&nbsp;
+                            <span data-num="12" class="num ff-airbnb">●</span>
+                            <span data-num="13" class="num ff-airbnb">●</span>
+                            <span data-num="14" class="num ff-airbnb">●</span>
+                            <span data-num="15" class="num ff-airbnb">●</span> -->
                         </li>
                     </ul>
 
                     <div class="name-date flex">
                         <div class="box">
-                            <p class="small ff-airbnb">CARDHOLDER NAME</p>
-                            <p class="big ff-airbnb">John Doe</p>
+                            <p class="small ff-airbnb">Card holder</p>
+                            <p id="cardName" class="big ff-noto">FULL NAME</p>
                         </div>
                         <div class="box">
-                            <p class="small ff-airbnb">EXPIRE DATE</p>
-                            <p class="big ff-airbnb">05 / 2021</p>
+                            <p class="small ff-airbnb">Valid Thur</p>
+                            <p id="cardDate" class="big ff-noto">MM / YY</p>
                         </div>
                     </div>
                 </div>
@@ -157,20 +155,22 @@ $pageName = 'form';
                             <input id="name" class="ff-noto" type="text" name="name" required>
                             <span class="small ff-noto"></span>
                         </li>
-                        <li class="box flex">
+                        <li class="box flex inputs">
                             <label for="number" class="text ff-noto">信用卡卡號</label>
                             <input id="number" class="ff-airbnb" type="text" name="number" required>
+
                             <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
                             <label class="text ff-noto" for="expireDate">信用卡有效年月</label>
-                            <input id="expireDate" class="ff-noto" type="date" name="expireDate" required>
+                            <input id="expireDate" class="ff-noto" type="month" name="expireDate" required>
                             <span class="small ff-noto"></span>
                         </li>
                         <li class="box flex">
                             <label class="text ff-noto" for="ccv">CCV</label>
                             <input id="ccv" class="ff-noto" type="text" name="ccv" required>
                             <span class="small ff-noto"></span>
+                            <span class="auto-fill small ff-noto" style="width:20px; height: 20px;"></span>
                         </li>
 
                         <li class="btns flex">
@@ -217,7 +217,7 @@ $pageName = 'form';
 
     <script>
     // 驗證信用卡4碼
-    const creditCard_re = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+    const creditCard_re = /^\d{4}\d{4}\d{4}\d{4}$/;
     const ccv_re = /^\d{3}$/;
     const $name = $('#name');
     const $number = $('#number');
@@ -298,6 +298,31 @@ $pageName = 'form';
 
         return isPass;
     }
+
+    const cardN = document.querySelector('#name');
+    const cardN1 = document.querySelector('#cardName');
+    const cardE = document.querySelector('#expireDate');
+    const cardE1 = document.querySelector('#cardDate');
+    const spanN = document.querySelector('.group-1 span');
+    const spanN1 = document.querySelector('#number');
+    const ccv = document.querySelector('#ccv');
+    const autoFill = document.querySelector('.auto-fill');
+
+    cardN.addEventListener('keyup', () => {
+        cardN1.textContent = cardN.value;
+    });
+
+    spanN1.addEventListener('keyup', () => {
+        spanN.textContent = spanN1.value;
+    })
+
+
+    autoFill.addEventListener('click', () => {
+        cardN.value = '申敏兒';
+        spanN1.value = '4567 8924 6612 5369';
+        ccv.value = '456';
+        cardE1.textContent = '06 / 21'
+    })
     </script>
 
     <?php include __DIR__ . '/parts-php/html-endingTag.php'; ?>

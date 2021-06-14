@@ -115,7 +115,7 @@ $pageName = 'form';
                                 <input id="female" class="female" type="radio" name="gender" value="female" required>
 
                                 <label for="female" class="text ff-noto">女</label>
-                                <span class="small ff-noto"></span>
+                                <span class="auto-fill small ff-noto" style="width:20px ; height: 20px;"></span>
                             </div>
                         </li>
                         <li class="box flex">
@@ -301,8 +301,36 @@ $pageName = 'form';
                 }, 'json'
             )
         }
-
     }
+
+    const autoFill = document.querySelector('.auto-fill');
+    const formN = document.querySelector('#name');
+    const formG = document.querySelector('#female');
+    const formP = document.querySelector('#personalId');
+    const formB = document.querySelector('#birthDate');
+    const formE = document.querySelector('#email');
+    const formM = document.querySelector('#mobile');
+    const formA = document.querySelector('#address');
+    const formL = document.querySelector('#lineId');
+    const formC = document.querySelector('#country');
+    const formCr = document.querySelector('#criticalIllness');
+    const formEm = document.querySelector('#emergencyContact');
+    const formEmRe = document.querySelector('#emergencyContactRelation');
+
+    autoFill.addEventListener('click', () => {
+        formN.value = '申敏兒';
+        formG.setAttribute('checked', 'true');
+        formP.value = 'Y123456789';
+        formB.value = '1998-05-05';
+        formE.value = 'aaa@gmail.com';
+        formM.value = '0912345678';
+        formA.value = '台北市大安區信義路100號';
+        formL.value = 'aaa12345';
+        formC.value = '台灣';
+        formCr.value = '無';
+        formEm.value = '王曉華';
+        formEmRe.value = '父子';
+    })
     </script>
 
     <?php include __DIR__ . '/parts-php/html-endingTag.php'; ?>
