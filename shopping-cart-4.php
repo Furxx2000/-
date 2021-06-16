@@ -105,7 +105,7 @@ $pageName = 'form';
                     </div>
                     <ul class="card-number flex">
                         <li class="group-1">
-                            <span class="ff-noto">●●●● ●●●● ●●●● ●●●●</span>
+                            <span id="cardNum" class="ff-noto">#### &nbsp#### &nbsp#### &nbsp####</span>
                             <!-- <span data-num="0">●</span>
                             <span data-num="1">●</span>
                             <span data-num="2">●</span>
@@ -305,6 +305,7 @@ $pageName = 'form';
     const cardE1 = document.querySelector('#cardDate');
     const spanN = document.querySelector('.group-1 span');
     const spanN1 = document.querySelector('#number');
+    const cardNum = document.querySelector('#cardNum');
     const ccv = document.querySelector('#ccv');
     const autoFill = document.querySelector('.auto-fill');
 
@@ -312,16 +313,14 @@ $pageName = 'form';
         cardN1.textContent = cardN.value;
     });
 
-    spanN1.addEventListener('keyup', () => {
-        spanN.textContent = spanN1.value;
-    })
-
-
     autoFill.addEventListener('click', () => {
+        cardE1.textContent = '06 / 21';
+        cardN1.textContent = '申敏兒';
+        cardNum.innerHTML = '8967&nbsp&nbsp4552&nbsp&nbsp3698&nbsp&nbsp1256';
         cardN.value = '申敏兒';
-        spanN1.value = '4567 8924 6612 5369';
-        ccv.value = '456';
-        cardE1.textContent = '06 / 21'
+        spanN1.value = '8967455236981256';
+        cardE.value = '2021-06';
+        ccv.value = '357';
     })
     </script>
 

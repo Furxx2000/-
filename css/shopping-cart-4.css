@@ -611,7 +611,8 @@ section.credit-card-section div.card-info ul.card-number {
 }
 
 section.credit-card-section div.card-info ul.card-number span {
-  font-size: 1rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
 }
 
 section.credit-card-section div.card-info div.name-date {
