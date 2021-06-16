@@ -1157,7 +1157,7 @@ section.insurance-detail-section div.backward-cta {
   text-align: center;
   color: white;
   font-size: 0.8rem;
-  padding: 0.5rem 1rem;
+  padding: 0.7rem 1rem;
   background-color: var(--primary-color);
 }
 /* ---------------------spaceForFixed-mobile------------------------- */
@@ -2119,7 +2119,57 @@ svg.icon-done {
   /* -------------------insurance-detail-section-------------------- */
 
   section.insurance-detail-section {
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+
+  section.insurance-detail-section.show {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  section.insurance-detail-section div.arrow-bar {
     display: none;
+  }
+
+  section.insurance-detail-section div.container {
+    position: absolute;
+    width: 550px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem 2rem 2rem;
+  }
+
+  section.insurance-detail-section div.container div.backward-cta {
+    display: block;
+    text-align: center;
+    margin: 2rem auto 0.5rem auto;
+    font-size: 1.2rem;
+  }
+
+  section.insurance-detail-section div.container div.backward-cta:hover {
+    background-color: var(--secondary-color);
+    cursor: pointer;
+  }
+
+  section.insurance-detail-section div.container div.backward-cta:active {
+    transform: scale(0.95);
+  }
+
+  section.insurance-detail-section div.container h2 {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  section.insurance-detail-section div.container p {
+    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   /* ---------------------spaceForFixed-desktop---------------------------*/
