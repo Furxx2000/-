@@ -994,7 +994,6 @@ if (!empty($_SESSION['user'])) {
     const ins = document.querySelector('#ins');
     const closeIns = document.querySelector('.backward-cta');
     const insSection = document.querySelector('.insurance-detail-section');
-    const x = window.
 
     ins.addEventListener('click', () => {
         insSection.classList.add('show');
