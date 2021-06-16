@@ -822,6 +822,15 @@ section.activity-section
   color: white;
   border-radius: 2rem;
   font-size: 0.9rem;
+  transition: 0.1s;
+}
+
+section.activity-section
+  div.activity-description
+  div.floor-4
+  div.bottom-section
+  div.activity-section-cta:hover {
+  background-color: var(--primary-color);
 }
 
 section.activity-section
