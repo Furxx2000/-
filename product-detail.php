@@ -64,6 +64,7 @@ $a_rows = $a_stmt->fetchAll();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
@@ -229,15 +230,18 @@ $a_rows = $a_stmt->fetchAll();
                 </div>
 
                 <?php foreach ($a_rows as $a) : ?>
-                <div class="other_product_info">
-                    <div class="product_name1">
-                        <img src="<?= WEB_ROOT ?>/mountain-bag/small/<?= $a['product_id'] ?>.jpg" alt="">
+                <a href="product-detail.php?sid=<?= $a['sid'] ?>">
+                    <div class="other_product_info">
+                        <div class="product_name1">
+                            <img src="<?= WEB_ROOT ?>/mountain-bag/small/<?= $a['product_id'] ?>.jpg" alt="">
+                        </div>
+                        <div class="pro">
+                            <p class="ff-noto"><?= $a['product_name'] ?><br>$ <?= number_format($a['product_price']) ?>
+                                TWD
+                            </p>
+                        </div>
                     </div>
-                    <div class="pro">
-                        <p class="ff-noto"><?= $a['product_name'] ?><br>$ <?= number_format($a['product_price']) ?> TWD
-                        </p>
-                    </div>
-                </div>
+                </a>
                 <?php endforeach; ?>
 
 
@@ -271,9 +275,13 @@ $a_rows = $a_stmt->fetchAll();
                     <div class="order">
                         <div class="number ff-noto">數量</div>
                         <div class="count">
-                            <input class="min" name="" type="button" style="font-size:50px" value="-">
-                            <input class="num" name="num" type="text" value="1" readonly="true">
-                            <input class="add" name="" style="font-size:50px" type="button" value="+">
+                            <span class="min material-icons">
+                                remove_circle
+                            </span>
+                            <input class="num" name="num" type="text" style="font-size:50px" value="1" readonly="true">
+                            <span class="add material-icons">
+                                add_circle
+                            </span>
 
                             <!-- <div class="obj">-</div>
                             <div class="obj">2</div>
@@ -386,9 +394,13 @@ $a_rows = $a_stmt->fetchAll();
                         <div class="order">
                             <div class="number ff-noto">數量</div>
                             <div class="count">
-                                <input class="min" name="" type="button" value="-">
+                                <span class="min material-icons">
+                                    remove_circle
+                                </span>
                                 <input class="num" name="num" type="text" value="1" readonly="true">
-                                <input class="add" name="" type="button" value="+">
+                                <span class="add" material-icons>
+                                    add_circle
+                                </span>
 
                             </div>
                         </div>
